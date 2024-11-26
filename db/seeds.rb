@@ -13,13 +13,13 @@ user_1 = User.create!(
   address: "Avenue de Toulouse, 31270 Cugnaux",
   green_space: "Parc, jardin privé",
   household_size: 2,
-  time_for_pet: "3h",
+  time_for_pet: "3",
   daily_walk: true,
   pet_budget: 300,
   have_children: true,
   have_cat: true,
   have_dog: true,
-  have_other_pets: true,
+  have_other_pet: true,
   description: "Je suis un homme de 65 ans, retraité, j'habite à Cugnaux. J'ai un chat, un chien et un lapin. J'ai 2 enfants et 3 petits-enfants. J'aime me promener dans le parc de la Ramée.",
   can_adopt_dog: true,
   can_adopt_cat: true,
@@ -37,13 +37,13 @@ user_2 = User.create!(
   address: "Saint-Cyprien, Toulouse",
   green_space: "Parc, autre",
   household_size: 1,
-  time_for_pet: "1h",
+  time_for_pet: "1",
   daily_walk: true,
   pet_budget: 50,
   have_children: false,
   have_cat: false,
   have_dog: false,
-  have_other_pets: false,
+  have_other_pet: false,
   description: "Je suis une femme de 30 ans, j'habite à Saint-Cyprien. J'aime me promener dans le parc Raymond IV. J'ai un appartement de 40m2.",
   can_adopt_dog: false,
   can_adopt_cat: true,
@@ -60,14 +60,14 @@ user_3 = User.create!(
   address: "Rue de la République, Toulouse",
   green_space: "Parc",
   household_size: 2,
-  time_for_pet: "4h",
+  time_for_pet: "4",
   daily_walk: true,
   pet_budget: 100,
   shelter_id: 1,
   have_children: false,
   have_cat: true,
   have_dog: false,
-  have_other_pets: false,
+  have_other_pet: false,
   description: "Je suis un étudiant de 20 ans, j'habite à Toulouse. J'ai un chat. J'ai un appartement de 30m2.",
   can_adopt_dog: false,
   can_adopt_cat: true,
@@ -84,14 +84,14 @@ user_4 = User.create!(
   address: "Rue d'Encrabe, Plaisance du touch",
   green_space: "Jardin privé, parc, autre",
   household_size: 1,
-  time_for_pet: "2h",
+  time_for_pet: "2",
   daily_walk: true,
   pet_budget: 500,
   shelter_id: 2,
   have_children: true,
   have_cat: false,
   have_dog: true,
-  have_other_pets: false,
+  have_other_pet: false,
   description: "Je suis une femme de 25 ans, j'habite à Plaisance du touch. J'ai un chien. J'ai une maison de 100m2.",
   can_adopt_dog: true,
   can_adopt_cat: false,
@@ -108,13 +108,13 @@ user_5 = User.create!(
   address: "Rue de la République, Toulouse",
   green_space: "Parc",
   household_size: 1,
-  time_for_pet: "1h",
+  time_for_pet: "1",
   daily_walk: false,
   pet_budget: 25,
   have_children: true,
   have_cat: false,
   have_dog: false,
-  have_nac: false,
+  have_other_pet: false,
   description: "Je suis un homme de 40 ans, j'habite à Toulouse. J'ai 2 enfants. J'ai un appartement de 50m2.",
   can_adopt_dog: false,
   can_adopt_cat: false,
@@ -137,15 +137,9 @@ shelter_3 = Shelter.create!(
 )
 
 
-Comportement : Actif, calme, joueur, sociable.
-Taille : Petit, moyen, grand.
-Besoins : Entretien (faible ou élevé), besoins alimentaires, exercice requis.
-Affection : Indépendant ou demandeur d’attention.
-Environnement : Adapté à un appartement, une maison, ou à l’extérieur.
-Interaction humaine : Idéal pour enfants, adultes, ou toute la famill
-
 pet_1 = Pets.create!(
   category: "Chien",
+  specie: "beagle",
   age: 5,
   name: "Bobby",
   description: "Bobby est un chien docile et gentil qui adore les enfants",
@@ -163,6 +157,7 @@ pet_1 = Pets.create!(
 
 pet_2 = Pets.create!(
   category: "Chat",
+  specie: "chat de goutière",
   age: 2,
   name: "Mistigri",
   description: "Mistigri est un chat indépendant et calme",
@@ -180,6 +175,7 @@ pet_2 = Pets.create!(
 
 pet_3 = Pets.create!(
   category: "NAC",
+  specie: "hamster",
   age: 1,
   name: "Pikachu",
   description: "Pikachu est un hamster joueur et sociable",
@@ -196,6 +192,7 @@ pet_3 = Pets.create!(
 
 pet_4 = Pets.create!(
   category: "Chien",
+  specie: "berger allemand",
   age: 3,
   name: "Lucky",
   description: "Lucky est un chien joueur et sociable",
@@ -212,6 +209,7 @@ pet_4 = Pets.create!(
 
 pet_5 = Pets.create!(
   category: "Chat",
+  specie: "Persan",
   age: 8,
   name: "Minette",
   description: "Minette est calme et indépendante",
@@ -228,6 +226,7 @@ pet_5 = Pets.create!(
 
 pet_6 = Pets.create!(
   category: "NAC",
+  specie: "poisson rouge",
   age: 2,
   name: "Tortank",
   description: "Tortank est un poisson rouge",
@@ -244,6 +243,7 @@ pet_6 = Pets.create!(
 
 pet_7 = Pets.create!(
   category: "Chien",
+  specie: "labrador",
   age: 10,
   name: "Rex",
   description: "Rex est un vieux chien qui a besoin de calme et d'amour",
@@ -260,6 +260,7 @@ pet_7 = Pets.create!(
 
 pet_8 = Pets.create!(
   category: "Chat",
+  specie: "siamois",
   age: 1,
   name: "Félix",
   description: "Félix est un chaton joueur et sociable",
@@ -276,6 +277,7 @@ pet_8 = Pets.create!(
 
 pet_9 = Pets.create!(
   category: "NAC",
+  specie: "serpent",
   age: 10,
   name: "Snake",
   description: "Snake est un serpent",
@@ -291,6 +293,7 @@ pet_9 = Pets.create!(
 
 pet_10 = Pets.create!(
   category: "Chien",
+  specie: "golden retriever",
   age: 2,
   name: "Bella",
   description: "Bella est gentille, sociable et affectueuse, parfaite pour les enfants",
