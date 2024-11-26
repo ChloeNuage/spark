@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_11_26_120431) do
+
+ActiveRecord::Schema[7.1].define(version: 2024_11_26_155755) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -87,7 +88,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_26_120431) do
 
   create_table "pets", force: :cascade do |t|
     t.string "name"
-    t.string "species"
     t.integer "age"
     t.string "category"
     t.text "description"
@@ -102,6 +102,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_26_120431) do
     t.text "environment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "specie_id", null: false
+    t.bigint "shelter_id", null: false
+    t.index ["shelter_id"], name: "index_pets_on_shelter_id"
+    t.index ["specie_id"], name: "index_pets_on_specie_id"
   end
 
   create_table "shelters", force: :cascade do |t|
@@ -113,7 +117,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_26_120431) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "spacies", force: :cascade do |t|
+
+  create_table "species", force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.datetime "created_at", null: false
@@ -147,12 +152,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_26_120431) do
     t.boolean "can_adopt_dog"
     t.boolean "can_adopt_cat"
     t.boolean "can_adopt_nac"
+    t.bigint "shelter_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["shelter_id"], name: "index_users_on_shelter_id"
   end
+
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+
   add_foreign_key "appointments", "matches"
   add_foreign_key "appointments", "shelters"
   add_foreign_key "appointments", "users"
@@ -163,4 +172,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_26_120431) do
   add_foreign_key "matches", "users"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
+  add_foreign_key "pets", "shelters"
+  add_foreign_key "pets", "species", column: "specie_id"
+  add_foreign_key "users", "shelters"
+
 end
+

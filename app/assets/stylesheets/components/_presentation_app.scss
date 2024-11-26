@@ -1,3 +1,6 @@
+.presentation-app {
+  background-color: #F3F05C;
+}
 
 .presentation-app h1 {
   font-size: 40px;
@@ -6,10 +9,11 @@
   color: #161616;
   text-align: center;
   vertical-align: baseline;
+  line-height: 50px;
 }
 
 .presentation-app h2 {
-  font-size: 30px;
+  font-size: 35px;
   font-family: "Noto Serif", serif;
   font-weight: 600;
   color: #161616;
@@ -18,10 +22,11 @@
 }
 
 .presentation-app p {
-  font-size: 18px;
+  font-size: 20px;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   color: #161616;
   text-align: center;
   vertical-align: baseline;
+  line-height: 22px;
 }

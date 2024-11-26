@@ -1,0 +1,28 @@
+.card-match img {
+  height: 590px;
+  width: 310px;
+  border-radius: 12px;
+  box-shadow: 2px 2px 0px 2px #161616;
+  border: 2px solid ;
+  margin: 30px auto;
+  padding-top: 28px;
+  padding-left: 25px;
+}
+
+.card-match  h1 {
+  font-size: 32px;
+  font-family: "Noto Serif", serif;
+  font-weight: 600;
+  color: #FDFFF3;
+  text-align: left;
+  vertical-align: baseline;
+}
+.card-match  p {
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: #FDFFF3;
+  text-align: left;
+  vertical-align: baseline;
+  line-height: 25px;
+}
