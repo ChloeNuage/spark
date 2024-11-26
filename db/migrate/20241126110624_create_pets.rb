@@ -10,7 +10,7 @@ class CreatePets < ActiveRecord::Migration[7.1]
       t.boolean :ok_cat
       t.boolean :ok_dog
       t.boolean :ok_kid
-      t.text :affectionate
+      t.boolean :affectionate
       t.text :behavior
       t.string :size
       t.text :needs
