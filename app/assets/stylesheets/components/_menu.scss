@@ -1,0 +1,25 @@
+.menu-spark {
+  height: 92px;
+  width: 375px;
+  background-color: #161616;
+  border-radius: 40px 40px 0px 0px;
+  margin: 8px 8px;
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 50px;
+  margin: 0px auto;
+  padding-top: 45px;
+}
+
+
+.menu-spark i {
+  background-color: #878882;
+  width: 40px;
+  height: 40px;
+
+  &:hover {
+    background-color: #d5d7cd;
+  }
+}
