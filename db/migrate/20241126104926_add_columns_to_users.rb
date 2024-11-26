@@ -15,7 +15,7 @@ class AddColumnsToUsers < ActiveRecord::Migration[7.1]
     add_column :users, :have_cat, :boolean
     add_column :users, :have_dog, :boolean
     add_column :users, :have_other_pet, :boolean
-    add_column :users, :desciption, :text
+    add_column :users, :description, :text
     add_column :users, :can_adopt_dog, :boolean
     add_column :users, :can_adopt_cat, :boolean
     add_column :users, :can_adopt_nac, :boolean
