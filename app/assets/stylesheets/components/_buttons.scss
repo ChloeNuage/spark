@@ -1,0 +1,41 @@
+.main-btn {
+  font-size: 25px;
+  width: 200px;
+  height: 50px;
+  font-family: "Noto Serif";
+  font-weight: 700;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #FDFFF3;
+  background-color: #161616;
+  border-radius: 30px;
+  text-align: center;
+  border: 1px solid transparent;
+  vertical-align: baseline;
+
+  &:hover {
+    background-color: #2a2a2a;
+  }
+
+}
+
+.back-btn {
+  font-size: 25px;
+  width: 200px;
+  height: 50px;
+  font-family: "Noto Serif";
+  font-weight: 700;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #161616;
+  background-color: #FDFFF3;
+  border-radius: 30px;
+  text-align: center;
+  border: 2px solid #161616;
+  vertical-align: baseline;
+
+  &:hover {
+    background-color: #d5d7cd;
+  }
+
+}
