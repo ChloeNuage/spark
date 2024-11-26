@@ -1,6 +1,14 @@
+puts "Cleaning the database..."
+
 User.delete_all
 Shelter.delete_all
 Pet.delete_all
+
+puts "Database cleaned"
+
+puts "Creating users..."
+
+# Création des utilisateurs
 
 user_1 = User.create!(
   email: "admin@admin.com",
@@ -13,7 +21,7 @@ user_1 = User.create!(
   address: "Avenue de Toulouse, 31270 Cugnaux",
   green_space: "Parc, jardin privé",
   household_size: 2,
-  time_for_pet: "3",
+  time_for_pet: 3,
   daily_walk: true,
   pet_budget: 300,
   have_children: true,
@@ -37,7 +45,7 @@ user_2 = User.create!(
   address: "Saint-Cyprien, Toulouse",
   green_space: "Parc, autre",
   household_size: 1,
-  time_for_pet: "1",
+  time_for_pet: 1,
   daily_walk: true,
   pet_budget: 50,
   have_children: false,
@@ -60,7 +68,7 @@ user_3 = User.create!(
   address: "Rue de la République, Toulouse",
   green_space: "Parc",
   household_size: 2,
-  time_for_pet: "4",
+  time_for_pet: 4,
   daily_walk: true,
   pet_budget: 100,
   shelter_id: 1,
@@ -84,7 +92,7 @@ user_4 = User.create!(
   address: "Rue d'Encrabe, Plaisance du touch",
   green_space: "Jardin privé, parc, autre",
   household_size: 1,
-  time_for_pet: "2",
+  time_for_pet: 2,
   daily_walk: true,
   pet_budget: 500,
   shelter_id: 2,
@@ -108,7 +116,7 @@ user_5 = User.create!(
   address: "Rue de la République, Toulouse",
   green_space: "Parc",
   household_size: 1,
-  time_for_pet: "1",
+  time_for_pet: 1,
   daily_walk: false,
   pet_budget: 25,
   have_children: true,
@@ -121,6 +129,11 @@ user_5 = User.create!(
   can_adopt_nac: false,
 )
 
+puts "#{User.count} users created !"
+
+puts "Creating shelters..."
+
+# Création des refuges
 shelter_1 = Shelter.create!(
   name: "Fourrière SPA Toulouse",
   address: "6 Imp. Marie Laurencin 31100 Toulouse",
@@ -136,10 +149,73 @@ shelter_3 = Shelter.create!(
   address: "38 Chemin de la Salvetat 31300 Toulouse",
 )
 
+puts "#{Shelter.count} users created !"
 
-pet_1 = Pets.create!(
+
+puts "Creating species..."
+
+# Race de chien
+labrador = Specie.create!(
+  name: "Labrador",
+  description: "Le labrador est un chien de taille moyenne à grande, très sociable et affectueux. Il est très joueur et adore"
+)
+
+berger_allemand = Specie.create!(
+  name: "Berger allemand",
+  description: "Le berger allemand est un chien de grande taille, très joueur et sociable"
+)
+
+labrador = Specie.create!(
+  name: "Labrador",
+  description: "Le labrador est un chien de taille moyenne à grande, très sociable et affectueux. Il est très joueur et adore"
+)
+
+golden_retriever = Specie.create!(
+  name: "Golden retriever",
+  description: "Le golden retriever est un chien de grande taille, très sociable et affectueux"
+)
+
+
+# Race de chat
+chat_de_goutiere = Specie.create!(
+  name: "Chat de goutière",
+  description: "Le chat de goutière est un chat de taille moyenne, indépendant et calme"
+)
+
+persan = Specie.create!(
+  name: "Persan",
+  description: "Le persan est un chat de petite taille, calme et indépendant"
+)
+siamois = Specie.create!(
+  name: "Siamois",
+  description: "Le siamois est un chat de petite taille, joueur et sociable"
+)
+
+
+# Race de NAC
+hamster = Specie.create!(
+  name: "Hamster",
+  description: "Le hamster est un petit rongeur joueur et sociable"
+)
+
+poisson_rouge = Specie.create!(
+  name: "Poisson rouge",
+  description: "Le poisson rouge est un poisson de grande taille"
+)
+
+serpent = Specie.create!(
+  name: "Serpent",
+  description: "Le serpent est un reptile de taille moyenne"
+)
+
+puts "#{Specie.count} users created !"
+
+puts "Creating pets..."
+
+# Création des pets
+pet_1 = Pet.create!(
   category: "Chien",
-  specie: "beagle",
+  specie: labrador,
   age: 5,
   name: "Bobby",
   description: "Bobby est un chien docile et gentil qui adore les enfants",
@@ -155,9 +231,9 @@ pet_1 = Pets.create!(
   shelter_id: Shelter.first,
 )
 
-pet_2 = Pets.create!(
+pet_2 = Pet.create!(
   category: "Chat",
-  specie: "chat de goutière",
+  specie: chat_de_goutiere,
   age: 2,
   name: "Mistigri",
   description: "Mistigri est un chat indépendant et calme",
@@ -173,9 +249,9 @@ pet_2 = Pets.create!(
   shelter_id: Shelter.second,
 )
 
-pet_3 = Pets.create!(
+pet_3 = Pet.create!(
   category: "NAC",
-  specie: "hamster",
+  specie: hamster,
   age: 1,
   name: "Pikachu",
   description: "Pikachu est un hamster joueur et sociable",
@@ -190,9 +266,9 @@ pet_3 = Pets.create!(
   shelter_id: Shelter.third,
 )
 
-pet_4 = Pets.create!(
+pet_4 = Pet.create!(
   category: "Chien",
-  specie: "berger allemand",
+  specie: berger_allemand,
   age: 3,
   name: "Lucky",
   description: "Lucky est un chien joueur et sociable",
@@ -207,9 +283,9 @@ pet_4 = Pets.create!(
   shelter_id: Shelter.first,
 )
 
-pet_5 = Pets.create!(
+pet_5 = Pet.create!(
   category: "Chat",
-  specie: "Persan",
+  specie: persan,
   age: 8,
   name: "Minette",
   description: "Minette est calme et indépendante",
@@ -224,9 +300,9 @@ pet_5 = Pets.create!(
   shelter_id: Shelter.second,
 )
 
-pet_6 = Pets.create!(
+pet_6 = Pet.create!(
   category: "NAC",
-  specie: "poisson rouge",
+  specie: poisson_rouge,
   age: 2,
   name: "Tortank",
   description: "Tortank est un poisson rouge",
@@ -241,9 +317,9 @@ pet_6 = Pets.create!(
   shelter_id: Shelter.third,
 )
 
-pet_7 = Pets.create!(
+pet_7 = Pet.create!(
   category: "Chien",
-  specie: "labrador",
+  specie: labrador,
   age: 10,
   name: "Rex",
   description: "Rex est un vieux chien qui a besoin de calme et d'amour",
@@ -258,9 +334,9 @@ pet_7 = Pets.create!(
   shelter_id: Shelter.first,
 )
 
-pet_8 = Pets.create!(
+pet_8 = Pet.create!(
   category: "Chat",
-  specie: "siamois",
+  specie: siamois,
   age: 1,
   name: "Félix",
   description: "Félix est un chaton joueur et sociable",
@@ -275,9 +351,9 @@ pet_8 = Pets.create!(
   shelter_id: Shelter.second,
 )
 
-pet_9 = Pets.create!(
+pet_9 = Pet.create!(
   category: "NAC",
-  specie: "serpent",
+  specie: serpent,
   age: 10,
   name: "Snake",
   description: "Snake est un serpent",
@@ -291,9 +367,9 @@ pet_9 = Pets.create!(
   shelter_id: Shelter.third,
 )
 
-pet_10 = Pets.create!(
+pet_10 = Pet.create!(
   category: "Chien",
-  specie: "golden retriever",
+  specie: golden_retriever,
   age: 2,
   name: "Bella",
   description: "Bella est gentille, sociable et affectueuse, parfaite pour les enfants",
@@ -305,3 +381,5 @@ pet_10 = Pets.create!(
   needs: "entretien élévé, exercice requis",
   shelter_id: Shelter.first,
 )
+
+puts "#{Pet.count} pets created !"
