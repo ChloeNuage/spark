@@ -1,0 +1,2 @@
+class Spacie < ApplicationRecord
+end
