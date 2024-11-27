@@ -210,7 +210,7 @@ puts "Creating pets..."
 # Création des pets
 pet_1 = Pet.create!(
   category: "Chien",
-  specie: labrador.id,
+  specie: labrador,
   age: 5,
   name: "Bobby",
   description: "Bobby est un chien docile et gentil qui adore les enfants",
@@ -228,7 +228,7 @@ pet_1 = Pet.create!(
 
 pet_2 = Pet.create!(
   category: "Chat",
-  specie: chat_de_goutiere.id,
+  specie: chat_de_goutiere,
   age: 2,
   name: "Mistigri",
   description: "Mistigri est un chat indépendant et calme",
@@ -246,7 +246,7 @@ pet_2 = Pet.create!(
 
 pet_3 = Pet.create!(
   category: "NAC",
-  specie: hamster.id,
+  specie: hamster,
   age: 1,
   name: "Pikachu",
   description: "Pikachu est un hamster joueur et sociable",
@@ -264,7 +264,7 @@ pet_3 = Pet.create!(
 
 pet_4 = Pet.create!(
   category: "Chien",
-  specie: berger_allemand.id,
+  specie: berger_allemand,
   age: 3,
   name: "Lucky",
   description: "Lucky est un chien joueur et sociable",
@@ -282,7 +282,7 @@ pet_4 = Pet.create!(
 
 pet_5 = Pet.create!(
   category: "Chat",
-  specie: persan.id,
+  specie: persan,
   age: 8,
   name: "Minette",
   description: "Minette est calme et indépendante",
@@ -300,7 +300,7 @@ pet_5 = Pet.create!(
 
 pet_6 = Pet.create!(
   category: "NAC",
-  specie: poisson_rouge.id,
+  specie: poisson_rouge,
   age: 2,
   name: "Tortank",
   description: "Tortank est un poisson rouge",
@@ -318,7 +318,7 @@ pet_6 = Pet.create!(
 
 pet_7 = Pet.create!(
   category: "Chien",
-  specie: labrador.id,
+  specie: labrador,
   age: 10,
   name: "Rex",
   description: "Rex est un vieux chien qui a besoin de calme et d'amour",
@@ -336,7 +336,7 @@ pet_7 = Pet.create!(
 
 pet_8 = Pet.create!(
   category: "Chat",
-  specie: siamois.id,
+  specie: siamois,
   age: 1,
   name: "Félix",
   description: "Félix est un chaton joueur et sociable",
@@ -354,7 +354,7 @@ pet_8 = Pet.create!(
 
 pet_9 = Pet.create!(
   category: "NAC",
-  specie: serpent.id,
+  specie: serpent,
   age: 10,
   name: "Snake",
   description: "Snake est un serpent",
@@ -372,7 +372,7 @@ pet_9 = Pet.create!(
 
 pet_10 = Pet.create!(
   category: "Chien",
-  specie: golden_retriever.id,
+  specie: golden_retriever,
   age: 2,
   name: "Bella",
   description: "Bella est gentille, sociable et affectueuse, parfaite pour les enfants",
