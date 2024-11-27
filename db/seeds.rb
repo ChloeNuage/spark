@@ -3,133 +3,9 @@ puts "Cleaning the database..."
 User.delete_all
 Shelter.delete_all
 Pet.delete_all
+Specie.delete_all
 
 puts "Database cleaned"
-
-puts "Creating users..."
-
-# Création des utilisateurs
-
-user_1 = User.create!(
-  email: "admin@admin.com",
-  password: "admin123",
-  name: "Jean",
-  age: 65,
-  gender: "Homme",
-  lifestyle: "Sédentaire",
-  remote_work: true,
-  address: "Avenue de Toulouse, 31270 Cugnaux",
-  green_space: "Parc, jardin privé",
-  household_size: 2,
-  time_for_pet: 3,
-  daily_walk: true,
-  pet_budget: 300,
-  have_children: true,
-  have_cat: true,
-  have_dog: true,
-  have_other_pet: true,
-  description: "Je suis un homme de 65 ans, retraité, j'habite à Cugnaux. J'ai un chat, un chien et un lapin. J'ai 2 enfants et 3 petits-enfants. J'aime me promener dans le parc de la Ramée.",
-  can_adopt_dog: true,
-  can_adopt_cat: true,
-  can_adopt_nac: true,
-)
-
-user_2 = User.create!(
-  email: "marie@marie.com",
-  password: "admin123",
-  name: "Marie",
-  age: 30,
-  gender: "Femme",
-  lifestyle: "Actif",
-  remote_work: false,
-  address: "Saint-Cyprien, Toulouse",
-  green_space: "Parc, autre",
-  household_size: 1,
-  time_for_pet: 1,
-  daily_walk: true,
-  pet_budget: 50,
-  have_children: false,
-  have_cat: false,
-  have_dog: false,
-  have_other_pet: false,
-  description: "Je suis une femme de 30 ans, j'habite à Saint-Cyprien. J'aime me promener dans le parc Raymond IV. J'ai un appartement de 40m2.",
-  can_adopt_dog: false,
-  can_adopt_cat: true,
-  can_adopt_nac: true,
-)
-
-user_3 = User.create!(
-  email: "arthurdog@dog.fr",
-  password: "admin123",
-  name: "Arthur",
-  age: 20,
-  lifestyle: "Actif",
-  remote_work: false,
-  address: "Rue de la République, Toulouse",
-  green_space: "Parc",
-  household_size: 2,
-  time_for_pet: 4,
-  daily_walk: true,
-  pet_budget: 100,
-  shelter_id: 1,
-  have_children: false,
-  have_cat: true,
-  have_dog: false,
-  have_other_pet: false,
-  description: "Je suis un étudiant de 20 ans, j'habite à Toulouse. J'ai un chat. J'ai un appartement de 30m2.",
-  can_adopt_dog: false,
-  can_adopt_cat: true,
-  can_adopt_nac: true,
-)
-
-user_4 = User.create!(
-  email: "justine@cat.fr",
-  password: "admin123",
-  name: "Justine",
-  age: 25,
-  lifestyle: "Sédentaire",
-  remote_work: true,
-  address: "Rue d'Encrabe, Plaisance du touch",
-  green_space: "Jardin privé, parc, autre",
-  household_size: 1,
-  time_for_pet: 2,
-  daily_walk: true,
-  pet_budget: 500,
-  shelter_id: 2,
-  have_children: true,
-  have_cat: false,
-  have_dog: true,
-  have_other_pet: false,
-  description: "Je suis une femme de 25 ans, j'habite à Plaisance du touch. J'ai un chien. J'ai une maison de 100m2.",
-  can_adopt_dog: true,
-  can_adopt_cat: false,
-  can_adopt_nac: true,
-)
-
-user_5 = User.create!(
-  email: "christophe@nac.com",
-  password: "admin123",
-  name: "Christophe",
-  age: 40,
-  lifestyle: "Actif",
-  remote_work: false,
-  address: "Rue de la République, Toulouse",
-  green_space: "Parc",
-  household_size: 1,
-  time_for_pet: 1,
-  daily_walk: false,
-  pet_budget: 25,
-  have_children: true,
-  have_cat: false,
-  have_dog: false,
-  have_other_pet: false,
-  description: "Je suis un homme de 40 ans, j'habite à Toulouse. J'ai 2 enfants. J'ai un appartement de 50m2.",
-  can_adopt_dog: false,
-  can_adopt_cat: false,
-  can_adopt_nac: false,
-)
-
-puts "#{User.count} users created !"
 
 puts "Creating shelters..."
 
@@ -150,6 +26,130 @@ shelter_3 = Shelter.create!(
 )
 
 puts "#{Shelter.count} users created !"
+
+puts "Creating users..."
+
+# Création des utilisateurs
+user_1 = User.create!(
+  email: "admin@admin.com",
+  password: "admin123",
+  name: "Jean",
+  age: 65,
+  gender: "Homme",
+  lifestyle: "sédentaire",
+  remote_work: true,
+  address: "Avenue de Toulouse, 31270 Cugnaux",
+  has_green_space: true,
+  household_size: 2,
+  time_for_pet: 3,
+  daily_walk: true,
+  pet_budget: 300,
+  have_children: true,
+  have_cat: true,
+  have_dog: true,
+  have_other_pet: true,
+  description: "Je suis un homme de 65 ans, retraité, j'habite à Cugnaux. J'ai un chat, un chien et un lapin. J'ai 2 enfants et 3 petits-enfants. J'aime me promener dans le parc de la Ramée.",
+  can_adopt_dog: true,
+  can_adopt_cat: true,
+  can_adopt_nac: true,
+)
+
+user_2 = User.create!(
+  email: "marie@marie.com",
+  password: "admin123",
+  name: "Marie",
+  age: 30,
+  gender: "Femme",
+  lifestyle: "actif",
+  remote_work: false,
+  address: "Saint-Cyprien, Toulouse",
+  has_green_space: true,
+  household_size: 1,
+  time_for_pet: 1,
+  daily_walk: true,
+  pet_budget: 50,
+  have_children: false,
+  have_cat: false,
+  have_dog: false,
+  have_other_pet: false,
+  description: "Je suis une femme de 30 ans, j'habite à Saint-Cyprien. J'aime me promener dans le parc Raymond IV. J'ai un appartement de 40m2.",
+  can_adopt_dog: false,
+  can_adopt_cat: true,
+  can_adopt_nac: true,
+)
+
+user_3 = User.create!(
+  email: "arthurdog@dog.fr",
+  password: "admin123",
+  name: "Arthur",
+  age: 20,
+  lifestyle: "actif",
+  remote_work: false,
+  address: "Rue de la République, Toulouse",
+  has_green_space: true,
+  household_size: 2,
+  time_for_pet: 4,
+  daily_walk: true,
+  pet_budget: 100,
+  shelter_id: Shelter.first.id,
+  have_children: false,
+  have_cat: true,
+  have_dog: false,
+  have_other_pet: false,
+  description: "Je suis un étudiant de 20 ans, j'habite à Toulouse. J'ai un chat. J'ai un appartement de 30m2.",
+  can_adopt_dog: false,
+  can_adopt_cat: true,
+  can_adopt_nac: true,
+)
+
+user_4 = User.create!(
+  email: "justine@cat.fr",
+  password: "admin123",
+  name: "Justine",
+  age: 25,
+  lifestyle: "sédentaire",
+  remote_work: true,
+  address: "Rue d'Encrabe, Plaisance du touch",
+  has_green_space: true,
+  household_size: 1,
+  time_for_pet: 2,
+  daily_walk: true,
+  pet_budget: 500,
+  shelter_id: Shelter.second.id,
+  have_children: true,
+  have_cat: false,
+  have_dog: true,
+  have_other_pet: false,
+  description: "Je suis une femme de 25 ans, j'habite à Plaisance du touch. J'ai un chien. J'ai une maison de 100m2.",
+  can_adopt_dog: true,
+  can_adopt_cat: false,
+  can_adopt_nac: true,
+)
+
+user_5 = User.create!(
+  email: "christophe@nac.com",
+  password: "admin123",
+  name: "Christophe",
+  age: 40,
+  lifestyle: "actif",
+  remote_work: false,
+  address: "Rue de la République, Toulouse",
+  has_green_space: true,
+  household_size: 1,
+  time_for_pet: 1,
+  daily_walk: false,
+  pet_budget: 25,
+  have_children: true,
+  have_cat: false,
+  have_dog: false,
+  have_other_pet: false,
+  description: "Je suis un homme de 40 ans, j'habite à Toulouse. J'ai 2 enfants. J'ai un appartement de 50m2.",
+  can_adopt_dog: false,
+  can_adopt_cat: false,
+  can_adopt_nac: false,
+)
+
+puts "#{User.count} users created !"
 
 
 puts "Creating species..."
@@ -215,7 +215,7 @@ puts "Creating pets..."
 # Création des pets
 pet_1 = Pet.create!(
   category: "Chien",
-  specie: labrador,
+  specie: labrador.id,
   age: 5,
   name: "Bobby",
   description: "Bobby est un chien docile et gentil qui adore les enfants",
@@ -224,16 +224,16 @@ pet_1 = Pet.create!(
   ok_dog: true,
   ok_kid: true,
   affectionate: true,
-  behaviour: "joueur, sociable",
+  behavior: "joueur, sociable",
   size: "moyen",
   needs: "entretien faible, exercice requis",
   environment: "maison",
-  shelter_id: Shelter.first,
+  shelter_id: Shelter.first.id,
 )
 
 pet_2 = Pet.create!(
   category: "Chat",
-  specie: chat_de_goutiere,
+  specie: chat_de_goutiere.id,
   age: 2,
   name: "Mistigri",
   description: "Mistigri est un chat indépendant et calme",
@@ -242,16 +242,16 @@ pet_2 = Pet.create!(
   ok_dog: false,
   ok_kid: true,
   affectionate: true,
-  behaviour: "calme",
+  behavior: "calme",
   size: "petit",
   needs: "entretien faible",
   environment: "appartement",
-  shelter_id: Shelter.second,
+  shelter_id: Shelter.second.id,
 )
 
 pet_3 = Pet.create!(
   category: "NAC",
-  specie: hamster,
+  specie: hamster.id,
   age: 1,
   name: "Pikachu",
   description: "Pikachu est un hamster joueur et sociable",
@@ -260,15 +260,16 @@ pet_3 = Pet.create!(
   ok_dog: true,
   ok_kid: true,
   affectionate: true,
+  behavior: "calme",
   size: "moyen",
   needs: "entretien faible",
-  environement: "appartement, maison",
-  shelter_id: Shelter.third,
+  environment: "appartement, maison",
+  shelter_id: Shelter.third.id,
 )
 
 pet_4 = Pet.create!(
   category: "Chien",
-  specie: berger_allemand,
+  specie: berger_allemand.id,
   age: 3,
   name: "Lucky",
   description: "Lucky est un chien joueur et sociable",
@@ -277,15 +278,16 @@ pet_4 = Pet.create!(
   ok_dog: true,
   ok_kid: true,
   affectionate: true,
+  behavior: "joueur, sociable",
   size: "grand",
   needs: "entretien élévé, exercice requis",
   environment: "maison",
-  shelter_id: Shelter.first,
+  shelter_id: Shelter.first.id,
 )
 
 pet_5 = Pet.create!(
   category: "Chat",
-  specie: persan,
+  specie: persan.id,
   age: 8,
   name: "Minette",
   description: "Minette est calme et indépendante",
@@ -294,15 +296,16 @@ pet_5 = Pet.create!(
   ok_dog: false,
   ok_kid: false,
   affectionate: false,
+  behavior: "calme, joueur",
   size: "petit",
   needs: "entretien faible",
   environment: "appartement, maison",
-  shelter_id: Shelter.second,
+  shelter_id: Shelter.second.id,
 )
 
 pet_6 = Pet.create!(
   category: "NAC",
-  specie: poisson_rouge,
+  specie: poisson_rouge.id,
   age: 2,
   name: "Tortank",
   description: "Tortank est un poisson rouge",
@@ -311,15 +314,16 @@ pet_6 = Pet.create!(
   ok_dog: true,
   ok_kid: true,
   affectionate: false,
+  behavior: "calme",
   size: "grand",
   needs: "entretien faible",
-  environement: "appartement, maison",
-  shelter_id: Shelter.third,
+  environment: "appartement, maison",
+  shelter_id: Shelter.third.id,
 )
 
 pet_7 = Pet.create!(
   category: "Chien",
-  specie: labrador,
+  specie: labrador.id,
   age: 10,
   name: "Rex",
   description: "Rex est un vieux chien qui a besoin de calme et d'amour",
@@ -328,58 +332,71 @@ pet_7 = Pet.create!(
   ok_dog: false,
   ok_kid: true,
   affectionate: true,
+  behavior: "actif, joueur",
   size: "grand",
   needs: "entretien élévé et exercice requis",
-  environement: "maison",
-  shelter_id: Shelter.first,
+  environment: "maison",
+  shelter_id: Shelter.first.id,
 )
 
 pet_8 = Pet.create!(
   category: "Chat",
-  specie: siamois,
+  specie: siamois.id,
   age: 1,
   name: "Félix",
   description: "Félix est un chaton joueur et sociable",
-  gender: "Male",
+  gender: "male",
   ok_cat: true,
   ok_dog: false,
   ok_kid: true,
   affectionate: true,
+  behavior: "sociable",
   size: "petit",
   needs: "entretien faible",
-  environement: "appartement, maison",
-  shelter_id: Shelter.second,
+  environment: "appartement, maison",
+  shelter_id: Shelter.second.id,
 )
 
 pet_9 = Pet.create!(
   category: "NAC",
-  specie: serpent,
+  specie: serpent.id,
   age: 10,
   name: "Snake",
   description: "Snake est un serpent",
-  gender: "Female",
+  gender: "female",
   ok_cat: false,
   ok_dog: true,
   ok_kid: false,
+  affectionate: false,
+  behavior: "calme",
   size: "moyen",
   needs: "entretien faible",
-  environement: "appartement, maison",
-  shelter_id: Shelter.third,
+  environment: "appartement, maison",
+  shelter_id: Shelter.third.id,
 )
 
 pet_10 = Pet.create!(
   category: "Chien",
-  specie: golden_retriever,
+  specie: golden_retriever.id,
   age: 2,
   name: "Bella",
   description: "Bella est gentille, sociable et affectueuse, parfaite pour les enfants",
-  gender: "Female",
+  gender: "female",
   ok_cat: false,
   ok_dog: true,
   ok_kid: true,
+  affectionate: true,
+  behavior: "joueur, sociable",
   size: "grand",
   needs: "entretien élévé, exercice requis",
-  shelter_id: Shelter.first,
+  environment: "maison",
+  shelter_id: Shelter.first.id,
 )
 
 puts "#{Pet.count} pets created !"
+
+
+# Fix : id shelter, id spacie, environment au lieu environement
+#       behavior au lieu de behaviour
+#       ajout des lignes manquantes
+#       tout est en miniscule mise a part les noms et les catégories
