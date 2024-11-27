@@ -226,6 +226,11 @@ pet_1 = Pet.create!(
   shelter_id: Shelter.first.id,
 )
 
+pet_1.photos.attach(io: File.open(Rails.root.join("app/assets/images/labrador_1.jpg")), filename: 'labrador_1.jpg', content_type: 'image/jpg')
+pet_1.photos.attach(io: File.open(Rails.root.join("app/assets/images/labrador_3.jpg")), filename: 'labrador_3.jpg', content_type: 'image/jpg')
+pet_1.photos.attach(io: File.open(Rails.root.join("app/assets/images/labrador_2.webp")), filename: 'labrador_2.webp', content_type: 'image/webp')
+pet_1.save
+
 pet_2 = Pet.create!(
   category: "Chat",
   specie: chat_de_goutiere,
