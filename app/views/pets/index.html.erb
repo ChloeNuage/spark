@@ -1,0 +1,50 @@
+<h1>Vos matchs sont ici</h1>
+<div data-controller="swipe">
+  <div class="cards-container d-flex flex-wrap justify-content-center">
+    <% @pets.each_with_index do |pet, index| %>
+      <div class="card-body-pets border border-2 m-5" data-swipe-target="card"
+        style="width: 18rem; display: <%= index == 0 ? 'block' : 'none' %>;" id="card-<%= index %>">
+        <h3><strong>Descriptif de l'animal</strong></h3>
+        <h5 class="card-title-pets">Nom : <%= pet.name %></h5>
+        <p class="card-text-pets">Description : <%= pet.description %></p>
+        <p class="card-text-pets">Âge : <%= pet.age %> ans</p>
+        <p class="card-text-pets">Genre : <%= pet.gender %></p>
+        <p class="card-text-pets">Taille : <%= pet.size %></p>
+        <h3><strong>Compatibilité</strong></h3>
+        <p class="card-text-pets">
+          <% if pet.ok_cat %> Apprécie les chats <% else %> N'apprécie pas les chats <% end %>
+        </p>
+        <p class="card-text-pets">
+          <% if pet.ok_dog %> Apprécie les chiens <% else %> N'apprécie pas les chiens <% end %>
+        </p>
+        <p class="card-text-pets">
+          <% if pet.ok_kid %> Apprécie les enfants <% else %> N'apprécie pas les enfants <% end %>
+        </p>
+        <h3><strong>Mentalité de l'animal</strong></h3>
+        <p class="card-text-pets">
+          <% if pet.affectionate %> A besoin de beaucoup d'affection <% else %> N'a pas besoin de beaucoup d'affection <% end %>
+        </p>
+        <p class="card-text-pets">Comportement : <%= pet.behavior %></p>
+        <p class="card-text-pets">Besoin : <%= pet.needs %></p>
+        <p class="card-text-pets">Se sent mieux en <%= pet.environment %></p>
+        <a href="#" class="btn btn-primary">Adopter</a>
+      </div>
+    <% end %>
+  </div>
+
+  <!-- Boutons de navigation -->
+  <div class="navigation-buttons">
+    <button data-action="click->swipe#interested" class="btn btn-secondary">Interessé</button>
+    <button data-action="click->swipe#notInterested" class="btn btn-secondary">Non interessé</button>
+  </div>
+
+  <!-- Modale -->
+  <div id="sparkModal" class="modal" data-swipe-target="modal">
+    <div class="modal-content">
+      <span class="close" data-action="click->swipe#hideModal">&times;</span>
+      <h2>It's a Spark!</h2>
+      <p>Vous avez montré de l'intérêt pour cet animal !</p>
+      <button class="btn btn-primary" data-action="click->swipe#hideModal">Continuer à swiper</button>
+    </div>
+  </div>
+</div>
