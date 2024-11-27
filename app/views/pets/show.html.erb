@@ -1,0 +1,67 @@
+<div class="pet-profil">
+  <div class="pet-banner">
+    <h1><%=@pet.name.capitalize%>, <%=@pet.age%> ans</h1>
+    <p><%=@pet.description=%></p>
+
+<%# TODO : Lier les photos à stimulus et quelle n'affiche que les photos du pet correspondant %>
+    <div id="carouselExampleIndicators" class="carousel slide" style="width: 600px;">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <%# <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button> %>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <%= image_tag 'eurasier.jpeg', class: 'd-block w-100', alt: 'Eurasier' %>
+        </div>
+        <div class="carousel-item">
+          <%= image_tag 'eurasier_2.jpeg', class: 'd-block w-100', alt: 'Eurasier' %>
+        </div>
+        <%# <div class="carousel-item">
+          <img src="..." class="d-block w-100" alt="...">
+        </div> %>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+  </div>
+
+  <div class="pet-info">
+
+    <div class="etiquette">
+      <div><%=@pet.category.capitalize%></div>
+      <div><%=@pet.specie.name.capitalize%></div>
+      <div><%=@pet.gender.capitalize%></div>
+      <div><%= @pet.ok_cat? ? 'Ok chat' : 'Pas ok chat' %></div>
+      <div><%= @pet.ok_dog? ? 'Ok chien' : 'Pas ok chien' %></div>
+      <div><%= @pet.ok_kid? ? 'Ok enfant' : 'Pas ok enfant' %></div>
+    </div>
+
+    <div class="pet-description">
+      <h2>Description</h2>
+
+      <ul>
+        <li><%= @pet.affectionate? ? 'Affecteux' : '' %></li>
+        <li><%=@pet.behavior.capitalize%></li>
+        <li><%=@pet.size.capitalize%></li>
+        <li><%=@pet.needs.capitalize%></li>
+        <li><%=@pet.environment.capitalize%></li>
+      </ul>
+
+      <p><%=@pet.description%></p>
+    </div>
+
+    <div class="pet-race">
+      <h2>La race : <%=@pet.specie.name.capitalize%></h2>
+      <p><%=@pet.specie.description.capitalize%></p>
+    </div>
+
+  </div>
+</div>
