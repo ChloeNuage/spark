@@ -1,0 +1,44 @@
+<h2>CRÉATION DE PROFIL</h2>
+<h3>Mon quotidien et mon environnement</h3>
+
+<div>
+  <%= simple_form_for @users do |f| %>
+    <div>
+      <h4>Télétravail:</h4>
+      <%= f.input :remote_work?, input_html: { class: "create-control w-100" } %>
+      <h4>Adresse:</h4>
+      <%= f.input :address, input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"} %>
+      <h4>Espaces verts voisins:</h4>
+      <%= f.input :green_space, input_html: { class: "create-control w-100" } %>
+      <h4>Foyer:</h4>
+      <%= f.input :household_size, input_html: { class: "create-control w-100" } %>
+      <%= f.input :have_children?, input_html: { class: "create-control w-100" } %>
+      <h4>Animaux:</h4>
+      <%= f.input :have_cat?, input_html: { class: "create-control w-100" } %>
+      <%= f.input :have_dog?, input_html: { class: "create-control w-100" } %>
+      <%= f.input :have_other_pets?, input_html: { class: "create-control w-100" } %>
+      <h4>Mode de vie:</h4>
+      <%= f.input :lifestyle, input_html: { class: "create-control w-100" } %>
+      </div>
+      <div>
+        <%= f.submit "Suivant", class: "main-btn", href: {"almostdone"}%>
+        <a class="back-btn" href="welldone">Retour</a>
+      </div>
+  <% end %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <%= f.input :address, input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"} %>
+          <%= f.input :description, input_html: { class: "create-control w-100" } %>
