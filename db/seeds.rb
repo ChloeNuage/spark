@@ -165,11 +165,6 @@ berger_allemand = Specie.create!(
   description: "Le berger allemand est un chien de grande taille, très joueur et sociable"
 )
 
-labrador = Specie.create!(
-  name: "Labrador",
-  description: "Le labrador est un chien de taille moyenne à grande, très sociable et affectueux. Il est très joueur et adore"
-)
-
 golden_retriever = Specie.create!(
   name: "Golden retriever",
   description: "Le golden retriever est un chien de grande taille, très sociable et affectueux"

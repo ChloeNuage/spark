@@ -1,0 +1,76 @@
+//Partie image et détails
+
+.profil-user {
+  background-color: #FDFFF3;
+  height: auto;
+  width: 100%;
+  padding: 40px;
+}
+
+.profil-user img {
+  background-image:x;
+  height: 200px;
+  width: 100%;
+  margin: 0;
+}
+
+.profil-user-avatar {
+  width: 120px;
+  border-radius: 50%;
+  border: #FDFFF3 2px solid;
+}
+
+.profil-user h1 {
+  font-size: 25px;
+  font-family: "Noto Serif", serif;
+  font-weight: 600;
+  color: #161616;
+  text-align: center;
+}
+
+.profil-user p {
+  font-size: 22px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: #161616;
+  text-align: center;
+}
+
+//Partie RDV
+
+  //Container vert
+.profil-user-container-RDV  {
+  height: auto;
+  width: 100%;
+  background-color: #63CFB2;
+  border-radius: 40px 40px 0px 0px;
+  margin: 0;
+}
+
+.profil-user-container-RDV h2 {
+  font-size: 35px;
+  font-family: "Noto Serif", serif;
+  font-weight: 600;
+  color: #FDFFF3;
+  text-align: left;
+}
+
+ //Card blanche RDV
+.profil-user-card-RDV {
+  height: 90px;
+  width: 330px;
+  padding: 20px;
+  background-color: #FDFFF3;
+  border-radius: 40px;
+  margin: 30;
+  display:flex;
+  align-items: left;
+}
+
+.profil-user-card-RDV h3 {
+  font-size: 22px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  color: #161616;
+  text-align: left;
+}

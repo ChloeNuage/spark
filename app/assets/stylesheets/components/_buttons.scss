@@ -1,0 +1,109 @@
+.main-btn {
+  font-size: 25px;
+  width: 200px;
+  height: 50px;
+  font-family: "Noto Serif";
+  font-weight: 700;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #FDFFF3;
+  background-color: #161616;
+  border-radius: 30px;
+  text-align: center;
+  border: 1px solid transparent;
+  vertical-align: baseline;
+  margin: 10px auto;
+
+  &:hover {
+    background-color: #333232;
+  }
+
+}
+
+.back-btn {
+  font-size: 25px;
+  width: 200px;
+  height: 50px;
+  font-family: "Noto Serif";
+  font-weight: 700;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #161616;
+  background-color: #FDFFF3;
+  border-radius: 30px;
+  text-align: center;
+  border: 1.5px solid #161616;
+  margin: 10px auto;
+
+  &:hover {
+    background-color: #bdbfb4;
+  }
+
+}
+
+
+
+.back-btn-small {
+  font-size: 25px;
+  width: 95px;
+  height: 25px;
+  font-family: "Noto Serif";
+  font-weight: 700;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #161616;
+  background-color: #FDFFF3;
+  border-radius: 20px;
+  text-align: center;
+  border: 1.5px solid #161616;
+  margin: 8px auto;
+
+  &:hover {
+    background-color: #bdbfb4;
+  }
+
+}
+
+.main-btn-small {
+  font-size: 25px;
+  width: 95px;
+  height: 25px;
+  font-family: "Noto Serif";
+  font-weight: 700;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #FDFFF3;
+  background-color: #161616;
+  border-radius: 20px;
+  text-align: center;
+  border: 1px solid transparent;
+  vertical-align: baseline;
+  margin: 8px auto;
+
+  &:hover {
+    background-color: #333232;
+  }
+
+}
+
+.modify-btn-small {
+  font-size: 25px;
+  width: 95px;
+  height: 25px;
+  font-family: "Noto Serif";
+  font-weight: 700;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #161616 ;
+  background-color: #F3F05C;
+  border-radius: 20px;
+  text-align: center;
+  border: 1.5px solid #161616;
+  vertical-align: baseline;
+  margin: 8px auto;
+
+  &:hover {
+    background-color: #b9b75a;
+  }
+
+}
