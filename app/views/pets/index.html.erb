@@ -1,0 +1,42 @@
+<h1> Vos matchs sont ici</h1>
+
+<% @pets.each do |pet| %>
+    <div class="card-body border border-2 m-5" style="width: 18rem;">
+      <h3><strong>Descriptif de l'animal </strong></h3>
+      <h5 class="card-title"> Nom : <%= pet.name %>  </h5>
+      <br>
+      <p class="card-text">Description : <%= pet.description %> </p>
+      <p class="card-text"> Age : <%= pet.age %> ans</p>
+      <p class="card-text"> Genre : <%= pet.gender %> </p>
+      <p class="card-text">Taille : <%= pet.size %> </p>
+      <h3><strong>Compatibilité </strong></h3>
+      <p class="card-text">
+        <% if pet.ok_cat == true %>
+          Apprécie avec les chats
+        <% else %>
+          N'apprécie pas les chats
+        <% end %>
+      </p>
+      <p class="card-text">  <% if pet.ok_dog == true %>
+        Apprécie avec les chiens
+      <% else %>
+        N'apprécie pas les chiens
+      <% end %></p>
+      <p class="card-text">  <% if pet.ok_kid == true %>
+        Apprécie avec les enfants
+      <% else %>
+        N'apprécie pas les enfants
+      <% end %></p>
+      <h3><strong>Mentalité de l'animal </strong></h3>
+      <p class="card-text">  <% if pet.affectionate == true %>
+        A besoin de beaucoup d'affection
+      <% else %>
+        N'a pas besoin de beaucoup d'affection
+      <% end %></p>
+      <p class="card-text">Comportement : <%= pet.behavior %> </p>
+      <p class="card-text">Besoin : <%= pet.needs %> </p>
+      <p class="card-text">Se sent mieux en <%= pet.environment %></p>
+      <a href="#" class="btn btn-primary">Adopter</a>
+
+  </div>
+<% end %>
