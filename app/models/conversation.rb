@@ -4,5 +4,4 @@ class Conversation < ApplicationRecord
   belongs_to :shelter
 
   has_many :messages, dependent: :destroy
-
 end
