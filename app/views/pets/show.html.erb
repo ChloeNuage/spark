@@ -1,0 +1,61 @@
+<div class="pet-profil">
+  <div class="pet-banner">
+    <h1><%= @pet.name.capitalize %>, <%= @pet.age %> ans</h1>
+    <p><%= @pet.description %></p>
+
+    <div id="carouselExampleIndicators" class="carousel slide" style="width: 600px;">
+      <div class="carousel-indicators">
+        <% @pet.photos.each_with_index do |photo, index| %>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%= index %>" class="<%= 'active' if index == 0 %>" aria-current="<%= 'true' if index == 0 %>" aria-label="Slide <%= index + 1 %>"></button>
+        <% end %>
+      </div>
+      <div class="carousel-inner">
+        <% @pet.photos.each_with_index do |photo, index| %>
+          <div class="carousel-item <%= 'active' if index == 0 %>">
+            <%= image_tag photo, class: 'd-block w-100', alt: @pet.name %>
+          </div>
+        <% end %>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="pet-info">
+
+    <div class="etiquette">
+      <div><%=@pet.category.capitalize%></div>
+      <div><%=@pet.specie.name.capitalize%></div>
+      <div><%=@pet.gender.capitalize%></div>
+      <div><%= @pet.ok_cat? ? 'Ok chat' : 'Pas ok chat' %></div>
+      <div><%= @pet.ok_dog? ? 'Ok chien' : 'Pas ok chien' %></div>
+      <div><%= @pet.ok_kid? ? 'Ok enfant' : 'Pas ok enfant' %></div>
+    </div>
+
+    <div class="pet-description">
+      <h2>Description</h2>
+
+      <ul>
+        <li><%= @pet.affectionate? ? 'Affecteux' : '' %></li>
+        <li><%=@pet.behavior.capitalize%></li>
+        <li><%=@pet.size.capitalize%></li>
+        <li><%=@pet.needs.capitalize%></li>
+        <li><%=@pet.environment.capitalize%></li>
+      </ul>
+
+      <p><%=@pet.description%></p>
+    </div>
+
+    <div class="pet-race">
+      <h2>La race : <%=@pet.specie.name.capitalize%></h2>
+      <p><%=@pet.specie.description.capitalize%></p>
+    </div>
+
+  </div>
+</div>

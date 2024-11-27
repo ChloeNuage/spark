@@ -43,7 +43,7 @@ user_1 = User.create!(
   household_size: 2,
   time_for_pet: 3,
   daily_walk: true,
-  pet_budget: 300,
+  pet_budget: 1300,
   have_children: true,
   have_cat: true,
   have_dog: true,
@@ -67,7 +67,7 @@ user_2 = User.create!(
   household_size: 1,
   time_for_pet: 1,
   daily_walk: true,
-  pet_budget: 50,
+  pet_budget: 300,
   have_children: false,
   have_cat: false,
   have_dog: false,
@@ -111,10 +111,10 @@ user_4 = User.create!(
   remote_work: true,
   address: "Rue d'Encrabe, Plaisance du touch",
   has_green_space: true,
-  household_size: 1,
+  household_size: 2,
   time_for_pet: 2,
   daily_walk: true,
-  pet_budget: 500,
+  pet_budget: 1500,
   shelter_id: Shelter.second.id,
   have_children: true,
   have_cat: false,
@@ -135,7 +135,7 @@ user_5 = User.create!(
   remote_work: false,
   address: "Rue de la République, Toulouse",
   has_green_space: true,
-  household_size: 1,
+  household_size: 3,
   time_for_pet: 1,
   daily_walk: false,
   pet_budget: 25,
@@ -226,6 +226,11 @@ pet_1 = Pet.create!(
   shelter_id: Shelter.first.id,
 )
 
+pet_1.photos.attach(io: File.open(Rails.root.join("app/assets/images/labrador_1.jpg")), filename: 'labrador_1.jpg', content_type: 'image/jpg')
+pet_1.photos.attach(io: File.open(Rails.root.join("app/assets/images/labrador_3.jpg")), filename: 'labrador_3.jpg', content_type: 'image/jpg')
+pet_1.photos.attach(io: File.open(Rails.root.join("app/assets/images/labrador_2.webp")), filename: 'labrador_2.webp', content_type: 'image/webp')
+pet_1.save
+
 pet_2 = Pet.create!(
   category: "Chat",
   specie: chat_de_goutiere,
@@ -275,7 +280,7 @@ pet_4 = Pet.create!(
   affectionate: true,
   behavior: "joueur, sociable",
   size: "grand",
-  needs: "entretien élévé, exercice requis",
+  needs: "entretien élevé, exercice requis",
   environment: "maison",
   shelter_id: Shelter.first.id,
 )
@@ -329,7 +334,7 @@ pet_7 = Pet.create!(
   affectionate: true,
   behavior: "actif, joueur",
   size: "grand",
-  needs: "entretien élévé et exercice requis",
+  needs: "entretien élévé, exercice requis",
   environment: "maison",
   shelter_id: Shelter.first.id,
 )
@@ -383,7 +388,7 @@ pet_10 = Pet.create!(
   affectionate: true,
   behavior: "joueur, sociable",
   size: "grand",
-  needs: "entretien élévé, exercice requis",
+  needs: "entretien élevé, exercice requis",
   environment: "maison",
   shelter_id: Shelter.first.id,
 )
