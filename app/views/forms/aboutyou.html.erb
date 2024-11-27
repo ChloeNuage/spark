@@ -1,0 +1,31 @@
+<h2>CRÉATION DE PROFIL</h2>
+<h3>À propos de moi</h3>
+<div>
+  <%= simple_form_for @user, url: aboutyou_update_path, method: :patch, local: true do |form| %>
+    <div>
+      <h4>Prénom:</h4>
+      <%= form.text_area :name, input_html: { class: "create-control w-100" } %>
+      <h4>Âge:</h4>
+      <%= form.number_field :age, input_html: { class: "create-control w-100" } %>
+      <h4>Genre:</h4>
+      <div>
+        <%= form.radio_button :gender, "femme", id: "femme" %>
+        <%= form.label :choix, "Femme", for: "femme" %>
+      </div>
+      <div>
+        <%= form.radio_button :gender, "homme", id: "homme" %>
+        <%= form.label :choix, "Homme", for: "homme" %>
+      </div>
+      <div>
+        <%= form.radio_button :gender, "non-binaire", id: "non-binaire" %>
+        <%= form.label :choix, "Non-binaire", for: "non-binaire" %>
+      </div>
+      <h4>Photos:</h4>
+      <%= form.file_field :photo, input_html: { class: "create-control w-100" } %>
+    </div>
+      <div>
+        <%= form.submit "Suivant", class: "main-btn"%>
+        <a class="back-btn" href="tobegin">Retour</a>
+      </div>
+  <% end %>
+</div>
