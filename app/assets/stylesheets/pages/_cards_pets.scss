@@ -1,0 +1,59 @@
+.card-body-pets {
+  display: none; /* Toutes les cards sont cachées par défaut */
+}
+
+.card-body-pets.active {
+  display: block; /* Seule la card active est visible */
+}
+
+.navigation-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+#prev, #next {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Animation pour déplacer vers le haut à droite */
+.card-swipe-right {
+  animation: swipe-right 0.5s forwards ease-in-out;
+}
+
+@keyframes swipe-right {
+  0% {
+    transform: rotate(0deg) translate(0, 0);
+  }
+  100% {
+    transform: rotate(20deg) translate(200px, -200px);
+  }
+}
+
+/* Animation pour déplacer vers le haut à gauche */
+.card-swipe-left {
+  animation: swipe-left 0.5s forwards ease-in-out;
+}
+
+@keyframes swipe-left {
+  0% {
+    transform: rotate(0deg) translate(0, 0);
+  }
+  100% {
+    transform: rotate(-20deg) translate(-200px, -200px);
+  }
+}
+
+/* Transition pour une animation fluide */
+.card-body-pets {
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  position: relative;
+}
+
