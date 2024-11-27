@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :matchs, dependent: :destroy
   has_many :appointments, dependent: :destroy
 
-  belongs_to :shelter
+  belongs_to :shelter, optional: true
 
   private
 
