@@ -4,10 +4,13 @@ Rails.application.routes.draw do
 
   get 'tobegin', to: 'forms#tobegin'
   get 'aboutyou', to: 'forms#aboutyou'
+  patch 'aboutyou_update', to: 'forms#aboutyou_update'
   get 'welldone', to: 'forms#welldone'
   get 'daily', to: 'forms#daily'
+  patch 'daily_update', to: 'forms#daily_update'
   get 'almostdone', to: 'forms#almostdone'
   get 'adoptionproject', to: 'forms#adoptionproject'
+  patch 'adoptionproject_update', to: 'forms#adoptionproject_update'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
