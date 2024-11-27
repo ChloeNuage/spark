@@ -4,5 +4,4 @@ class Match < ApplicationRecord
 
   has_many :conversations, dependent: :destroy
   has_many :appointments, dependent: :destroy
-
 end
