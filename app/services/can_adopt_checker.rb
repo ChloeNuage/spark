@@ -5,8 +5,7 @@ class CanAdoptChecker
   end
 
   def can_adopt_dog?
-    @user.pet_budget >= 1000
-    # @user.green_space
+    @user.pet_budget >= 1000 && @user.has_green_space
   end
 
   def can_adopt_cat?
