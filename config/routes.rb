@@ -6,4 +6,7 @@ Rails.application.routes.draw do
     resources :messages, only: :create
     resources :conversations, only: :show
   end
+
+  resources :pets, only: [:show, :index]
+
 end
