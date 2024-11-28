@@ -12,7 +12,7 @@
       <div class="carousel-inner">
         <% @pet.photos.each_with_index do |photo, index| %>
           <div class="carousel-item <%= 'active' if index == 0 %>">
-            <%= image_tag photo, class: 'd-block w-100', alt: @pet.name %>
+            <%= image_tag photo, class: 'd-block w-100 img-fluid', alt: @pet.name, style: 'height: 400px; object-fit: contain;' %>
           </div>
         <% end %>
       </div>
@@ -58,4 +58,9 @@
     </div>
 
   </div>
+
+  <div>
+    <%= link_to 'Retour à la liste', pets_path, class: 'btn btn-primary' %>
+  </div>
+
 </div>
