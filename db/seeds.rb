@@ -248,6 +248,9 @@ pet_2 = Pet.create!(
   environment: "appartement",
   shelter_id: Shelter.second.id,
 )
+pet_2.photos.attach(io: File.open(Rails.root.join("app/assets/images/chat-de-gouttiere_1.jpg")), filename: 'chat-de-gouttiere_1.jpg', content_type: 'image/jpg')
+pet_2.photos.attach(io: File.open(Rails.root.join("app/assets/images/chat-de-gouttiere_2.jpeg")), filename: 'chat-de-gouttiere_2.jpeg', content_type: 'image/jpeg')
+pet_2.save
 
 pet_3 = Pet.create!(
   category: "NAC",
