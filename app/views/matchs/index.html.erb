@@ -1,0 +1,9 @@
+<h1>Vos correspondances</h1>
+
+<% @matches.each do |pet| %>
+  <div>
+    <h2><%= pet.name %></h2>
+    <p><%= pet.description %></p>
+    <%= link_to 'Créer un match', matches_path(user_id: @user.id, pet_id: pet.id), method: :post %>
+  </div>
+<% end %>

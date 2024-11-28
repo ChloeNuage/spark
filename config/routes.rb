@@ -17,11 +17,12 @@ Rails.application.routes.draw do
   get 'almostdone', to: 'forms#almostdone'
   get 'adoptionproject', to: 'forms#adoptionproject'
   patch 'adoptionproject_update', to: 'forms#adoptionproject_update'
-  
+
   resources :matchs, only: [] do
     resources :messages, only: :create
     resources :conversations, only: :show
   end
 
   resources :pets, only: [:show, :index]
+  post 'create_match', to: 'matchs#create'
 end

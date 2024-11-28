@@ -27,17 +27,21 @@
         <p class="card-text-pets">Comportement : <%= pet.behavior %></p>
         <p class="card-text-pets">Besoin : <%= pet.needs %></p>
         <p class="card-text-pets">Se sent mieux en <%= pet.environment %></p>
-        <a href="#" class="btn btn-primary">Adopter</a>
-      </div>
-    <% end %>
-  </div>
+        <%= link_to 'Voir plus', pet_path(pet), class: 'btn btn-primary' %>
+
 
   <!-- Boutons de navigation -->
   <div class="navigation-buttons">
-    <button data-action="click->swipe#interested" class="btn btn-secondary">Interessé</button>
     <button data-action="click->swipe#notInterested" class="btn btn-secondary">Non interessé</button>
+    <%= button_to "Matcher",
+    create_match_path(pet_id: pet.id),
+    method: :post,
+    class: "btn btn-primary",
+    data: { action: "click->swipe#interested" } %>
   </div>
 
+</div>
+  <% end %>
   <!-- Modale -->
   <div id="sparkModal" class="modal" data-swipe-target="modal">
     <div class="modal-content">
@@ -45,6 +49,8 @@
       <h2>It's a Spark!</h2>
       <p>Vous avez montré de l'intérêt pour cet animal !</p>
       <button class="btn btn-primary" data-action="click->swipe#hideModal">Continuer à swiper</button>
+      <%= link_to 'Messages', class: 'btn btn-primary' %>
     </div>
   </div>
+</div>
 </div>
