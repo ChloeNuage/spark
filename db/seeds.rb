@@ -1,9 +1,9 @@
 puts "Cleaning the database..."
 
 User.delete_all
-Shelter.delete_all
 Pet.delete_all
 Specie.delete_all
+Shelter.delete_all
 
 puts "Database cleaned"
 
