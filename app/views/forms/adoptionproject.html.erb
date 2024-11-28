@@ -1,0 +1,28 @@
+<h2>CRÉATION DE PROFIL</h2>
+<h3>Mon projet d’adoption</h3>
+
+<div>
+  <%= simple_form_for @user, url: adoptionproject_update_path, method: :patch, local: true do |form| %>
+    <div>
+      <h4>Raisons de l'adoption:</h4>
+      <%= form.text_area :description, input_html: { class: "create-control w-100" } %>
+      <h4>Temps quotidien disponible pour votre animal:</h4>
+      <%= form.number_field :time_for_pet, input_html: { class: "create-control w-100" } %>
+      <h4>Possibilités de sorties quotidiennes:</h4>
+      <div>
+        <%= form.radio_button :daily_walk?, "oui", id: "oui" %>
+        <%= form.label :choix, "oui", for: "oui" %>
+      </div>
+      <div>
+        <%= form.radio_button :daily_walk?, "non", id: "non" %>
+        <%= form.label :choix, "non", for: "non" %>
+      </div>
+      <h4>Budget mensuel:</h4>
+      <%= form.number_field :pet_budget, input_html: { class: "create-control w-100" } %>
+    </div>
+      <div>
+        <%= form.submit "Suivant", class: "main-btn"%>
+        <a class="back-btn" href="almostdone">Retour</a>
+      </div>
+  <% end %>
+</div>

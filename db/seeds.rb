@@ -1,9 +1,9 @@
 puts "Cleaning the database..."
 
 User.delete_all
-Shelter.delete_all
 Pet.delete_all
 Specie.delete_all
+Shelter.delete_all
 
 puts "Database cleaned"
 
@@ -226,6 +226,11 @@ pet_1 = Pet.create!(
   shelter_id: Shelter.first.id,
 )
 
+pet_1.photos.attach(io: File.open(Rails.root.join("app/assets/images/labrador_1.jpg")), filename: 'labrador_1.jpg', content_type: 'image/jpg')
+pet_1.photos.attach(io: File.open(Rails.root.join("app/assets/images/labrador_3.jpg")), filename: 'labrador_3.jpg', content_type: 'image/jpg')
+pet_1.photos.attach(io: File.open(Rails.root.join("app/assets/images/labrador_2.webp")), filename: 'labrador_2.webp', content_type: 'image/webp')
+pet_1.save
+
 pet_2 = Pet.create!(
   category: "Chat",
   specie: chat_de_goutiere,
@@ -243,6 +248,9 @@ pet_2 = Pet.create!(
   environment: "appartement",
   shelter_id: Shelter.second.id,
 )
+pet_2.photos.attach(io: File.open(Rails.root.join("app/assets/images/chat-de-gouttiere_1.jpg")), filename: 'chat-de-gouttiere_1.jpg', content_type: 'image/jpg')
+pet_2.photos.attach(io: File.open(Rails.root.join("app/assets/images/chat-de-gouttiere_2.jpeg")), filename: 'chat-de-gouttiere_2.jpeg', content_type: 'image/jpeg')
+pet_2.save
 
 pet_3 = Pet.create!(
   category: "NAC",
