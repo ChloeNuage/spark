@@ -25,7 +25,7 @@ shelter_3 = Shelter.create!(
   address: "38 Chemin de la Salvetat 31300 Toulouse",
 )
 
-puts "#{Shelter.count} users created !"
+puts "#{Shelter.count} shelters created !"
 
 puts "Creating users..."
 
@@ -203,7 +203,7 @@ serpent = Specie.create!(
   description: "Le serpent est un reptile de taille moyenne"
 )
 
-puts "#{Specie.count} users created !"
+puts "#{Specie.count} species created !"
 
 puts "Creating pets..."
 
@@ -225,7 +225,6 @@ pet_1 = Pet.create!(
   environment: "maison",
   shelter_id: Shelter.first.id,
 )
-
 pet_1.photos.attach(io: File.open(Rails.root.join("app/assets/images/labrador_1.jpg")), filename: 'labrador_1.jpg', content_type: 'image/jpg')
 pet_1.photos.attach(io: File.open(Rails.root.join("app/assets/images/labrador_3.jpg")), filename: 'labrador_3.jpg', content_type: 'image/jpg')
 pet_1.photos.attach(io: File.open(Rails.root.join("app/assets/images/labrador_2.webp")), filename: 'labrador_2.webp', content_type: 'image/webp')
