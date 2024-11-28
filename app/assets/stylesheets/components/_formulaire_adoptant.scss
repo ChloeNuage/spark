@@ -1,14 +1,98 @@
 .formulaire-adoptant {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  width:100%;
   background-color: #F3F05C;
+  height: auto;            /* S'assure que le fond couvre toute la hauteur de la page */
+  margin: 0 0;
+}
+
+.formulaire-adoptant-responsive-image {
+  width: 330px;      /* Adapte la largeur de l'image à 100% de l'élément parent */
+  height: auto;      /* Ajuste la hauteur automatiquement pour conserver les proportions */
+  max-width: 100%;   /* Empêche l'image de dépasser sa taille originale */
+  padding: 300px auto;  /* Supprime les espaces blancs éventuels en mode inline */
+  padding-top: 115px;
+  padding-bottom: 35px;
+}
+
+//custom checkbox
+
+.formulaire-adoptant-custom-checkbox {
+  display: none;
+
+  // label:hover {
+  //   background-color: #161616;
+  //   color: #F3F05C;
+  // }
+
+  // :checked + label {
+  //   background-color: #161616;
+  //   color: #F3F05C;
+  // }
+}
+
+.formulaire-adoptant-choices {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.formulaire-adoptant-choices label {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 8px;
+  height: 40px;
+  width: 92px;
+  border: 1.5px solid ;
+  box-shadow: 1px 2px 0px 1px #161616;
+  border-radius: 12px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: #161616;
+  justify-content: center;
+  margin-bottom: 30px;
+
+}
+
+.formulaire-adoptant-choices-double {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.formulaire-adoptant-choices-double label {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 8px;
+  height: 40px;
+  width:  140px;
+  border: 1.5px solid ;
+  box-shadow: 1px 2px 0px 1px #161616;
+  border-radius: 12px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: #161616;
+  justify-content: center;
+  margin-left:0;
+  margin-bottom: 30px;
+
 }
 
 // Cases Formulaire
-
 
 .formulaire-adoptant-form-entier {
   height: 40px;
   width: 300px;
   border-radius: 12px;
+  background-color: #F3F05C;
   box-shadow: 1px 2px 0px 1px #161616;
   font-size: 14px;
   font-family: "Montserrat", sans-serif;
@@ -17,77 +101,76 @@
   border: 1.5px solid ;
   text-align: left;
   margin: 8px auto;
+  margin-bottom: 50px;
+  padding: 8px;
 }
 
-.formulaire-adoptant-form-demi {
-  height: 40px;
-  width: 144px;
-  border-radius: 12px;
-  box-shadow: 1px 2px 0px 1px #161616;
-  font-size: 14px;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
-  color: #161616;
-  border: 1.5px solid ;
-  text-align: center;
-  margin: 8px auto;
-}
 
 .formulaire-adoptant-form-tier {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 8px;
   height: 40px;
   width: 92px;
-  border-radius: 12px;
+  border: 1.5px solid ;
+  background-color: #F3F05C;
   box-shadow: 1px 2px 0px 1px #161616;
+  border-radius: 12px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
   font-size: 14px;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   color: #161616;
-  border: 1.5px solid ;
-  text-align: center;
-  margin: 8px auto;
-}
-
-.formulaire-adoptant-form-integer {
-  height: 40px;
-  width: 40px;
-  border-radius: 12px;
-  box-shadow: 1px 2px 0px 1px #161616;
-  font-size: 14px;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
-  color: #161616;
-  border: 1.5px solid ;
-  text-align: center;
-  margin: 8px auto;
+  justify-content: center;
+  margin-bottom: 50px;
 }
 
 .formulaire-adoptant-form-photo {
-  height: 92px;
-  width: 92px;
-  border-radius: 12px;
-  box-shadow: 1px 2px 0px 1px #161616;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 8px;
+  height: 40px;
+  width: 150px;
   border: 1.5px solid ;
-  margin: 8px auto;
+  background-color: #F3F05C;
+  box-shadow: 1px 2px 0px 1px #161616;
+  border-radius: 12px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: #161616;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 70px;
 }
 
 .formulaire-adoptant-form-input {
   height: 300px;
   width: 300px;
+  display:flex;
+  justify-content: center;
   border-radius: 12px;
   box-shadow: 1px 2px 0px 1px #161616;
   font-size: 14px;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
+  background-color: #F3F05C;
   color: #161616;
   border: 1.5px solid ;
   text-align: left;
   margin: 8px auto;
+  padding: 8px;
 }
 
 
 // Fonts
 
 .formulaire-adoptant h1 {
+  padding-left: 35px;
+  padding-right: 35px;
   font-size: 30px;
   font-family: "Noto Serif", serif;
   font-weight: 600;
@@ -97,6 +180,9 @@
 }
 
 .formulaire-adoptant h2 {
+  padding-left: 35px;
+  padding-right: 35px;
+  padding-top: 70px;
   font-size: 20px;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
@@ -106,6 +192,9 @@
 }
 
 .formulaire-adoptant h3 {
+  padding-left: 35px;
+  padding-right: 35px;
+  padding-bottom: 80px;
   font-size: 26px;
   font-family: "Noto Serif", serif;
   font-weight: 600;
@@ -116,16 +205,20 @@
 }
 
 .formulaire-adoptant h4 {
+  padding-left: 0;
   font-size: 22px;
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
   color: #161616;
-  text-align: center;
+  text-align: left;
   vertical-align: baseline;
   line-height: 23px;
+  padding-bottom: 10px;
 }
 
 .formulaire-adoptant p {
+  padding-left: 35px;
+  padding-right: 35px;
   font-size: 18px;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;

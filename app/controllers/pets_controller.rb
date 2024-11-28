@@ -10,10 +10,13 @@ class PetsController < ApplicationController
     if categories.any?
       @pets = Pet.where(category: categories)
     else
-      #### !!!! A ECRIRE !!!
+      @pets = []
     end
 
     @pets = MatchChecker.new(@user, @pets).can_match
+
+   
+    @match = Match.new
   end
 
   def show
