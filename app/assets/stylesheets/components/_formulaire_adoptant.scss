@@ -5,7 +5,7 @@
   width:100%;
   background-color: #F3F05C;
   height: auto;            /* S'assure que le fond couvre toute la hauteur de la page */
-  margin: 0 0;
+  margin: 0 auto;
 }
 
 .formulaire-adoptant-responsive-image {
@@ -19,71 +19,55 @@
 
 //custom checkbox
 
-.formulaire-adoptant-custom-checkbox {
+input[type="radio"]:checked {
+  accent-color: #161616;
+}
+
+input[type="radio"] {
   display: none;
-
-  // label:hover {
-  //   background-color: #161616;
-  //   color: #F3F05C;
-  // }
-
-  // :checked + label {
-  //   background-color: #161616;
-  //   color: #F3F05C;
-  // }
 }
 
-.formulaire-adoptant-choices {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.formulaire-adoptant-choices label {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding-top: 8px;
+input[type="radio"] + label {
+  background-color: #F3F05C;
+  box-shadow: 1px 2px 0px 1px #161616;
+  border: 1.5px solid ;
+  border-radius: 12px;
+  font-size: 14px;
   height: 40px;
-  width: 92px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  width: 95px;
+  color: #161616;
+  padding-top: 8px;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+
+}
+input[type="radio"]:checked + label {
+  background-color: #161616;
   border: 1.5px solid ;
   box-shadow: 1px 2px 0px 1px #161616;
+  color: #FDFFF3;
   border-radius: 12px;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
   font-size: 14px;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
-  color: #161616;
-  justify-content: center;
-  margin-bottom: 30px;
-
-}
-
-.formulaire-adoptant-choices-double {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.formulaire-adoptant-choices-double label {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding-top: 8px;
   height: 40px;
-  width:  140px;
-  border: 1.5px solid ;
-  box-shadow: 1px 2px 0px 1px #161616;
-  border-radius: 12px;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-  font-size: 14px;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
-  color: #161616;
-  justify-content: center;
-  margin-left:0;
-  margin-bottom: 30px;
+  width: 95px;
+  color: #F3F05C;
+  padding-top: 8px;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+}
 
+label {
+  cursor: pointer;
+}
+
+.formulaire-adoptant-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 // Cases Formulaire
