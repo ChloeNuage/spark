@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'conversations/show'
   devise_for :users
   root to: "pages#home"
 
@@ -17,10 +18,11 @@ Rails.application.routes.draw do
   get 'almostdone', to: 'forms#almostdone'
   get 'adoptionproject', to: 'forms#adoptionproject'
   patch 'adoptionproject_update', to: 'forms#adoptionproject_update'
-  
+
   resources :matchs, only: [] do
-    resources :messages, only: :create
-    resources :conversations, only: :show
+    resources :conversations, only: :show do
+      resources :messages, only: :create
+    end
   end
 
   resources :pets, only: [:show, :index]

@@ -1,19 +1,16 @@
 class MessagesController < ApplicationController
   before_action :find_match
-
-  # def index
-  #     @messages = @match.messages
-  #     @message = @match.messages.new
-  # end
+  before_action :find_or_create_conversation
 
   def create
     @message = Message.new(message_params)
     @message.user = current_user
-    @message.match = @match
+    @message.conversation = @conversation
+
     if @message.save
-      redirect_to match_messages_path(@match)
+      redirect_to match_path(@match)
     else
-      render :index
+      render 'conversations/show', status: :unprocessable_entity
     end
   end
 
@@ -21,6 +18,10 @@ class MessagesController < ApplicationController
 
   def find_match
     @match = Match.find(params[:match_id])
+  end
+
+  def find_or_create_conversation
+    @conversation = @match.conversations.find_or_create_by(user: current_user, shelter: @match.pet.shelter)
   end
 
   def message_params
