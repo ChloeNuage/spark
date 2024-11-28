@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
   # Defines the root path route ("/")
   # root "posts#index"
+  get 'welcome', to: 'forms#welcome'
+  get 'intro1', to: 'forms#intro1'
+  get 'intro2', to: 'forms#intro2'
+  get 'intro3', to: 'forms#intro3'
   get 'tobegin', to: 'forms#tobegin'
   get 'aboutyou', to: 'forms#aboutyou'
   patch 'aboutyou_update', to: 'forms#aboutyou_update'
@@ -17,7 +21,7 @@ Rails.application.routes.draw do
   get 'almostdone', to: 'forms#almostdone'
   get 'adoptionproject', to: 'forms#adoptionproject'
   patch 'adoptionproject_update', to: 'forms#adoptionproject_update'
-  
+
   resources :matchs, only: [] do
     resources :messages, only: :create
     resources :conversations, only: :show
