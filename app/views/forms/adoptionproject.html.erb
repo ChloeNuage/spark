@@ -2,7 +2,7 @@
   <h2>CRÉATION DE PROFIL</h2>
   <h3>Mon projet d’adoption</h3>
 
-    <%= simple_form_for @user, url: daily_update_path, method: :patch, local: true do |form| %>
+    <%= simple_form_for @user, url: adoptionproject_update_path, method: :patch, local: true do |form| %>
 
     <h4>Raisons de l'adoption:</h4>
       <%= form.text_area :description, class: "formulaire-adoptant-form-input"%>

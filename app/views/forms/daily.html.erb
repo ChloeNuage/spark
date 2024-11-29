@@ -46,6 +46,12 @@
           </div>
         </div>
 
+      <h4>Animaux:</h4>
+        <div class="formulaire-adoptant-div" id="triple" style="padding-bottom: 50px">
+          <%= form.collection_check_boxes :have_cat, [[true, 'Chat']], :first, :last %>
+          <%= form.collection_check_boxes :have_dog, [[true, 'Chien']], :first, :last %>
+          <%= form.collection_check_boxes :have_other_pet, [[true, 'Autres']], :first, :last %>
+        </div>
 
 
       <h4>Mode de vie:</h4>

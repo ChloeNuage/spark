@@ -69,6 +69,50 @@ form {
   transition: background-color 0.3s, color 0.3s;
 }
 
+//input triple checkbbox
+
+#triple input[type="checkbox"]:checked {
+  accent-color: #161616;
+}
+
+#triple input[type="checkbox"] {
+  display: none;
+}
+
+#triple input[type="checkbox"] + label {
+  background-color: #F3F05C;
+  box-shadow: 1px 2px 0px 1px #161616;
+  border: 1.5px solid ;
+  border-radius: 12px;
+  font-size: 14px;
+  height: 40px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  width: 90px;
+  color: #161616;
+  padding: 8px;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+
+}
+
+#triple input[type="checkbox"]:checked + label {
+  background-color: #161616;
+  border: 1.5px solid ;
+  box-shadow: 1px 2px 0px 1px #161616;
+  color: #FDFFF3;
+  border-radius: 12px;
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  height: 40px;
+  width: 90px;
+  color: #F3F05C;
+  padding: 8px;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+}
+
 //input :double
 
 #double input[type="radio"]:checked {
