@@ -49,9 +49,9 @@ user_1 = User.create!(
   have_dog: false,
   have_other_pet: true,
   description: "Je suis un homme de 65 ans, retraité, j'habite à Cugnaux. J'ai un chat, un chien et un lapin. J'ai 2 enfants et 3 petits-enfants. J'aime me promener dans le parc de la Ramée.",
-  can_adopt_dog: true,
-  can_adopt_cat: true,
-  can_adopt_nac: true,
+  can_adopt_dog: nil,
+  can_adopt_cat: nil,
+  can_adopt_nac: nil,
 )
 
 user_2 = User.create!(
@@ -73,9 +73,9 @@ user_2 = User.create!(
   have_dog: false,
   have_other_pet: false,
   description: "Je suis une femme de 30 ans, j'habite à Saint-Cyprien. J'aime me promener dans le parc Raymond IV. J'ai un appartement de 40m2.",
-  can_adopt_dog: false,
-  can_adopt_cat: true,
-  can_adopt_nac: true,
+  can_adopt_dog: nil,
+  can_adopt_cat: nil,
+  can_adopt_nac: nil,
 )
 
 user_3 = User.create!(
@@ -97,9 +97,9 @@ user_3 = User.create!(
   have_dog: false,
   have_other_pet: false,
   description: "Je suis un étudiant de 20 ans, j'habite à Toulouse. J'ai un chat. J'ai un appartement de 30m2.",
-  can_adopt_dog: false,
-  can_adopt_cat: true,
-  can_adopt_nac: true,
+  can_adopt_dog: nil,
+  can_adopt_cat: nil,
+  can_adopt_nac: nil,
 )
 
 user_4 = User.create!(
@@ -121,9 +121,9 @@ user_4 = User.create!(
   have_dog: true,
   have_other_pet: false,
   description: "Je suis une femme de 25 ans, j'habite à Plaisance du touch. J'ai un chien. J'ai une maison de 100m2.",
-  can_adopt_dog: true,
-  can_adopt_cat: false,
-  can_adopt_nac: true,
+  can_adopt_dog: nil,
+  can_adopt_cat: nil,
+  can_adopt_nac: nil,
 )
 
 user_5 = User.create!(
@@ -144,9 +144,9 @@ user_5 = User.create!(
   have_dog: false,
   have_other_pet: false,
   description: "Je suis un homme de 40 ans, j'habite à Toulouse. J'ai 2 enfants. J'ai un appartement de 50m2.",
-  can_adopt_dog: false,
-  can_adopt_cat: false,
-  can_adopt_nac: false,
+  can_adopt_dog: nil,
+  can_adopt_cat: nil,
+  can_adopt_nac: nil,
 )
 
 puts "#{User.count} users created !"
