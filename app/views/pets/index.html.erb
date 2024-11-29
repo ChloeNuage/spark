@@ -2,8 +2,8 @@
 <div data-controller="swipe">
   <div class="cards-container d-flex flex-wrap justify-content-center">
     <% @pets.each_with_index do |pet, index| %>
-      <div class="card-body-pets border border-2 m-5" data-swipe-target="card"
-        style="width: 18rem; display: <%= index == 0 ? 'block' : 'none' %>;" id="card-<%= index %>">
+      <div class="card-body-pets border border-2 m-5 <%= index == 0 ? 'd-block' : 'd-none' %>" data-swipe-target="card"
+        style="width: 18rem; id="card-<%= index %>">
         <h3><strong>Descriptif de l'animal</strong></h3>
         <h5 class="card-title-pets">Nom : <%= pet.name %></h5>
         <p class="card-text-pets">Description : <%= pet.description %></p>
