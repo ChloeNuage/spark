@@ -4,8 +4,10 @@
   align-items: center;
   width:100%;
   background-color: #F3F05C;
-  height: auto;            /* S'assure que le fond couvre toute la hauteur de la page */
+  height: auto;
+  min-height: 100vh;         /* S'assure que le fond couvre toute la hauteur de la page */
   margin: 0 auto;
+  padding-bottom: 80px;
 }
 
 .formulaire-adoptant-responsive-image {
@@ -17,17 +19,23 @@
   padding-bottom: 35px;
 }
 
+form {
+  padding-left: 50px;
+  padding-right: 60px;
+}
 //custom checkbox
 
-input[type="radio"]:checked {
+//input triple
+
+#triple input[type="radio"]:checked {
   accent-color: #161616;
 }
 
-input[type="radio"] {
+#triple input[type="radio"] {
   display: none;
 }
 
-input[type="radio"] + label {
+#triple input[type="radio"] + label {
   background-color: #F3F05C;
   box-shadow: 1px 2px 0px 1px #161616;
   border: 1.5px solid ;
@@ -36,14 +44,15 @@ input[type="radio"] + label {
   height: 40px;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
-  width: 95px;
+  width: 90px;
   color: #161616;
-  padding-top: 8px;
+  padding: 8px;
   text-align: center;
   transition: background-color 0.3s, color 0.3s;
 
 }
-input[type="radio"]:checked + label {
+
+#triple input[type="radio"]:checked + label {
   background-color: #161616;
   border: 1.5px solid ;
   box-shadow: 1px 2px 0px 1px #161616;
@@ -53,9 +62,53 @@ input[type="radio"]:checked + label {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   height: 40px;
-  width: 95px;
+  width: 90px;
   color: #F3F05C;
-  padding-top: 8px;
+  padding: 8px;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+//input :double
+
+#double input[type="radio"]:checked {
+  accent-color: #161616;
+}
+
+#double input[type="radio"] {
+  display: none;
+}
+
+#double input[type="radio"] + label {
+  background-color: #F3F05C;
+  box-shadow: 1px 2px 0px 1px #161616;
+  border: 1.5px solid ;
+  border-radius: 12px;
+  font-size: 14px;
+  height: 40px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  width: 143px;
+  color: #161616;
+  padding: 8px;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+
+}
+
+#double input[type="radio"]:checked + label {
+  background-color: #161616;
+  border: 1.5px solid ;
+  box-shadow: 1px 2px 0px 1px #161616;
+  color: #FDFFF3;
+  border-radius: 12px;
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  height: 40px;
+  width: 143px;
+  color: #F3F05C;
+  padding: 8px;
   text-align: center;
   transition: background-color 0.3s, color 0.3s;
 }
@@ -132,20 +185,19 @@ label {
 }
 
 .formulaire-adoptant-form-input {
-  height: 300px;
+  height: 200px;
   width: 300px;
-  display:flex;
-  justify-content: center;
   border-radius: 12px;
+  background-color: #F3F05C;
   box-shadow: 1px 2px 0px 1px #161616;
   font-size: 14px;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
-  background-color: #F3F05C;
   color: #161616;
   border: 1.5px solid ;
   text-align: left;
   margin: 8px auto;
+  margin-bottom: 50px;
   padding: 8px;
 }
 

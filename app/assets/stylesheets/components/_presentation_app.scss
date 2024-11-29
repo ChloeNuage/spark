@@ -4,9 +4,12 @@
   align-items: center;
   width:100%;
   background-color: #F3F05C;
-  height: auto;            /* S'assure que le fond couvre toute la hauteur de la page */
-  margin: 0 0;
-  padding: 45px;
+  height: auto;
+  min-height: 100vh;
+  padding-left: 40px;
+  padding-right:40px;     /* S'assure que le fond couvre toute la hauteur de la page */
+  margin: 0 auto;
+  padding-bottom: 80px;
 }
 
 .presentation-app h1 {

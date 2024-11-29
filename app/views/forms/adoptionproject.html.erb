@@ -1,24 +1,31 @@
-<div class="formulaire-adoptant" style="height: 53rem">
+<div class="formulaire-adoptant">
   <h2>CRÉATION DE PROFIL</h2>
   <h3>Mon projet d’adoption</h3>
 
-    <%= simple_form_for @user, url: adoptionproject_update_path, method: :patch, local: true do |form| %>
-        <h4>Raisons de l'adoption:</h4>
-        <%= form.text_area :description, class: "formulaire-adoptant-form-input"%>
-        <h4>Temps quotidien disponible pour votre animal en heures:</h4>
-        <%= form.number_field :time_for_pet, class: "formulaire-adoptant-form-entier"%>
-        <h4>Possibilités de sorties quotidiennes:</h4>
-        <div class="formulaire-adoptant-form-demi">
-          <%= form.radio_button :daily_walk?, "oui", id: "oui" %>
-          <%= form.label :choix, "oui", for: "oui" %>
+    <%= simple_form_for @user, url: daily_update_path, method: :patch, local: true do |form| %>
+
+    <h4>Raisons de l'adoption:</h4>
+      <%= form.text_area :description, class: "formulaire-adoptant-form-input"%>
+
+    <h4>Temps quotidien disponible pour votre animal en heures:</h4>
+      <%= form.number_field :time_for_pet, class: "formulaire-adoptant-form-entier"%>
+
+    <h4>Possibilités de sorties quotidiennes:</h4>
+      <div class="formulaire-adoptant-div" id="double" style="padding-bottom: 50px">
+        <div>
+          <%= form.radio_button :daily_walk, "oui", id: "oui" %>
+          <%= form.label :daily_walk, "Oui", for: "oui", class: "formulaire-adoptant-design-tier" %>
         </div>
-        <div class="formulaire-adoptant-form-demi">
-          <%= form.radio_button :daily_walk?, "non", id: "non" %>
-          <%= form.label :choix, "non", for: "non" %>
+        <div>
+          <%= form.radio_button :daily_walk, "non", id: "non"%>
+          <%= form.label :daily_walk, "Non", for: "non", class: "formulaire-adoptant-design-tier" %>
         </div>
-        <h4>Budget mensuel:</h4>
+      </div>
+
+      <h4>Budget mensuel:</h4>
         <%= form.number_field :pet_budget, class: "formulaire-adoptant-form-entier"%>
-          <%= form.submit "Suivant", class: "main-btn"%>
-          <a class="back-btn" href="almostdone">Retour</a>
-    <% end %>
+
+      <%= form.submit "Suivant", class: "main-btn"%>
+      <a class="back-btn" href="almostdone">Retour</a>
+  <% end %>
 </div>
