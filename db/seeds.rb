@@ -268,6 +268,10 @@ pet_3 = Pet.create!(
   environment: "appartement, maison",
   shelter_id: Shelter.third.id,
 )
+pet_3.photos.attach(io: File.open(Rails.root.join("app/assets/images/hamster_1.jpg")), filename: 'hamster_1.jpg', content_type: 'image/jpg')
+pet_3.photos.attach(io: File.open(Rails.root.join("app/assets/images/hamster_2.jpg")), filename: 'hamster_2.jpg', content_type: 'image/jpg')
+pet_3.photos.attach(io: File.open(Rails.root.join("app/assets/images/hamster_3.webp")), filename: 'hamster_3.webp', content_type: 'image/webp')
+pet_3.save
 
 pet_4 = Pet.create!(
   category: "Chien",
@@ -286,6 +290,9 @@ pet_4 = Pet.create!(
   environment: "maison",
   shelter_id: Shelter.first.id,
 )
+pet_4.photos.attach(io: File.open(Rails.root.join("app/assets/images/bergerallemand_1.jpg")), filename: 'bergerallemand_1.jpg', content_type: 'image/jpg')
+pet_4.photos.attach(io: File.open(Rails.root.join("app/assets/images/bergerallemand_2.jpg")), filename: 'bergerallemand_2.jpg', content_type: 'image/jpg')
+pet_4.save
 
 pet_5 = Pet.create!(
   category: "Chat",
@@ -304,6 +311,9 @@ pet_5 = Pet.create!(
   environment: "appartement, maison",
   shelter_id: Shelter.second.id,
 )
+pet_5.photos.attach(io: File.open(Rails.root.join("app/assets/images/chat-persan_1.jpg")), filename: 'chat-persan_1.jpg', content_type: 'image/jpg')
+pet_5.photos.attach(io: File.open(Rails.root.join("app/assets/images/chat-persan_2.jpg")), filename: 'chat-persan_2.jpg', content_type: 'image/jpg')
+pet_5.save
 
 pet_6 = Pet.create!(
   category: "NAC",
@@ -322,6 +332,8 @@ pet_6 = Pet.create!(
   environment: "appartement, maison",
   shelter_id: Shelter.third.id,
 )
+pet_6.photos.attach(io: File.open(Rails.root.join("app/assets/images/poisson-rouge_1.jpg")), filename: 'poisson-rouge_1.jpg', content_type: 'image/jpg')
+pet_6.save
 
 pet_7 = Pet.create!(
   category: "Chien",
@@ -340,6 +352,9 @@ pet_7 = Pet.create!(
   environment: "maison",
   shelter_id: Shelter.first.id,
 )
+pet_7.photos.attach(io: File.open(Rails.root.join("app/assets/images/labrador_noir_1.jpg")), filename: 'labrador_noir_1.jpg', content_type: 'image/jpg')
+pet_7.photos.attach(io: File.open(Rails.root.join("app/assets/images/labrador_noir_2.jpg")), filename: 'labrador_noir_2.jpg', content_type: 'image/jpg')
+pet_7.save
 
 pet_8 = Pet.create!(
   category: "Chat",
@@ -358,6 +373,9 @@ pet_8 = Pet.create!(
   environment: "appartement, maison",
   shelter_id: Shelter.second.id,
 )
+pet_8.photos.attach(io: File.open(Rails.root.join("app/assets/images/chat-siamois_1.jpg")), filename: 'chat-siamois_1.jpg', content_type: 'image/jpg')
+pet_8.photos.attach(io: File.open(Rails.root.join("app/assets/images/chat-siamois_2.jpg")), filename: 'chat-siamois_2.jpg', content_type: 'image/jpg')
+pet_8.save
 
 pet_9 = Pet.create!(
   category: "NAC",
@@ -376,6 +394,9 @@ pet_9 = Pet.create!(
   environment: "appartement, maison",
   shelter_id: Shelter.third.id,
 )
+pet_9.photos.attach(io: File.open(Rails.root.join("app/assets/images/serpent_1.jpg")), filename: 'serpent_1.jpg', content_type: 'image/jpg')
+pet_9.photos.attach(io: File.open(Rails.root.join("app/assets/images/serpent_2.jpg")), filename: 'serpent_2.jpg', content_type: 'image/jpg')
+pet_9.save
 
 pet_10 = Pet.create!(
   category: "Chien",
@@ -394,6 +415,9 @@ pet_10 = Pet.create!(
   environment: "maison",
   shelter_id: Shelter.first.id,
 )
+pet_10.photos.attach(io: File.open(Rails.root.join("app/assets/images/golden_retriever_1.jpg")), filename: 'golden_retriever_1.jpg', content_type: 'image/jpg')
+pet_10.photos.attach(io: File.open(Rails.root.join("app/assets/images/golden_retriever_2.webp")), filename: 'golden_retriever_2.webp', content_type: 'image/webp')
+pet_10.save
 
 puts "#{Pet.count} pets created !"
 
