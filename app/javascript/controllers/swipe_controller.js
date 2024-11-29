@@ -42,7 +42,9 @@ export default class extends Controller {
 
     // Supprime la card après l'animation
     setTimeout(() => {
-      currentCard.remove();
+      // currentCard.remove();
+      currentCard.classList.add("d-none");
+      this.cardTargets[this.currentIndex + 1].classList.remove("d-none");
       this.showModal(); // Affiche la modale après l'animation
       this.next();
     }, 500); // Durée de l'animation
