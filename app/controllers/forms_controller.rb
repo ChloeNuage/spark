@@ -1,5 +1,4 @@
 class FormsController < ApplicationController
-
   # Intro
   def welcome
     @user = current_user
@@ -69,7 +68,7 @@ class FormsController < ApplicationController
     @user = current_user
 
     if @user.update(user_params_adoptionproject) # Met à jour les informations de l'utilisateur
-      redirect_to tobegin_path
+      redirect_to pets_path
     else
       flash.now[:alert] = "Erreur : Impossible de mettre à jour vos informations."
       render :adoptionproject, status: :unprocessable_entity
@@ -89,5 +88,4 @@ class FormsController < ApplicationController
   def user_params_adoptionproject
     params.require(:user).permit(:description, :time_for_pet, :daily_walk, :pet_budget)
   end
-
 end
