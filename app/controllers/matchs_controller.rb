@@ -24,6 +24,11 @@ class MatchsController < ApplicationController
       end
   end
 
+  def click_message
+    @match = Match.where(user: current_user).last
+    redirect_to match_path(@match)
+  end
+
   private
 
   def match_params
