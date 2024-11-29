@@ -15,7 +15,7 @@
       <div class="carousel-inner">
         <% @pet.photos.each_with_index do |photo, index| %>
           <div class="carousel-item <%= 'active' if index == 0 %>">
-            <%= cl_image_tag(photo.key, transformation: [{ width: 600, height: 600, crop: :fill }], class: 'd-block w-100 img-fluid', alt: @pet.specie) %>
+            <%= cl_image_tag(photo.key, class: 'd-block w-100 img-fluid', alt: @pet.specie) %>
           </div>
         <% end %>
       </div>
@@ -31,7 +31,7 @@
     </div>
   </div>
 
-  <div class="pet-info show-profils-user-pet-card"style="position: absolute; bottom: -55px; left: 0; right: 0; z-index: 20; padding: 24px;">
+  <div class="pet-info show-profils-user-pet-card"style="position: absolute; bottom: -415px;; left: 0; right: 0; z-index: 20; padding: 24px;">
 
     <div class="wrapper-pet">
       <div class="etiquettes-details"><%=@pet.category.capitalize%></div>

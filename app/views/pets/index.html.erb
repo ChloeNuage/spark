@@ -1,56 +1,36 @@
-<h1>Vos matchs sont ici</h1>
-<div data-controller="swipe">
-  <div class="cards-container d-flex flex-wrap justify-content-center">
-    <% @pets.each_with_index do |pet, index| %>
-      <div class="card-body-pets border border-2 m-5 <%= index == 0 ? 'd-block' : 'd-none' %>" data-swipe-target="card"
-        style="width: 18rem; id="card-<%= index %>">
-        <h3><strong>Descriptif de l'animal</strong></h3>
-        <h5 class="card-title-pets">Nom : <%= pet.name %></h5>
-        <p class="card-text-pets">Description : <%= pet.description %></p>
-        <p class="card-text-pets">Âge : <%= pet.age %> ans</p>
-        <p class="card-text-pets">Genre : <%= pet.gender %></p>
-        <p class="card-text-pets">Taille : <%= pet.size %></p>
-        <h3><strong>Compatibilité</strong></h3>
-        <p class="card-text-pets">
-          <% if pet.ok_cat %> Apprécie les chats <% else %> N'apprécie pas les chats <% end %>
-        </p>
-        <p class="card-text-pets">
-          <% if pet.ok_dog %> Apprécie les chiens <% else %> N'apprécie pas les chiens <% end %>
-        </p>
-        <p class="card-text-pets">
-          <% if pet.ok_kid %> Apprécie les enfants <% else %> N'apprécie pas les enfants <% end %>
-        </p>
-        <h3><strong>Mentalité de l'animal</strong></h3>
-        <p class="card-text-pets">
-          <% if pet.affectionate %> A besoin de beaucoup d'affection <% else %> N'a pas besoin de beaucoup d'affection <% end %>
-        </p>
-        <p class="card-text-pets">Comportement : <%= pet.behavior %></p>
-        <p class="card-text-pets">Besoin : <%= pet.needs %></p>
-        <p class="card-text-pets">Se sent mieux en <%= pet.environment %></p>
-        <%= link_to 'Voir plus', pet_path(pet), class: 'btn btn-primary' %>
+<div class="card-match">
+  <div data-controller="swipe" class="card-match">
+    <div class="cards-container d-flex flex-wrap justify-content-center">
+      <% @pets.each_with_index do |pet, index| %>
+        <div class="card-body-pets border border-2 m-5 <%= index == 0 ? 'd-block' : 'd-none' %>"
+          data-swipe-target="card"
+          style="width: 315px; height: 668px; display: flex; background-image: url(<%= pet.photos.empty? ?
+        'https://www.photo-montier.org/wp-content/themes/ktheme-v2.1-Montier/images/slider-homepage/2024-1/640x628/slide-mobile.jpg' : pet.photos.first.url %> ) "
+          id="card-<%= index %>">
+          <h1 class="card-title-pets"><%= pet.name %></h1>
+          <p class="card-title-pets"><%= pet.shelter.name %></p>
+          <%= link_to 'Voir plus' , pet_path(pet), class: 'btn btn-primary' %>
 
 
-  <!-- Boutons de navigation -->
-  <div class="navigation-buttons">
-    <button data-action="click->swipe#notInterested" class="btn btn-secondary">Non interessé</button>
-    <%= button_to "Matcher",
-    create_match_path(pet_id: pet.id),
-    method: :post,
-    class: "btn btn-primary",
-    data: { action: "click->swipe#interested" } %>
-  </div>
+            <!-- Boutons de navigation -->
+            <div class="navigation-buttons" style="  display: flex; gap: 20px; margin-top: 460px; flex-direction: row ; justify-content: center;">
+              <button data-action="click->swipe#notInterested" class="btn btn-secondary">Non interessé</button>
+              <%= button_to "Matcher" , create_match_path(pet_id: pet.id), method: :post, class: "btn btn-primary" ,
+                data: { action: "click->swipe#interested" } %>
+            </div>
 
-</div>
-  <% end %>
-  <!-- Modale -->
-  <div id="sparkModal" class="modal" data-swipe-target="modal">
-    <div class="modal-content">
-      <span class="close" data-action="click->swipe#hideModal">&times;</span>
-      <h2>It's a Spark!</h2>
-      <p>Vous avez montré de l'intérêt pour cet animal !</p>
-      <button class="btn btn-primary" data-action="click->swipe#hideModal">Continuer à swiper</button>
-      <%= link_to 'Messages', class: 'btn btn-primary' %>
+        </div>
+        <% end %>
+          <!-- Modale -->
+          <div id="sparkModal" class="modal" data-swipe-target="modal">
+            <div class="modal-content">
+              <span class="close" data-action="click->swipe#hideModal">&times;</span>
+              <h2>It's a Spark!</h2>
+              <p>Vous avez montré de l'intérêt pour cet animal !</p>
+              <button class="btn btn-primary" data-action="click->swipe#hideModal">Continuer à swiper</button>
+              <%= link_to 'Messages' , class: 'btn btn-primary' %>
+            </div>
+          </div>
     </div>
   </div>
-</div>
 </div>

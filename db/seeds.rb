@@ -205,6 +205,23 @@ serpent = Specie.create!(
 
 puts "#{Specie.count} species created !"
 
+
+def transform_and_upload(url, public_id, pet)
+  uploaded_file = Cloudinary::Uploader.upload(
+    Rails.root.join(url).to_s,
+    public_id: public_id,
+    transformation: [
+      { height: "668", width: "315", crop: "fill", gravity: "auto" }
+    ]
+    )
+    pet.photos.attach(
+      io: URI.open(uploaded_file["secure_url"]),
+      filename: 'labrador_1_transformed.jpg',
+      content_type: 'image/jpg'
+    )
+
+end
+
 puts "Creating pets..."
 
 # Création des pets
@@ -225,9 +242,10 @@ pet_1 = Pet.create!(
   environment: "maison",
   shelter_id: Shelter.first.id,
 )
-pet_1.photos.attach(io: File.open(Rails.root.join("app/assets/images/labrador_1.jpg")), filename: 'labrador_1.jpg', content_type: 'image/jpg')
-pet_1.photos.attach(io: File.open(Rails.root.join("app/assets/images/labrador_3.jpg")), filename: 'labrador_3.jpg', content_type: 'image/jpg')
-pet_1.photos.attach(io: File.open(Rails.root.join("app/assets/images/labrador_2.webp")), filename: 'labrador_2.webp', content_type: 'image/webp')
+
+transform_and_upload("app/assets/images/labrador_1.jpg", "labrador_1", pet_1)
+transform_and_upload("app/assets/images/labrador_3.jpg", "labrador_2", pet_1)
+transform_and_upload("app/assets/images/labrador_2.webp", "labrador_3", pet_1)
 pet_1.save
 
 pet_2 = Pet.create!(
