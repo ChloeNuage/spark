@@ -1,0 +1,16 @@
+<div class="container chat">
+<h1>Conversation with <%= @conversation.shelter.name %></h1>
+
+ <%= render "messages/message", message: message %>
+
+
+<%= simple_form_for [@match, @conversation, @message], html: {class: "d-flex"} do |f| %>
+    <% other_user = current_user == @conversation.user ? @conversation.user : @conversation.shelter.user %>
+    <%= f.input :content,
+    label: false,
+      placeholder: "Message to #{@conversation.shelter.name}",
+      wrapper_html: {class: "flex-grow-1"}
+    %>
+    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+  <% end %>
+</div>
