@@ -1,16 +1,24 @@
 class MessagesController < ApplicationController
   before_action :find_match
-  before_action :find_or_create_conversation
 
   def create
-    @message = Message.new(message_params)
+    @match = Match.find(params[:match_id])
+    @conversation = Conversation.find(params[:conversation_id])
+    @message = Message.create(content: params[:message][:content])
     @message.user = current_user
-    @message.conversation = @conversation
-
+    @message.conversation_id = params[:conversation_id]
+    @message.save!
     if @message.save
-      redirect_to match_path(@match)
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.append( :messages, partial: "matchs/message",
+            target: "messages", locals: { message: @message })
+        end
+        format.html { redirect_to match_path(@match) }
+      end
     else
-      render 'conversations/show', status: :unprocessable_entity
+      raise
+      render 'matchs/show', status: :unprocessable_entity
     end
   end
 
@@ -20,11 +28,7 @@ class MessagesController < ApplicationController
     @match = Match.find(params[:match_id])
   end
 
-  def find_or_create_conversation
-    @conversation = @match.conversations.find_or_create_by(user: current_user, shelter: @match.pet.shelter)
-  end
-
-  def message_params
-    params.require(:message).permit(:content)
-  end
+  # def message_params
+  #   params.require(:message).permit(:content)
+  # end
 end

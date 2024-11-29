@@ -23,8 +23,8 @@ Rails.application.routes.draw do
   get 'adoptionproject', to: 'forms#adoptionproject'
   patch 'adoptionproject_update', to: 'forms#adoptionproject_update'
 
-  resources :matchs, only: [] do
-    resources :conversations, only: :show do
+  resources :matchs, only: [:show] do
+    resources :conversations, only: [:create, :show] do
       resources :messages, only: :create
     end
   end

@@ -1,10 +1,14 @@
 <div class="container chat">
 <h1>Conversation with <%= @conversation.shelter.name %></h1>
+  <div id="messages" class="messages">
+      <% @messages.each do |message| %>
+  <%= render "matchs/message", message: message %>
+  <% end %>
+  </div>
 
- <%= render "messages/message", message: message %>
-
-
-<%= simple_form_for [@match, @conversation, @message], html: {class: "d-flex"} do |f| %>
+<%= simple_form_for [@match, @conversation, @message],
+  html: {class: "d-flex",
+  data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset"}} do |f| %>
     <% other_user = current_user == @conversation.user ? @conversation.user : @conversation.shelter.user %>
     <%= f.input :content,
     label: false,
