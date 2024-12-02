@@ -23,14 +23,8 @@
       <%= link_to 'New Appointment', new_match_appointment_path(@match) %>
     </div>
   <% end %>
+  <div>
+      <%= link_to 'Matchs', matchs_path %>
+  </div>
 
-  <h2>Appointments</h2>
-  <div class="appointments">
-  <% @match.appointments.each do |appointment| %>
-    <div class="appointment">
-      <p><strong>Date:</strong> <%= appointment.date %></p>
-      <p><strong>Shelter:</strong> <%= appointment.shelter.name %></p>
-    </div>
-  <% end %>
-</div>
 </div>

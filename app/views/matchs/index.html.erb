@@ -1,9 +1,37 @@
-<h1>Vos correspondances</h1>
+<div class="convs-et-matchs">
 
-<% @matches.each do |pet| %>
+  <h1>Matchs</h1>
+
   <div>
-    <h2><%= pet.name %></h2>
-    <p><%= pet.description %></p>
-    <%= link_to 'Créer un match', matches_path(user_id: @user.id, pet_id: pet.id), method: :post %>
+    <ul>
+      <% @matches.each do |match| %>
+        <li>
+          <%= link_to pet_path(match.pet) do %>
+            <%= match.pet.name %>
+            <div>
+              <%= cl_image_tag(match.pet.photos.sample.key, class: 'card-index-matchs') %>
+            </div>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
   </div>
-<% end %>
+
+  <h1>Conversations</h1>
+
+  <div>
+    <ul>
+      <% @matches.each do |match| %>
+        <div>
+          <li>
+            <%= link_to match_path(match) do %>
+              <%= cl_image_tag(match.pet.photos.first.key, class: 'messages-avatar') %>
+              <h2><%= match.pet.name %></h2>
+              <p><%= match.pet.shelter.name %></p>
+            <% end %>
+          </li>
+        </div>
+      <% end %>
+    </ul>
+  </div>
+</div>
