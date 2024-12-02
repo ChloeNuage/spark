@@ -1,6 +1,6 @@
 .container-chat {
   min-height: 100vh;
-  background-color: #FDFFF3;
+  background-color: #FFFCF2;
 
   width: 100%;
 }
@@ -29,21 +29,29 @@
 }
 
 .header-chat-infos h1 {
-    font-size: 20px;
+    font-size: 22px;
     font-family: "Noto Serif", serif;
     font-weight: 700;
     color: #161616;
     text-align: left;
     vertical-align: baseline;
+
+    margin-bottom: 0;
+}
+
+.icon-link-chevron {
+  text-decoration: none; /* Supprime le soulignement */
 }
 
 .header-chat-infos h2 {
   font-size: 16px;
-  font-family: "Noto Serif", serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 400;
   color: #161616;
   text-align: left;
   vertical-align: baseline;
+
+  margin-bottom: 0;
 }
 
 ///////////////////////////////////
@@ -83,7 +91,7 @@
   .message.sent .message-content {
     align-self: flex-end;
     background-color: #161616;
-    color: #FDFFF3;
+    color: #FFFCF2;
   }
 
   .message.received .message-content {
@@ -94,28 +102,41 @@
 ///////////////////////////////////
 
 .footer-chat-message {
+  position: absolute;
+  bottom: 25px;
+  left: 0;
+
   display: flex;
   align-items: center;
   gap: 20px;
 
-  position: absolute;
-  bottom: 50px;
-  left: 0;
-
-  // width: 80%;
-  // height: 50px;
+  width: 70%; /* Définit la largeur à 70% de l'écran */
+  margin: 0 auto;
 }
 
 .chat-message {
-  border-radius: 12px;
+  // width: 85vw;
+  width: 300px;
+  height: 50px;
+  margin-top: 20px;
+
+  margin-left: 30px;
+
+  border: 2px solid;
+  border-radius: 20px;
   box-shadow: 1px 2px 0px 1px #161616;
-  // font-size: 14px;
-  // font-family: "Montserrat", sans-serif;
-  // font-weight: 400;
+
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+
+  background-color: #FFFCF2;
 }
 
 .send-chat-button {
   height: 40px;
+
+  font-size: 34px;
 
   background: none;
   border: none;
@@ -123,6 +144,4 @@
   cursor: pointer;
 
   color: #63CFB2;
-
-  margin-bottom: 50px;
 }

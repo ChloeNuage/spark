@@ -2,7 +2,7 @@
   <div class="header-chat">
 
     <div>
-      <%= link_to matchs_path, class: "icon-link" do %>
+      <%= link_to matchs_path, class: "icon-link-chevron" do %>
         <i class="fa-solid fa-chevron-left"></i>
       <% end %>
     </div>
@@ -26,7 +26,7 @@
   </div>
 
   <%= simple_form_for [@match, @conversation, @message],
-    html: { class: "footer-chat-message",
+    html: { class: "footer-chat-message", style: "padding-left: 0px;",
     data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset"}} do |f| %>
 
       <%= f.input :content,
