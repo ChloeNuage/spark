@@ -1,26 +1,36 @@
 <div class="container chat">
-<h1>Conversation with <%= @conversation.shelter.name %></h1>
-  <div id="messages" class="messages">
-      <% @messages.each do |message| %>
-  <%= render "matchs/message", message: message %>
-  <% end %>
-  </div>
+  <h1>Conversation with <%= @conversation.shelter.name %></h1>
+    <div id="messages" class="messages">
+        <% @messages.each do |message| %>
+    <%= render "matchs/message", message: message %>
+    <% end %>
+    </div>
 
-<%= simple_form_for [@match, @conversation, @message],
-  html: {class: "d-flex",
-  data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset"}} do |f| %>
-    <% other_user = current_user == @conversation.user ? @conversation.user : @conversation.shelter.user %>
-    <%= f.input :content,
-    label: false,
-      placeholder: "Message to #{@conversation.shelter.name}",
-      wrapper_html: {class: "flex-grow-1"}
-    %>
-    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
-  <% end %>
+  <%= simple_form_for [@match, @conversation, @message],
+    html: {class: "d-flex",
+    data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset"}} do |f| %>
+      <% other_user = current_user == @conversation.user ? @conversation.user : @conversation.shelter.user %>
+      <%= f.input :content,
+      label: false,
+        placeholder: "Message to #{@conversation.shelter.name}",
+        wrapper_html: {class: "flex-grow-1"}
+      %>
+      <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+    <% end %>
 
   <% if current_user.shelter_id.present? %>
     <div>
       <%= link_to 'New Appointment', new_match_appointment_path(@match) %>
     </div>
   <% end %>
+
+  <h2>Appointments</h2>
+  <div class="appointments">
+  <% @match.appointments.each do |appointment| %>
+    <div class="appointment">
+      <p><strong>Date:</strong> <%= appointment.date %></p>
+      <p><strong>Shelter:</strong> <%= appointment.shelter.name %></p>
+    </div>
+  <% end %>
+</div>
 </div>

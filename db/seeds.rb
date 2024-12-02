@@ -79,7 +79,7 @@ user_2 = User.create!(
 )
 
 user_3 = User.create!(
-  email: "arthurdog@dog.fr",
+  email: "shelter@admin.fr",
   password: "admin123",
   name: "Arthur",
   age: 20,

@@ -15,7 +15,7 @@ class AppointmentsController < ApplicationController
     @appointment.shelter = @appointment.match.pet.shelter
 
     if @appointment.save
-      redirect_to pets_path, notice: "Rendez-vous créé avec succès."
+      redirect_to match_path(@appointment.match), notice: "Rendez-vous créé avec succès."
       # Actuellement :: Redirige l'utilisateur vers la page listant tous les pets
     else
       render :new, alert: "There was an error creating the appointment."
