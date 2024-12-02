@@ -1,31 +1,46 @@
 /* Style de la modale */
 .modal {
-  display: none; /* Masquée par défaut */
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  width:100%;
+  background-color: #63CFB2;
+  height: auto;
+  min-height: 100vh;         /* S'assure que le fond couvre toute la hauteur de la page */
+  margin: 0 auto;
+  padding-bottom: 80px;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
-/* Contenu de la modale */
-.modal-content {
-  background-color: #fff;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 50%; /* Largeur de la modale */
+#images-match img {
+  width: 135px;
+  border-radius: 50%;
+}
+
+
+
+.modal h2 {
+  font-size: 40px;
+  font-family: "Noto Serif", serif;
+  font-weight: 600;
+  color: #FFFCF2;
   text-align: center;
-  border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  margin-top: 50px;
+}
+
+.modal p {
+  font-size: 22px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: #FFFCF2;
+  text-align: center;
+  margin-bottom: 50px;
 }
 
 /* Bouton pour fermer la modale */
 .modal .close {
-  color: #aaa;
+  color: #FFFCF2;
   float: right;
   font-size: 28px;
   font-weight: bold;
@@ -34,7 +49,7 @@
 
 .modal .close:hover,
 .modal .close:focus {
-  color: black;
+  color: #c9c4b5;
   text-decoration: none;
   cursor: pointer;
 }

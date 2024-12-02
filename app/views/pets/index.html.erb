@@ -9,28 +9,28 @@
           id="card-<%= index %>">
           <h1 class="card-title-pets"><%= pet.name %></h1>
           <p class="card-title-pets"><%= pet.shelter.name %></p>
-          <%= link_to 'Voir plus' , pet_path(pet), class: 'btn btn-primary' %>
-
+          <%= link_to 'Voir plus' , pet_path(pet), class: 'btn btn-primary'%>
 
             <!-- Boutons de navigation -->
             <div class="navigation-buttons" style="  display: flex; gap: 20px; margin-top: 460px; flex-direction: row ; justify-content: center;">
               <button data-action="click->swipe#notInterested" class="btn btn-secondary">Non interessé</button>
               <%= button_to "Matcher" , create_match_path(pet_id: pet.id), method: :post, class: "btn btn-primary" ,
-                data: { action: "click->swipe#interested" } %>
+                data: { action: "click->swipe#interested" }%>
             </div>
-
         </div>
-        <% end %>
-          <!-- Modale -->
-          <div id="sparkModal" class="modal" data-swipe-target="modal">
-            <div class="modal-content">
-              <span class="close" data-action="click->swipe#hideModal">&times;</span>
+      </div>
+      <% end %>
+
+      <!-- Modale -->
+        <div data-controller="swipe">
+          <div class="modal" data-swipe-target="modal">
+                <img src="https://res.cloudinary.com/dsdxs3b1q/image/upload/Design_sans_titre_hvvylt.svg" style="width: 115px ; padding-top: 300px" alt="spark">
+
               <h2>It's a Spark!</h2>
-              <p>Vous avez montré de l'intérêt pour cet animal !</p>
-              <button class="btn btn-primary" data-action="click->swipe#hideModal">Continuer à swiper</button>
-              <%= link_to 'Messages', click_message_matchs_path, class: 'btn btn-primary' %>
-            </div>
+              <p>Démarrez une conversation avec le refuge!</p>
+               <%= link_to 'Messages', click_message_matchs_path, class: 'back-btn' %>
+              <button class="main-btn" data-action="click->swipe#hideModal">Swiper</button>
           </div>
-    </div>
+        </div>
   </div>
 </div>

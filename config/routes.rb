@@ -24,8 +24,10 @@ Rails.application.routes.draw do
   patch 'adoptionproject_update', to: 'forms#adoptionproject_update'
   get 'results', to: 'forms#results'
   patch 'results_update', to: 'forms#results_update'
-
-
+  # deconexion
+  devise_scope :user do
+    get '/users/sign_out', to: 'devise/sessions#destroy'
+  end
 
   resources :matchs, only: [:show] do
     collection do

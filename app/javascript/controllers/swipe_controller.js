@@ -40,6 +40,8 @@ export default class extends Controller {
     const currentCard = this.cardTargets[this.currentIndex];
     currentCard.classList.add("card-swipe-right");
 
+    // this.modalTargets[this.currentIndex].classList.remove("d-none");
+
     // Supprime la card après l'animation
     setTimeout(() => {
       currentCard.classList.add("d-none");
@@ -69,6 +71,7 @@ export default class extends Controller {
 
   // Masque la modale
   hideModal() {
+    console.log("hideModal");
     this.modalTarget.style.display = "none"; // Masque la modale
   }
 }
