@@ -7,12 +7,11 @@ class MessagesController < ApplicationController
     @message = Message.create(content: params[:message][:content])
     @message.user = current_user
     @message.conversation_id = params[:conversation_id]
-    @message.save!
-    if @message.save
+    if @message.save!
       respond_to do |format|
         format.turbo_stream do
           render turbo_stream: turbo_stream.append( :messages, partial: "matchs/message",
-            target: "messages", locals: { message: @message })
+            target: "chat-messages", locals: { message: @message, user: current_user } )
         end
         format.html { redirect_to match_path(@match) }
       end

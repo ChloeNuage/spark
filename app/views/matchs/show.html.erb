@@ -1,22 +1,43 @@
-<div class="container chat">
-  <h1>Conversation with <%= @conversation.shelter.name %></h1>
-    <div id="messages" class="messages">
-        <% @messages.each do |message| %>
-    <%= render "matchs/message", message: message %>
-    <% end %>
+<div class="container-chat">
+  <div class="header-chat">
+
+    <div>
+      <%= link_to matchs_path, class: "icon-link-chevron" do %>
+        <i class="fa-solid fa-chevron-left"></i>
+      <% end %>
     </div>
 
-  <%= simple_form_for [@match, @conversation, @message],
-    html: {class: "d-flex",
-    data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset"}} do |f| %>
-      <% other_user = current_user == @conversation.user ? @conversation.user : @conversation.shelter.user %>
-      <%= f.input :content,
-      label: false,
-        placeholder: "Message to #{@conversation.shelter.name}",
-        wrapper_html: {class: "flex-grow-1"}
-      %>
-      <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+    <div class="header-chat-photo">
+      <%= cl_image_tag(@match.pet.photos.first.key, gravity: "face", crop: "fill")%>
+    </div>
+
+    <div class="header-chat-infos">
+      <h1><%= @match.pet.name %></h1>
+      <h2><%= @match.pet.shelter.name %></h2>
+    </div>
+
+  </div>
+
+  <%= turbo_stream_from "chat-messages" %>
+  <div id="chat-messages" class="chat-messages">
+    <% @messages.each do |message| %>
+      <%= render "matchs/message", message: message, user: current_user %>
     <% end %>
+  </div>
+
+  <%= simple_form_for [@match, @conversation, @message],
+    html: { class: "footer-chat-message", style: "padding-left: 0px;",
+    data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset"}} do |f| %>
+
+      <%= f.input :content,
+        label: false,
+        placeholder: "Message ...",
+        input_html: { class: "chat-message" }
+      %>
+
+      <button type="submit" class="send-chat-button">
+        <i class="fa-solid fa-paper-plane"></i>
+      </button>
 
 
   <h2>Appointments</h2>
@@ -37,5 +58,4 @@
   <div>
       <%= link_to 'Matchs', matchs_path %>
   </div>
-
 </div>
