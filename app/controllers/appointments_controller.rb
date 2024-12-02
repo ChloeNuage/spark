@@ -1,5 +1,4 @@
 class AppointmentsController < ApplicationController
-
   def index
     @appointments = Appointment.all
   end
@@ -17,7 +16,7 @@ class AppointmentsController < ApplicationController
 
     if @appointment.save
       redirect_to pets_path, notice: "Rendez-vous créé avec succès."
-      # Redirige l'utilisateur vers la page listant tous les rendez-vous (appointments_path)
+      # Actuellement :: Redirige l'utilisateur vers la page listant tous les pets
     else
       render :new, alert: "There was an error creating the appointment."
     end
