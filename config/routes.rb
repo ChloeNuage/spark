@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 
 
 
-  resources :matchs, only: [:show] do
+  resources :matchs, only: [:show, :index] do
     collection do
       get 'click_message', to: 'matchs#click_message'
     end

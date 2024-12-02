@@ -1,0 +1,128 @@
+.container-chat {
+  min-height: 100vh;
+  background-color: #FDFFF3;
+
+  width: 100%;
+}
+
+.header-chat {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 20px;
+
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 20px;
+}
+
+.header-chat i {
+  font-size: 40px;
+  color: #63CFB2;
+}
+
+.header-chat-photo img {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+.header-chat-infos h1 {
+    font-size: 20px;
+    font-family: "Noto Serif", serif;
+    font-weight: 700;
+    color: #161616;
+    text-align: left;
+    vertical-align: baseline;
+}
+
+.header-chat-infos h2 {
+  font-size: 16px;
+  font-family: "Noto Serif", serif;
+  font-weight: 400;
+  color: #161616;
+  text-align: left;
+  vertical-align: baseline;
+}
+
+///////////////////////////////////
+
+.chat-messages {
+  margin: 8px auto;
+  margin-bottom: 50px;
+  padding: 8px;
+
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  width: 100%;
+
+  .message {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+
+  .message-info {
+    opacity: 0.5;
+    text-align: center;
+    width: fit-content;
+  }
+
+  .message-content {
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    max-width: 70%;
+    width: fit-content;
+    word-wrap: break-word;
+  }
+
+  .message.sent .message-content {
+    align-self: flex-end;
+    background-color: #161616;
+    color: #FDFFF3;
+  }
+
+  .message.received .message-content {
+    align-self: flex-start;
+  }
+}
+
+///////////////////////////////////
+
+.footer-chat-message {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+
+  // width: 80%;
+  // height: 50px;
+}
+
+.chat-message {
+  border-radius: 12px;
+  box-shadow: 1px 2px 0px 1px #161616;
+  // font-size: 14px;
+  // font-family: "Montserrat", sans-serif;
+  // font-weight: 400;
+}
+
+.send-chat-button {
+  height: 40px;
+
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  color: #63CFB2;
+
+  margin-bottom: 50px;
+}
