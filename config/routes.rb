@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   get 'almostdone', to: 'forms#almostdone'
   get 'adoptionproject', to: 'forms#adoptionproject'
   patch 'adoptionproject_update', to: 'forms#adoptionproject_update'
+  get 'results', to: 'forms#results'
+  patch 'results_update', to: 'forms#results_update'
 
 
 
