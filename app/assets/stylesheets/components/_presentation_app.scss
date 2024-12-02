@@ -4,9 +4,22 @@
   align-items: center;
   width:100%;
   background-color: #F3F05C;
-  height: auto;            /* S'assure que le fond couvre toute la hauteur de la page */
-  margin: 0 0;
-  padding: 45px;
+  height: auto;
+  min-height: 100vh;
+  padding-left: 40px;
+  padding-right:40px;     /* S'assure que le fond couvre toute la hauteur de la page */
+  margin: 0 auto;
+  padding-top: 40px;
+  padding-bottom: 80px;
+}
+
+.presentation-images {
+  width: 330px;      /* Adapte la largeur de l'image à 100% de l'élément parent */
+  height: auto;      /* Ajuste la hauteur automatiquement pour conserver les proportions */
+  max-width: 100%;   /* Empêche l'image de dépasser sa taille originale */
+  padding: 300px auto;  /* Supprime les espaces blancs éventuels en mode inline */
+  padding-top: 0px;
+  padding-bottom: 35px;
 }
 
 .presentation-app h1 {
@@ -17,6 +30,7 @@
   text-align: center;
   vertical-align: baseline;
   line-height: 40px;
+  padding-bottom: 20px;
 }
 
 .presentation-app h2 {
@@ -26,10 +40,11 @@
   color: #161616;
   text-align: center;
   vertical-align: baseline;
+
 }
 
 .presentation-app p {
-  font-size: 20px;
+  font-size: 19px;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   color: #161616;

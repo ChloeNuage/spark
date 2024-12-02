@@ -44,14 +44,14 @@ user_1 = User.create!(
   time_for_pet: 3,
   daily_walk: true,
   pet_budget: 1300,
-  have_children: true,
-  have_cat: true,
-  have_dog: true,
+  have_children: false,
+  have_cat: false,
+  have_dog: false,
   have_other_pet: true,
   description: "Je suis un homme de 65 ans, retraité, j'habite à Cugnaux. J'ai un chat, un chien et un lapin. J'ai 2 enfants et 3 petits-enfants. J'aime me promener dans le parc de la Ramée.",
-  can_adopt_dog: true,
-  can_adopt_cat: true,
-  can_adopt_nac: true,
+  can_adopt_dog: nil,
+  can_adopt_cat: nil,
+  can_adopt_nac: nil,
 )
 
 user_2 = User.create!(
@@ -73,9 +73,9 @@ user_2 = User.create!(
   have_dog: false,
   have_other_pet: false,
   description: "Je suis une femme de 30 ans, j'habite à Saint-Cyprien. J'aime me promener dans le parc Raymond IV. J'ai un appartement de 40m2.",
-  can_adopt_dog: false,
-  can_adopt_cat: true,
-  can_adopt_nac: true,
+  can_adopt_dog: nil,
+  can_adopt_cat: nil,
+  can_adopt_nac: nil,
 )
 
 user_3 = User.create!(
@@ -97,9 +97,9 @@ user_3 = User.create!(
   have_dog: false,
   have_other_pet: false,
   description: "Je suis un étudiant de 20 ans, j'habite à Toulouse. J'ai un chat. J'ai un appartement de 30m2.",
-  can_adopt_dog: false,
-  can_adopt_cat: true,
-  can_adopt_nac: true,
+  can_adopt_dog: nil,
+  can_adopt_cat: nil,
+  can_adopt_nac: nil,
 )
 
 user_4 = User.create!(
@@ -121,9 +121,9 @@ user_4 = User.create!(
   have_dog: true,
   have_other_pet: false,
   description: "Je suis une femme de 25 ans, j'habite à Plaisance du touch. J'ai un chien. J'ai une maison de 100m2.",
-  can_adopt_dog: true,
-  can_adopt_cat: false,
-  can_adopt_nac: true,
+  can_adopt_dog: nil,
+  can_adopt_cat: nil,
+  can_adopt_nac: nil,
 )
 
 user_5 = User.create!(
@@ -144,9 +144,9 @@ user_5 = User.create!(
   have_dog: false,
   have_other_pet: false,
   description: "Je suis un homme de 40 ans, j'habite à Toulouse. J'ai 2 enfants. J'ai un appartement de 50m2.",
-  can_adopt_dog: false,
-  can_adopt_cat: false,
-  can_adopt_nac: false,
+  can_adopt_dog: nil,
+  can_adopt_cat: nil,
+  can_adopt_nac: nil,
 )
 
 puts "#{User.count} users created !"
@@ -205,6 +205,23 @@ serpent = Specie.create!(
 
 puts "#{Specie.count} species created !"
 
+
+def transform_and_upload(url, public_id, pet)
+  uploaded_file = Cloudinary::Uploader.upload(
+    Rails.root.join(url).to_s,
+    public_id: public_id,
+    transformation: [
+      { height: "668", width: "315", crop: "fill", gravity: "auto" }
+    ]
+    )
+    pet.photos.attach(
+      io: URI.open(uploaded_file["secure_url"]),
+      filename: 'labrador_1_transformed.jpg',
+      content_type: 'image/jpg'
+    )
+
+end
+
 puts "Creating pets..."
 
 # Création des pets
@@ -225,9 +242,10 @@ pet_1 = Pet.create!(
   environment: "maison",
   shelter_id: Shelter.first.id,
 )
-pet_1.photos.attach(io: File.open(Rails.root.join("app/assets/images/labrador_1.jpg")), filename: 'labrador_1.jpg', content_type: 'image/jpg')
-pet_1.photos.attach(io: File.open(Rails.root.join("app/assets/images/labrador_3.jpg")), filename: 'labrador_3.jpg', content_type: 'image/jpg')
-pet_1.photos.attach(io: File.open(Rails.root.join("app/assets/images/labrador_2.webp")), filename: 'labrador_2.webp', content_type: 'image/webp')
+
+transform_and_upload("app/assets/images/labrador_1.jpg", "labrador_1", pet_1)
+transform_and_upload("app/assets/images/labrador_3.jpg", "labrador_2", pet_1)
+transform_and_upload("app/assets/images/labrador_2.webp", "labrador_3", pet_1)
 pet_1.save
 
 pet_2 = Pet.create!(
@@ -247,8 +265,8 @@ pet_2 = Pet.create!(
   environment: "appartement",
   shelter_id: Shelter.second.id,
 )
-pet_2.photos.attach(io: File.open(Rails.root.join("app/assets/images/chat-de-gouttiere_1.jpg")), filename: 'chat-de-gouttiere_1.jpg', content_type: 'image/jpg')
-pet_2.photos.attach(io: File.open(Rails.root.join("app/assets/images/chat-de-gouttiere_2.jpeg")), filename: 'chat-de-gouttiere_2.jpeg', content_type: 'image/jpeg')
+transform_and_upload("app/assets/images/chat-de-gouttiere_1.jpg", "Mistigri_1", pet_2)
+transform_and_upload("app/assets/images/chat-de-gouttiere_2.jpeg", "Mistigri_2", pet_2)
 pet_2.save
 
 pet_3 = Pet.create!(
@@ -268,6 +286,9 @@ pet_3 = Pet.create!(
   environment: "appartement, maison",
   shelter_id: Shelter.third.id,
 )
+transform_and_upload("app/assets/images/hamster_1.jpg", "Pikachu_1", pet_3)
+transform_and_upload("app/assets/images/hamster_2.jpg", "Pikachu_2", pet_3)
+pet_3.save
 
 pet_4 = Pet.create!(
   category: "Chien",
@@ -286,6 +307,9 @@ pet_4 = Pet.create!(
   environment: "maison",
   shelter_id: Shelter.first.id,
 )
+transform_and_upload("app/assets/images/berger-allemand_1.jpg", "Lucky_1", pet_4)
+transform_and_upload("app/assets/images/berger-allemand_2.jpg", "Lucky_2", pet_4)
+pet_4.save
 
 pet_5 = Pet.create!(
   category: "Chat",
@@ -304,6 +328,9 @@ pet_5 = Pet.create!(
   environment: "appartement, maison",
   shelter_id: Shelter.second.id,
 )
+transform_and_upload("app/assets/images/chat-persan_1.jpg", "Minette_1", pet_5)
+transform_and_upload("app/assets/images/chat-persan_2.jpg", "Minette_2", pet_5)
+pet_5.save
 
 pet_6 = Pet.create!(
   category: "NAC",
@@ -322,6 +349,8 @@ pet_6 = Pet.create!(
   environment: "appartement, maison",
   shelter_id: Shelter.third.id,
 )
+transform_and_upload("app/assets/images/poisson-rouge_1.jpg", "Tortank_1", pet_6)
+pet_6.save
 
 pet_7 = Pet.create!(
   category: "Chien",
@@ -340,6 +369,9 @@ pet_7 = Pet.create!(
   environment: "maison",
   shelter_id: Shelter.first.id,
 )
+transform_and_upload("app/assets/images/labrador_noir_1.jpg", "Rex_1", pet_7)
+transform_and_upload("app/assets/images/labrador_noir_2.jpg", "Rex_2", pet_7)
+pet_7.save
 
 pet_8 = Pet.create!(
   category: "Chat",
@@ -358,6 +390,9 @@ pet_8 = Pet.create!(
   environment: "appartement, maison",
   shelter_id: Shelter.second.id,
 )
+transform_and_upload("app/assets/images/chat-siamois_1.jpg", "Félix_1", pet_8)
+transform_and_upload("app/assets/images/chat-siamois_2.jpg", "Félix_2", pet_8)
+pet_8.save
 
 pet_9 = Pet.create!(
   category: "NAC",
@@ -376,6 +411,9 @@ pet_9 = Pet.create!(
   environment: "appartement, maison",
   shelter_id: Shelter.third.id,
 )
+transform_and_upload("app/assets/images/serpent_1.jpg", "Snake_1", pet_9)
+transform_and_upload("app/assets/images/serpent_2.jpg", "Snake_2", pet_9)
+pet_9.save
 
 pet_10 = Pet.create!(
   category: "Chien",
@@ -394,6 +432,9 @@ pet_10 = Pet.create!(
   environment: "maison",
   shelter_id: Shelter.first.id,
 )
+transform_and_upload("app/assets/images/golden_retriever_1.jpg", "Bella_1", pet_10)
+transform_and_upload("app/assets/images/golden_retriever_2.webp", "Bella_2", pet_10)
+pet_10.save
 
 puts "#{Pet.count} pets created !"
 

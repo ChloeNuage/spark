@@ -15,7 +15,6 @@ class PetsController < ApplicationController
 
     @pets = MatchChecker.new(@user, @pets).can_match
 
-   
     @match = Match.new
   end
 

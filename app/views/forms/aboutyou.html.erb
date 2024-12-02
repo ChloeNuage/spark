@@ -1,4 +1,4 @@
-<div class="formulaire-adoptant" style="height: 45rem">
+<div class="formulaire-adoptant">
   <h2>CRÉATION DE PROFIL</h2>
   <h3>À propos de moi</h3>
 
@@ -8,11 +8,20 @@
     <h4>Âge:</h4>
       <%= form.number_field :age, class: "formulaire-adoptant-form-entier" %>
     <h4>Genre:</h4>
-      <div class="formulaire-adoptant-choices">
-        <%= form.input :gender,  label: 'Femme', input_html: { class: 'formulaire-adoptant-custom-checkbox' } %>
-        <%= form.input :gender,  label: 'Homme', input_html: { class: 'formulaire-adoptant-custom-checkbox' } %>
-        <%= form.input :gender,  label: 'Autre', input_html: { class: 'formulaire-adoptant-custom-checkbox' } %>
+    <div class="formulaire-adoptant-div" id="triple" style="padding-bottom: 50px">
+      <div>
+        <%= form.radio_button :gender, "femme", id: "femme" %>
+        <%= form.label :gender, "Femme", for: "femme", class: "formulaire-adoptant-design-tier" %>
       </div>
+      <div>
+        <%= form.radio_button :gender, "homme", id: "homme"%>
+        <%= form.label :gender, "Homme", for: "homme", class: "formulaire-adoptant-design-tier" %>
+      </div>
+      <div>
+        <%= form.radio_button :gender, "non-binaire", id: "non-binaire" %>
+        <%= form.label :gender, "Autre", for: "non-binaire", class: "formulaire-adoptant-design-tier" %>
+      </div>
+    </div>
     <h4>Photos:</h4>
      <div>
        <%= form.input :photo, multiple: true, label: false, as: :file, input_html: { class:  'formulaire-adoptant-form-photo'  } %>

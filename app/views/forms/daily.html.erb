@@ -1,38 +1,71 @@
-<div class="formulaire-adoptant" style="height: 62rem">
+<div class="formulaire-adoptant">
   <h2>CRÉATION DE PROFIL</h2>
   <h3>Mon quotidien et mon environnement</h3>
 
     <%= simple_form_for @user, url: daily_update_path, method: :patch, local: true do |form| %>
+
     <h4>Télétravail:</h4>
-      <div class="formulaire-adoptant-choices-double">
-        <%= form.input :remote_work,  label: 'Oui', input_html: { class: 'formulaire-adoptant-custom-checkbox' } %>
-        <%= form.input :remote_work,  label: 'Non', input_html: { class: 'formulaire-adoptant-custom-checkbox' } %>
+      <div class="formulaire-adoptant-div" id="double" style="padding-bottom: 50px">
+        <div>
+          <%= form.radio_button :remote_work, "yesremote", id: "yesremote" %>
+          <%= form.label :remote_work, "Oui", for: "yesremote", class: "formulaire-adoptant-design-tier" %>
+        </div>
+        <div>
+          <%= form.radio_button :remote_work, "noremote", id: "noremote"%>
+          <%= form.label :remote_work, "Non", for: "noremote", class: "formulaire-adoptant-design-tier" %>
+        </div>
       </div>
+
       <h4>Adresse:</h4>
         <%= form.text_area :address, class: "formulaire-adoptant-form-entier" %>
+
       <h4>Espaces verts voisins:</h4>
-        <div class="formulaire-adoptant-choices-double">
-          <%= form.input :has_green_space,  label: 'Oui', input_html: { class: 'formulaire-adoptant-custom-checkbox' } %>
-          <%= form.input :has_green_space,  label: 'Non', input_html: { class: 'formulaire-adoptant-custom-checkbox' } %>
+        <div class="formulaire-adoptant-div" id="double" style="padding-bottom: 50px">
+          <div>
+            <%= form.radio_button :has_green_space, "yesgreenspace", id: "yesgreenspace" %>
+            <%= form.label :has_green_space, "Oui", for: "yesgreenspace", class: "formulaire-adoptant-design-tier" %>
+          </div>
+          <div>
+            <%= form.radio_button :has_green_space, "nogreenspace", id: "nogreenspace"%>
+            <%= form.label :has_green_space, "Non", for: "nogreenspace", class: "formulaire-adoptant-design-tier" %>
+          </div>
         </div>
+
       <h4>Adultes total du foyer</h4>
         <%= form.number_field :household_size, class: "formulaire-adoptant-form-entier" %>
+
       <h4>Avez-vous des enfants?</h4>
-        <div class="formulaire-adoptant-choices-double">
-          <%= form.input :have_children,  label: 'Oui', input_html: { class: 'formulaire-adoptant-custom-checkbox' } %>
-          <%= form.input :have_children,  label: 'Non', input_html: { class: 'formulaire-adoptant-custom-checkbox' } %>
+        <div class="formulaire-adoptant-div" id="double" style="padding-bottom: 50px">
+          <div>
+            <%= form.radio_button :have_children, "yeskid", id: "yeskid" %>
+            <%= form.label :have_children, "Oui", for: "yeskid", class: "formulaire-adoptant-design-tier" %>
+          </div>
+          <div>
+            <%= form.radio_button :have_children, "nokid", id: "nokid"%>
+            <%= form.label :have_children, "Non", for: "nokid", class: "formulaire-adoptant-design-tier" %>
+          </div>
         </div>
+
       <h4>Animaux:</h4>
-        <div class="formulaire-adoptant-choices">
-         <%= form.input :have_cat,  label: 'Chat', input_html: { class: 'formulaire-adoptant-custom-checkbox' } %>
-         <%= form.input :have_dog,  label: 'Chien', input_html: { class: 'formulaire-adoptant-custom-checkbox' } %>
-         <%= form.input :have_other_pet,  label: 'Autre', input_html: { class: 'formulaire-adoptant-custom-checkbox' } %>
+        <div class="formulaire-adoptant-div" id="triple" style="padding-bottom: 50px">
+          <%= form.collection_check_boxes :have_cat, [[true, 'Chat']], :first, :last %>
+          <%= form.collection_check_boxes :have_dog, [[true, 'Chien']], :first, :last %>
+          <%= form.collection_check_boxes :have_other_pet, [[true, 'NACS']], :first, :last %>
         </div>
+
+
       <h4>Mode de vie:</h4>
-        <div class="formulaire-adoptant-choices-double">
-          <%= form.input :lifestyle,  label: 'Actif', input_html: { class: 'formulaire-adoptant-custom-checkbox' } %>
-          <%= form.input :lifestyle,  label: 'Sédentaire', input_html: { class: 'formulaire-adoptant-custom-checkbox' } %>
+        <div class="formulaire-adoptant-div" id="double" style="padding-bottom: 50px">
+          <div>
+            <%= form.radio_button :lifestyle, "actif", id: "actif" %>
+            <%= form.label :lifestyle, "Actif", for: "actif", class: "formulaire-adoptant-design-tier" %>
+          </div>
+          <div>
+            <%= form.radio_button :lifestyle, "sédentaire", id: "sédentaire"%>
+            <%= form.label :lifestyle, "Sédentaire", for: "sédentaire", class: "formulaire-adoptant-design-tier" %>
+          </div>
         </div>
+
       <%= form.submit "Suivant", class: "main-btn"%>
       <a class="back-btn" href="welldone">Retour</a>
   <% end %>
