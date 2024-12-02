@@ -1,0 +1,19 @@
+<h1>Book <%= @activity.name</h1> %>
+
+<div data-controller='flatpickr'>
+  <%= form_with model: [@match, @user], local: true do |form| %>
+    <div>
+      <%= form.label :start_time %>
+      <%= form.text_field :start_time, data: { flatpickr_target: 'startDateInput'}, class: "form-control" %>
+    </div>
+
+    <div>
+      <%= form.label :end_time %>
+      <%= form.text_field :end_time, data: { flatpickr_target: 'endDateInput' }, class: "form-control" %>
+    </div>
+
+    <div>
+      <%= form.submit "Book Now", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

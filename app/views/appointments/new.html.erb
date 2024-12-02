@@ -1,0 +1,15 @@
+<!-- app/views/appointments/new.html.erb -->
+<h1>Nouveau Rendez-vous</h1>
+
+<%= form_for [@match, @appointment] do |form| %>
+  <div>
+    <%= form.label :date, "Choisir une date" %>
+    <%= form.text_field :date, id: "appointment_date", data: { controller: "datepicker" } %>
+  </div>
+
+  <div>
+    <%= form.submit "Créer le rendez-vous" %>
+  </div>
+<% end %>
+<%# TODO : Revoyez le link_to sur la bonne page %>
+<%= link_to "Retour à la conversation", match_path(@match) %>
