@@ -11,6 +11,7 @@
           style="width: 340px; height: 668px; display: flex; background-image: url(<%= pet.photos.empty? ?
         'https://www.photo-montier.org/wp-content/themes/ktheme-v2.1-Montier/images/slider-homepage/2024-1/640x628/slide-mobile.jpg' : pet.photos.first.url %> ) "
           id="card-<%= index %>">
+
           <h1 class="card-title-pets" id="h1-pets"><%= pet.name %></h1>
           <p class="card-title-pets" id="p-pets"><%= pet.shelter.name %></p>
           <% end %>
@@ -46,7 +47,7 @@
 
 
           </div>
-    </div>
+        </div>
   </div>
 
 </div>

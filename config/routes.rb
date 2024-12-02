@@ -26,7 +26,9 @@ Rails.application.routes.draw do
   patch 'results_update', to: 'forms#results_update'
 
 
+
   resources :matchs, only: [:show, :index] do
+
     collection do
       get 'click_message', to: 'matchs#click_message'
     end
