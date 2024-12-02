@@ -211,7 +211,7 @@ def transform_and_upload(url, public_id, pet)
     Rails.root.join(url).to_s,
     public_id: public_id,
     transformation: [
-      { height: "668", width: "315", crop: "fill", gravity: "auto" }
+      { height: "668", width: "340", crop: "fill", gravity: "auto" }
     ]
     )
     pet.photos.attach(
