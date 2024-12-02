@@ -7,6 +7,7 @@ class MatchsController < ApplicationController
 
   def show
     @match = Match.find(params[:id])
+    @appointments = @match.appointments
     @conversation = Conversation.where(match_id: @match.id).last
     if @conversation.nil?
       @conversation = Conversation.create!(match_id: @match.id, user_id: current_user.id, shelter_id: @match.pet.shelter.id)

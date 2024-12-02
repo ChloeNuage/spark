@@ -39,4 +39,7 @@ Rails.application.routes.draw do
   resources :pets, only: [:show, :index]
   post 'create_match', to: 'matchs#create'
 
+  devise_scope :user do
+    get '/users/sign_out', to: 'devise/sessions#destroy'
+  end
 end
