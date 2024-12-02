@@ -24,20 +24,24 @@ Rails.application.routes.draw do
   patch 'adoptionproject_update', to: 'forms#adoptionproject_update'
   get 'results', to: 'forms#results'
   patch 'results_update', to: 'forms#results_update'
-  # deconexion
-  devise_scope :user do
-    get '/users/sign_out', to: 'devise/sessions#destroy'
-  end
 
-  resources :matchs, only: [:show] do
+
+
+  resources :matchs, only: [:show, :index] do
+
     collection do
       get 'click_message', to: 'matchs#click_message'
     end
     resources :conversations, only: [:create, :show] do
       resources :messages, only: :create
     end
+   resources :appointments, only: [:index, :new, :create]
   end
 
   resources :pets, only: [:show, :index]
   post 'create_match', to: 'matchs#create'
+
+  devise_scope :user do
+    get '/users/sign_out', to: 'devise/sessions#destroy'
+  end
 end
