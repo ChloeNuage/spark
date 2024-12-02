@@ -1,0 +1,26 @@
+<div class="results">
+  <h1>Et voilà!</h1>
+  <p style="padding-bottom: 50px">Voici les animaux que tu peux adopter d’après ton profil.</p>
+
+  <div class="results-div-img">
+    <% if @user[:can_adopt_dog] == true %>
+      <%= image_tag("https://res.cloudinary.com/dsdxs3b1q/image/upload/chien_vbopyr.png", alt: "Chiens") %>
+    <% else %>
+      <%= image_tag("https://res.cloudinary.com/dsdxs3b1q/image/upload/chien_copie_f66ghp.png", alt: "Pas de chiens") %>
+    <% end %>
+    <% if @user[:can_adopt_cat] == true %>
+      <%= image_tag("https://res.cloudinary.com/dsdxs3b1q/image/upload/chat_rzwxb7.png", alt: "Chats") %>
+    <% else %>
+      <%= image_tag("https://res.cloudinary.com/dsdxs3b1q/image/upload/chat_copie_gz6wyp.png", alt: "Pas de chats") %>
+    <% end %>
+    <% if @user[:can_adopt_nac] == true %>
+      <%= image_tag("https://res.cloudinary.com/dsdxs3b1q/image/upload/rat_y1ztl5.png", alt: "NACS") %>
+    <% else %>
+      <%= image_tag("https://res.cloudinary.com/dsdxs3b1q/image/upload/rat_copie_hg6bfa.png", alt: "Pas de NACS") %>
+    <% end %>
+  </div>
+
+  <div>
+    <a class="results-main-btn" href="pets">Je matche!</a>
+  </div>
+</div>

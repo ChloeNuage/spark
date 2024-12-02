@@ -1,0 +1,84 @@
+.results {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  width:100%;
+  background-color: #F3F05C;
+  height: auto;
+  min-height: 100vh;         /* S'assure que le fond couvre toute la hauteur de la page */
+  margin: 0 auto;
+  padding-bottom: 80px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.results img {
+  width: 180px;      /* Adapte la largeur de l'image à 100% de l'élément parent */
+  height: auto;      /* Ajuste la hauteur automatiquement pour conserver les proportions */
+  max-width: 100%;   /* Empêche l'image de dépasser sa taille originale */
+  padding: 300px auto;  /* Supprime les espaces blancs éventuels en mode inline */
+  padding-top: 0px;
+}
+
+.results-div-img {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  justify-content: space-between;
+}
+
+.results-div-img img:nth-child(3) {
+  grid-column: 1 / -1; /* S'étend sur toute la largeur */
+  justify-self: center; /* Centre horizontalement */
+}
+
+.results h1 {
+  font-size: 40px;
+  font-family: "Noto Serif", serif;
+  font-weight: 600;
+  color: #161616;
+  text-align: center;
+  vertical-align: baseline;
+  line-height: 40px;
+  padding-bottom: 20px;
+  margin-top: 140px
+}
+
+.results p {
+  font-size: 19px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: #161616;
+  text-align: center;
+  vertical-align: baseline;
+  line-height: 22px;
+}
+
+
+.results-main-btn {
+  font-size: 25px;
+  width: 200px;
+  font-family: "Noto Serif";
+  font-weight: 700;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  color: #FDFFF3;
+  background-color: #161616;
+  border-radius: 30px;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid transparent;
+  vertical-align: baseline;
+  margin: 80px -100px;
+  position: relative;
+  display: flex;
+  justify-content: center; /* Centre horizontalement */
+  align-items: center;
+
+  &:hover {
+    background-color: #333232;
+  }
+
+}
