@@ -22,11 +22,17 @@ Rails.application.routes.draw do
   get 'adoptionproject', to: 'forms#adoptionproject'
   patch 'adoptionproject_update', to: 'forms#adoptionproject_update'
 
+  get 'matchs/testeliot', to: 'matchs#testeliot', as: 'match_testeliot'
   resources :matchs, only: [] do
     resources :messages, only: :create
     resources :conversations, only: :show
+    resources :appointments, only: [:index, :new, :create]
+    # A MODIFIER
+
+
   end
 
   resources :pets, only: [:show, :index]
   post 'create_match', to: 'matchs#create'
+
 end
