@@ -1,10 +1,16 @@
 //Partie image et détails
 
 .profil-user {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  width:100%;
   background-color: #FDFFF3;
   height: auto;
-  width: 100%;
-  padding: 40px;
+  min-height: 100vh;         /* S'assure que le fond couvre toute la hauteur de la page */
+  margin: 0 auto;
+  padding-bottom: 80px;
+  z-index: -1;
 }
 
 .profil-user img {
@@ -12,20 +18,62 @@
   height: 200px;
   width: 100%;
   margin: 0;
+  z-index: 1;
+  position: fixed;
+  left: 0px;
+  top: 100px;
 }
 
 .profil-user-avatar {
   width: 120px;
   border-radius: 50%;
   border: #FDFFF3 2px solid;
+  z-index: 1;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
 .profil-user h1 {
-  font-size: 25px;
+  margin-top: 320px;
+  font-size: 30px;
   font-family: "Noto Serif", serif;
   font-weight: 600;
   color: #161616;
   text-align: center;
+  z-index: 1;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-bottom: 0px;
+}
+
+.profil-user h2 {
+
+  font-size: 30px;
+  font-family: "Noto Serif", serif;
+  font-weight: 600;
+  color: #161616;
+  z-index: 1;
+  margin-top: 40px;
+  margin-left: -85px;
+  margin-right: 40px;
+  margin-bottom: 20px;
+}
+
+.profil-user h3 {
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  color: #FDFFF3;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
+
+.profil-user h4 {
+  font-size: 17px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: #FDFFF3;
 }
 
 .profil-user p {
@@ -34,6 +82,20 @@
   font-weight: 400;
   color: #161616;
   text-align: center;
+  z-index: 1;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+
+#presentation-p {
+  font-size: 18px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: #161616;
+  text-align: center;
+  line-height: 18px;
 }
 
 //Partie RDV
@@ -42,8 +104,6 @@
 .profil-user-container-RDV  {
   height: auto;
   width: 100%;
-  background-color: #63CFB2;
-  border-radius: 40px 40px 0px 0px;
   margin: 0;
 }
 
@@ -73,4 +133,104 @@
   font-weight: 600;
   color: #161616;
   text-align: left;
+}
+
+.rounded-yellow-header
+{
+ background: #F3F05C;
+ width: 880px;
+ height: 350px;
+ position: fixed;
+ left: -210px;
+ top: -100px;
+ border-radius: 50%;
+ overflow: hidden;
+ z-index: 0;
+}
+
+.booking-card-profile {
+  display: flex;
+  flex-direction: column;
+  background: #63CFB2;
+  box-shadow: 1px 2px 0px 1px #161616;
+  border: 1.5px solid ;
+  border-radius: 18px;
+  height: 140px;
+  margin-top: 15px;
+  padding-top: 25px;
+  width: 350px;
+  margin-bottom: 40px;
+}
+
+.logoprofil {
+  display: flex;
+  background-color: white ;
+  justify-content: left;
+  margin-left: -50px;
+  margin-right: 20px;
+  margin-top: 5px;
+  width: 60px;
+  height: 60px;
+}
+
+.interior-card-profile {
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.text-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+.main-btn-small-profile {
+  font-size: 14px;
+  width: 95px;
+  height: 25px;
+  font-family: "Noto Serif";
+  font-weight: 700;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #FDFFF3;
+  background-color: #161616;
+  border-radius: 20px;
+  text-align: center;
+  border: 1px solid transparent;
+  vertical-align: baseline;
+  margin-left: 230px;
+  margin-top: 5px;
+  text-decoration: none;
+
+  &:hover {
+    background-color: #333232;
+  }
+
+}
+
+.etiquettes-details-profile {
+  font-size: 15px;
+  width: 110px;
+  height: 25px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #161616;
+  background-color: #F3F05C;
+  border-radius: 30px;
+  text-align: center;
+  border: 1.5px solid #161616;
+  box-shadow: 1px 2px 0px 1px #161616;
+  margin: 10px auto;
+
+}
+
+.etiquettes-details-profile-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 15px;
 }
