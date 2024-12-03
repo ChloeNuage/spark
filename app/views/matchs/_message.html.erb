@@ -1,7 +1,7 @@
 
 <div
   id="message-<%= message.id %>"
-  class="message <%= message.user == user ? "sent" : "received" %>">
+  class="message <%= message.user == @user ? "sent" : "received" %>">
   <p class="message-content">
     <%= message.content %>
   </p>
