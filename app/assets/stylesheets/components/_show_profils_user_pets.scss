@@ -53,6 +53,9 @@
   display: grid;
   grid-template-columns: 33% 33% 33%;
   justify-content: center;
+  margin-bottom: 15%;
+  gap: 6px;
+  row-gap:0px;
 }
 
 .pet-description li {
