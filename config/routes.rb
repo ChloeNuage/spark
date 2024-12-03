@@ -22,7 +22,8 @@ Rails.application.routes.draw do
   get 'almostdone', to: 'forms#almostdone'
   get 'adoptionproject', to: 'forms#adoptionproject'
   patch 'adoptionproject_update', to: 'forms#adoptionproject_update'
-
+  get 'results', to: 'forms#results'
+  patch 'results_update', to: 'forms#results_update'
 
 
   resources :matchs, only: [:show, :index] do
@@ -32,8 +33,13 @@ Rails.application.routes.draw do
     resources :conversations, only: [:create, :show] do
       resources :messages, only: :create
     end
+   resources :appointments, only: [:index, :new, :create]
   end
 
   resources :pets, only: [:show, :index]
   post 'create_match', to: 'matchs#create'
+
+  devise_scope :user do
+    get '/users/sign_out', to: 'devise/sessions#destroy'
+  end
 end
