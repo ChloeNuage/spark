@@ -7,21 +7,3 @@
 // app/assets/config/manifest.js
 // ...
 //= link manifest.json
-
-{
-  "background_color": "white",
-  "description": "Spark est une applicationn permettant aux potentiels adoptants de rencontrer leur futur protégé parmis les animaux abandonnés des refuges alentour. ",
-  "display": "fullscreen",
-  "name": "Spark",
-  "icons": [
-    <% files = Dir.entries(Rails.root.join("app/assets/images/icons/")).select {|f| !File.directory? f} %>
-    <% files.each_with_index do |file, index| %>
-      <% match = file.match(/.+-(?<size>\d{2,3}x\d{2,3}).png/) %>
-      {
-        "src": "<%= image_path "icons/#{file}" %>",
-        "sizes": "<%= match && match[:size] %>",
-        "type": "image/png"
-      }<%= "," unless (files.size - 1) == index %>
-    <% end %>
-  ]
-}
