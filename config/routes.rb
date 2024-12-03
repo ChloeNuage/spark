@@ -35,7 +35,7 @@ Rails.application.routes.draw do
     resources :conversations, only: [:create, :show] do
       resources :messages, only: :create
     end
-   resources :appointments, only: [:index, :new, :create]
+   resources :appointments, only: [:index, :new, :create, :destroy]
   end
 
   resources :pets, only: [:show, :index]
