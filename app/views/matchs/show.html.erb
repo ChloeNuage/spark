@@ -2,7 +2,7 @@
   <div class="header-chat">
 
     <div>
-      <%= link_to matchs_path, class: "icon-link-chevron" do %>
+      <%= link_to pets_path, class: "icon-link-chevron" do %>
         <i class="fa-solid fa-chevron-left"></i>
       <% end %>
     </div>
@@ -18,10 +18,10 @@
 
   </div>
 
-  <%= turbo_stream_from "chat-messages" %>
-  <div id="chat-messages" class="chat-messages">
+  <%= turbo_stream_from "matchs_#{@conversation.id}_messages" %>
+  <div id="chat-messages" class="chat-messages" style="display: flex">
     <% @messages.each do |message| %>
-      <%= render "matchs/message", message: message, user: current_user %>
+      <%= render 'matchs/message', message: message %>
     <% end %>
   </div>
 
@@ -29,11 +29,17 @@
     html: { class: "footer-chat-message", style: "padding-left: 0px;",
     data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset"}} do |f| %>
 
-    <%= f.input :content,
-      label: false,
-      placeholder: "Message ...",
-      input_html: { class: "chat-message" }
-    %>
+
+      <%= f.input :content,
+        label: false,
+        placeholder: "Message ...",
+        input_html: { class: "chat-message" }
+      %>
+
+      <%= button_tag(type: "submit") do %>
+        <i class="fas fa-paper-plane"></i>
+      <% end %>
+
 
     <button type="submit" class="send-chat-button">
       <i class="fa-solid fa-paper-plane"></i>
@@ -41,7 +47,7 @@
   <% end %>
 
   <h2>Appointments</h2>
-  
+
   <div class="appointments">
     <% @match.appointments.each do |appointment| %>
       <div class="appointment">
