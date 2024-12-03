@@ -19,7 +19,7 @@
       <h4>Adresse:</h4>
         <%= form.text_area :address, class: "formulaire-adoptant-form-entier" %>
 
-      <h4>Espaces verts voisins:</h4>
+      <h4>Espaces verts à proximité:</h4>
         <div class="formulaire-adoptant-div" id="double" style="padding-bottom: 50px">
           <div>
             <%= form.radio_button :has_green_space, "yesgreenspace", id: "yesgreenspace" %>
@@ -31,7 +31,7 @@
           </div>
         </div>
 
-      <h4>Adultes total du foyer</h4>
+      <h4>Nombre d'habitants du foyer</h4>
         <%= form.number_field :household_size, class: "formulaire-adoptant-form-entier" %>
 
       <h4>Avez-vous des enfants?</h4>
@@ -46,13 +46,12 @@
           </div>
         </div>
 
-      <h4>Animaux:</h4>
+      <h4>Animaux du foyer:</h4>
         <div class="formulaire-adoptant-div" id="triple" style="padding-bottom: 50px">
           <%= form.collection_check_boxes :have_cat, [[true, 'Chat']], :first, :last %>
           <%= form.collection_check_boxes :have_dog, [[true, 'Chien']], :first, :last %>
           <%= form.collection_check_boxes :have_other_pet, [[true, 'NACS']], :first, :last %>
         </div>
-
 
       <h4>Mode de vie:</h4>
         <div class="formulaire-adoptant-div" id="double" style="padding-bottom: 50px">
