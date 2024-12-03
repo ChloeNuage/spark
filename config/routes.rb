@@ -25,8 +25,6 @@ Rails.application.routes.draw do
   get 'results', to: 'forms#results'
   patch 'results_update', to: 'forms#results_update'
 
-
-
   resources :matchs, only: [:show, :index, :create] do
 
     collection do
@@ -39,7 +37,6 @@ Rails.application.routes.draw do
   end
 
   resources :pets, only: [:show, :index]
-
 
   devise_scope :user do
     get '/users/sign_out', to: 'devise/sessions#destroy'

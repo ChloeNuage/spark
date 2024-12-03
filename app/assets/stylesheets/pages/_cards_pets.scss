@@ -57,11 +57,12 @@
 .card-body-pets {
   transition: transform 0.5s ease, opacity 0.5s ease;
   position: relative;
-  border: 3px solid black!important;
+  border: 2px solid #161616!important;
   border-radius: 20px;
-  box-shadow: 10px 5px 5px black;
+  box-shadow: 2px 2px 0px 2px  #161616;
   margin-top: 10px !important;
   margin-bottom: 30px !important;
+  align-items: center;
 }
 
 .btn-inter {
