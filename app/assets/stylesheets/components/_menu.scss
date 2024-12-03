@@ -1,19 +1,20 @@
 .menu-spark {
   height: 92px;
-  width: 100%;
+  width: 92%;
   background-color: #161616;
   border-radius: 40px 40px 0px 0px;
-  margin: 8px 8px;
   display:flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
   padding: 50px;
-  margin: 0px auto;
+  position: fixed;
+  bottom: 0;
 }
 
 
 .menu-spark i {
+  display:inline;
   color: #878882;
   width: 40px;
   height: 40px;
