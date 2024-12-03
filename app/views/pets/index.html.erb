@@ -1,5 +1,5 @@
 <div style="position: relative; display: flex; justify-content: center;">
-<%= image_tag("Logo.png", style: "width: 200px; height: 100px; position: absolute;") %>
+<%= image_tag("Logo.png", style: "width: 175px ; height: 80px; margin-top: 15px ") %>
 </div>
 <div class="card-match">
   <div data-controller="swipe" class="card-match">
@@ -13,13 +13,10 @@
             id="card-<%= index %>"
             data-petid="<%= pet.id %>">
 
-
               <div>
                 <h1 class="card-title-pets" id="h1-pets"><%= pet.name %></h1>
                 <p class="card-title-pets" id="p-pets"><%= pet.shelter.name %></p>
               </div>
-
-
 
             <!-- Boutons de navigation -->
                 <div class="navigation-buttons">
@@ -32,9 +29,19 @@
                   <% end %> <!-- Fin du bouton d'intérêt -->
                 </div>
           </div>
-        <% end %>
       <% end %>
+          <!-- Modale -->
+          <div id="sparkModal" class="modal d-none" data-swipe-target="modal">
+            <div class="modal-content">
+              <span class="close" data-action="click->swipe#hideModal">&times;</span>
+              <h2>It's a Spark!</h2>
+              <p>Vous avez montré de l'intérêt pour cet animal !</p>
+              <button class="btn btn-primary" data-action="click->swipe#hideModal">Continuer à swiper</button>
+              <%= link_to 'Messages', click_message_matchs_path, class: 'btn btn-primary' %>
+            </div>
+          </div>
 
+      <% end %>
 
       <div class="menu-spark">
         <a href="">
