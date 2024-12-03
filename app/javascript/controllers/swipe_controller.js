@@ -6,7 +6,6 @@ export default class extends Controller {
   connect() {
     this.currentIndex = 0; // Initialise l'index à 0
     this.showCard(this.currentIndex); // Affiche la première card au chargement
-    console.log(this.cardTargets);
   }
 
 
@@ -89,7 +88,6 @@ export default class extends Controller {
 
   // Masque la modale
   hideModal() {
-    console.log("hideModal");
     this.modalTargets[this.currentIndex - 1].classList.add("d-none") // Masque la modale
   }
 }

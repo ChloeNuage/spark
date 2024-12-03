@@ -2,8 +2,8 @@
   <div class="pet-banner">
 
     <div style="position: absolute; top: 40px; left: 40px; z-index: 10;">
-      <h1><%= @pet.name.capitalize %>, <%= @pet.age %> ans</h1>
-      <p><%= @pet.description %></p>
+      <h1><%= @pet.name.capitalize %></h1>
+      <p style="margin-left: -60%"><%= @pet.age %> ans</p>
     </div>
 
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -31,7 +31,7 @@
     </div>
   </div>
 
-  <div class="pet-info show-profils-user-pet-card"style="position: absolute; bottom: -415px;; left: 0; right: 0; z-index: 20; padding: 24px;">
+  <div class="pet-info show-profils-user-pet-card"style=" position: absolute; bottom: -95%; left: 0; right: 0;  z-index: 20; padding: 24px; padding-top: 25px">
 
     <div class="wrapper-pet">
       <div class="etiquettes-details"><%=@pet.category.capitalize%></div>
@@ -43,9 +43,10 @@
     </div>
 
     <div class="pet-description">
+      <p style="margin-bottom: 12%"><%=@pet.description%></p>
       <h2>Description</h2>
 
-      <ul class="">
+      <ul style="margin-bottom: 12%">
         <li><%= @pet.affectionate? ? 'Affecteux' : '' %></li>
         <li><%=@pet.behavior.capitalize%></li>
         <li><%=@pet.size.capitalize%></li>
@@ -53,15 +54,15 @@
         <li><%=@pet.environment.capitalize%></li>
       </ul>
 
-      <p><%=@pet.description%></p>
+
     </div>
 
     <div class="pet-race">
       <h2>La race : <%=@pet.specie.name.capitalize%></h2>
-      <p><%=@pet.specie.description.capitalize%></p>
+      <p style="margin-bottom: 17%"><%=@pet.specie.description.capitalize%></p>
     </div>
 
-    <div style="display: flex;">
+    <div style="display: flex; margin-bottom: 8%">
       <%= link_to 'Retour', pets_path, class: 'back-btn' %>
     </div>
 
