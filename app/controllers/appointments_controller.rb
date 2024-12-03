@@ -22,6 +22,14 @@ class AppointmentsController < ApplicationController
     end
   end
 
+  def destroy
+    @match = Match.find(params[:match_id])
+    @appointment = @match.appointments.find(params[:id])
+    @appointment.destroy
+
+    redirect_to match_path(@match), notice: 'Rendez-vous annulé avec succès.'
+  end
+
   private
 
   def appointment_params
