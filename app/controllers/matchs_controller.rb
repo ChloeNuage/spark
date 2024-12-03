@@ -8,6 +8,7 @@ class MatchsController < ApplicationController
   def show
     @match = Match.find(params[:id])
     @user = current_user
+    
     @appointments = @match.appointments
     @conversation = Conversation.where(match_id: @match.id).last
     if @conversation.nil?

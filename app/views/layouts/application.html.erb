@@ -20,7 +20,7 @@
 
   </head>
 
-  <body class="no-margin">
+  <body class="no-margin" data-current-user-id="<%= current_user ? current_user.id : "" %>">
     <%= yield %>
   </body>
 </html>
