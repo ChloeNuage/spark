@@ -14,7 +14,7 @@ class PetsController < ApplicationController
     end
 
     @pets = MatchChecker.new(@user, @pets).can_match
-
+    @pets = Pet.unmatched_for(current_user)
     @match = Match.new
   end
 
