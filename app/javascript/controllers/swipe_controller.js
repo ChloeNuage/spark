@@ -11,7 +11,7 @@ export default class extends Controller {
   // Méthode pour afficher uniquement la card actuelle
   showCard(index) {
     this.cardTargets.forEach((card, i) => {
-      card.style.display = i === index ? "block" : "none"; // Affiche ou masque les cards
+      card.style.display = i === index ? "flex" : "none"; // Affiche ou masque les cards
     });
   }
 
