@@ -6,7 +6,9 @@ export default class extends Controller {
   connect() {
     this.currentIndex = 0; // Initialise l'index à 0
     this.showCard(this.currentIndex); // Affiche la première card au chargement
+    console.log(this.cardTargets);
   }
+
 
   // Méthode pour afficher uniquement la card actuelle
   showCard(index) {
@@ -53,13 +55,14 @@ export default class extends Controller {
       body: JSON.stringify({ pet_id: petid})
     })
 
+    this.modalTargets[this.currentIndex].classList.remove("d-none");
     // this.modalTargets[this.currentIndex].classList.remove("d-none");
 
     // Supprime la card après l'animation
     setTimeout(() => {
       currentCard.classList.add("d-none");
       this.cardTargets[this.currentIndex + 1].classList.remove("d-none");
-      this.showModal(); // Affiche la modale après l'animation
+      // this.showModal(); // Affiche la modale après l'animation
       this.next();
     }, 500); // Durée de l'animation
   }
@@ -87,6 +90,6 @@ export default class extends Controller {
   // Masque la modale
   hideModal() {
     console.log("hideModal");
-    this.modalTarget.style.display = "none"; // Masque la modale
+    this.modalTargets[this.currentIndex - 1].classList.add("d-none") // Masque la modale
   }
 }
