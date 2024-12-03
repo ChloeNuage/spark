@@ -1,3 +1,13 @@
+//= link_tree ../images
+//= link_directory ../stylesheets .css
+//= link_tree ../../javascript .js
+//= link_tree ../../../vendor/javascript .js
+//= link popper.js
+//= link bootstrap.min.js
+// app/assets/config/manifest.js
+// ...
+//= link manifest.json
+
 {
   "background_color": "white",
   "description": "Spark est une applicationn permettant aux potentiels adoptants de rencontrer leur futur protégé parmis les animaux abandonnés des refuges alentour. ",
