@@ -42,6 +42,17 @@ export default class extends Controller {
     const currentCard = this.cardTargets[this.currentIndex];
     currentCard.classList.add("card-swipe-right");
 
+    // Pour créer le match avec JS
+    const petid = currentCard.dataset.petid;
+    fetch("/matchs", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+      },
+      body: JSON.stringify({ pet_id: petid})
+    })
+
     // this.modalTargets[this.currentIndex].classList.remove("d-none");
 
     // Supprime la card après l'animation
