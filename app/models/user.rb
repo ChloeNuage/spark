@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :conversations, dependent: :destroy
   has_many :matchs, dependent: :destroy
   has_many :appointments, dependent: :destroy
-
+  has_one_attached :photo
   belongs_to :shelter, optional: true
 
   private

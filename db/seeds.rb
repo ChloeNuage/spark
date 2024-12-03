@@ -103,10 +103,10 @@ user_3 = User.create!(
 )
 
 user_4 = User.create!(
-  email: "justine@cat.fr",
+  email: "aude@cat.fr",
   password: "admin123",
-  name: "Justine",
-  age: 25,
+  name: "Aude",
+  age: 28,
   lifestyle: "sédentaire",
   remote_work: true,
   address: "Rue d'Encrabe, Plaisance du touch",
@@ -125,6 +125,11 @@ user_4 = User.create!(
   can_adopt_cat: nil,
   can_adopt_nac: nil,
 )
+
+file = URI.open('app/assets/images/Aude.JPG')
+user_4.photo.attach(io: file, filename: "Aude.JPG", content_type: "image/jpeg")
+# transform_and_upload("app/assets/images/Aude.JPG", "Aude", user_4)
+user_4.save
 
 user_5 = User.create!(
   email: "christophe@nac.com",
@@ -148,6 +153,7 @@ user_5 = User.create!(
   can_adopt_cat: nil,
   can_adopt_nac: nil,
 )
+
 
 puts "#{User.count} users created !"
 

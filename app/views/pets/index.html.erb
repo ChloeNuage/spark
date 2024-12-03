@@ -5,49 +5,63 @@
   <div data-controller="swipe" class="card-match">
     <div class="cards-container d-flex flex-wrap justify-content-center">
       <% @pets.each_with_index do |pet, index| %>
-      <%= link_to pet_path(pet) do %>
-        <div class="card-body-pets border border-2 m-5 <%= index == 0 ? 'd-block' : 'd-none' %>"
-          data-swipe-target="card"
-          style="width: 340px; height: 668px; display: flex; background-image: url(<%= pet.photos.empty? ?
-        'https://www.photo-montier.org/wp-content/themes/ktheme-v2.1-Montier/images/slider-homepage/2024-1/640x628/slide-mobile.jpg' : pet.photos.first.url %> ) "
-          id="card-<%= index %>">
+        <%= link_to pet_path(pet) do %>
+          <div class="card-body-pets border border-2 m-5 <%= index == 0 ? 'd-flex' : 'd-none' %>"
+            data-swipe-target="card"
+            style="width: 340px; height: 668px; background-image: url(<%= pet.photos.empty? ?
+          'https://www.photo-montier.org/wp-content/themes/ktheme-v2.1-Montier/images/slider-homepage/2024-1/640x628/slide-mobile.jpg' : pet.photos.first.url %> ) "
+            id="card-<%= index %>"
+            data-petid="<%= pet.id %>">
 
-          <h1 class="card-title-pets" id="h1-pets"><%= pet.name %></h1>
-          <p class="card-title-pets" id="p-pets"><%= pet.shelter.name %></p>
-          <% end %>
+
+              <div>
+                <h1 class="card-title-pets" id="h1-pets"><%= pet.name %></h1>
+                <p class="card-title-pets" id="p-pets"><%= pet.shelter.name %></p>
+              </div>
 
 
 
             <!-- Boutons de navigation -->
-            <div class="navigation-buttons">
-              <button data-action="click->swipe#notInterested" class="btn-notinter"><img src ="https://res.cloudinary.com/dsdxs3b1q/image/upload/Design_sans_titre-2_jqy8bs.png" id="notinter" width="100px" height="100px"></button>
-              <%= button_to create_match_path(pet_id: pet.id),
-              method: :post,
-              class: "btn-inter",
-              data: { action: "click->swipe#interested" } do %>
-            <img src="https://res.cloudinary.com/dsdxs3b1q/image/upload/Design_sans_titre_hvvylt.png" id="inter" width="100" height="100" alt="Matcher">
-          <% end %>
-            </div>
-
-
-
-        </div>
+                <div class="navigation-buttons">
+                  <button data-action="click->swipe#notInterested" class="btn-notinter"><img src ="https://res.cloudinary.com/dsdxs3b1q/image/upload/Design_sans_titre-2_jqy8bs.png" id="notinter" width="100px" height="100px"></button>
+                  <%= button_to matchs_path(pet_id: pet.id),
+                  method: :post,
+                  class: "btn-inter",
+                  data: { action: "click->swipe#interested" } do %>  <!-- Bouton d'intérêt -->
+                    <img src="https://res.cloudinary.com/dsdxs3b1q/image/upload/Design_sans_titre_hvvylt.png" id="inter" width="100" height="100" alt="Matcher">
+                  <% end %> <!-- Fin du bouton d'intérêt -->
+                </div>
+          </div>
         <% end %>
-        <div class="menu-spark"> <i class="fa-solid fa-comment"></i> <i class="fa-solid fa-house"></i> <i class="fa-solid fa-user"> </i> </div>
+      <% end %>
 
-          <!-- Modale -->
-          <div id="sparkModal" class="modal" data-swipe-target="modal">
+
+      <div class="menu-spark">
+        <a href="">
+          <i class="fa-solid fa-comment fa-2x"></i>
+        </a>
+        <a href="">
+          <i class="fa-solid fa-house fa-2x"></i>
+        </a>
+        <a href="">
+          <i class="fa-solid fa-user fa-2x"> </i>
+        </a>
+      </div>
+
+          <!-- Modale
+         <div id="sparkModal" class="modal" data-swipe-target="modal">
             <div class="modal-content">
               <span class="close" data-action="click->swipe#hideModal">&times;</span>
               <h2>It's a Spark!</h2>
               <p>Vous avez montré de l'intérêt pour cet animal !</p>
               <button class="btn btn-primary" data-action="click->swipe#hideModal">Continuer à swiper</button>
               <%= link_to 'Messages', click_message_matchs_path, class: 'btn btn-primary' %>
+            </div> -->
+
+
             </div>
-
-
-          </div>
         </div>
-  </div>
+    </div>
 
+  </div>
 </div>

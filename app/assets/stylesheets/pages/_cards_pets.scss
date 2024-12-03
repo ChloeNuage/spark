@@ -1,18 +1,18 @@
 .card-body-pets {
-  display: none; /* Toutes les cards sont cachées par défaut */
-}
-
-.card-body-pets.active {
-  display: block; /* Seule la card active est visible */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .navigation-buttons {
   display: flex;
-  justify-content: space-around;
-  margin-left: 60px;
+  justify-content: center;
   margin-top: -35px;
-  gap: 25px;
-  position: absolute;
+  margin-bottom: 25px;
+  gap: 40px;
+  form {
+    padding: 0px;
+  }
 }
 
 #prev, #next {
@@ -95,7 +95,6 @@
   padding-top: 0px!important;
   padding-left: 0px!important;
   position: relative;
-  bottom: -420px;
 }
 
 #inter {
@@ -108,8 +107,6 @@
   padding-top: 0px!important;
   padding-left: 0px!important;
   position: relative;
-  bottom: -420px;
-  margin-right: 70px !important;
 }
 
 #h1-pets {

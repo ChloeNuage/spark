@@ -22,9 +22,9 @@
         <%= form.label :gender, "Autre", for: "non-binaire", class: "formulaire-adoptant-design-tier" %>
       </div>
     </div>
-    <h4>Photos:</h4>
+    <h4>Photo:</h4>
      <div>
-       <%= form.input :photo, multiple: true, label: false, as: :file, input_html: { class:  'formulaire-adoptant-form-photo'  } %>
+       <%= form.input :photo, label: false, as: :file, input_html: { class:  'formulaire-adoptant-form-photo'  } %>
      </div>
       <%= form.submit "Suivant", class: "main-btn"%>
       <a class="back-btn" href="tobegin">Retour</a>

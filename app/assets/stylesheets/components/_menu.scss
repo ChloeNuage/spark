@@ -10,16 +10,16 @@
   flex-direction: row;
   padding: 50px;
   margin: 0px auto;
-  padding-top: 45px;
 }
 
 
 .menu-spark i {
-  background-color: #878882;
+  color: #878882;
   width: 40px;
   height: 40px;
-
+  border: none;
   &:hover {
-    background-color: #d5d7cd;
+    background-color: #878882;
+    color: white
   }
 }

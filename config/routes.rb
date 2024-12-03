@@ -27,7 +27,7 @@ Rails.application.routes.draw do
 
 
 
-  resources :matchs, only: [:show, :index] do
+  resources :matchs, only: [:show, :index, :create] do
 
     collection do
       get 'click_message', to: 'matchs#click_message'
@@ -39,7 +39,7 @@ Rails.application.routes.draw do
   end
 
   resources :pets, only: [:show, :index]
-  post 'create_match', to: 'matchs#create'
+
 
   devise_scope :user do
     get '/users/sign_out', to: 'devise/sessions#destroy'

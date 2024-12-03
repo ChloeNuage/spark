@@ -11,7 +11,7 @@ export default class extends Controller {
   // Méthode pour afficher uniquement la card actuelle
   showCard(index) {
     this.cardTargets.forEach((card, i) => {
-      card.style.display = i === index ? "block" : "none"; // Affiche ou masque les cards
+      card.style.display = i === index ? "flex" : "none"; // Affiche ou masque les cards
     });
   }
 
@@ -36,9 +36,22 @@ export default class extends Controller {
   }
 
   // Action "Interessé" : déplace la card vers la droite
-  interested() {
+  interested(event) {
+    event.preventDefault();
+    event.stopPropagation();
     const currentCard = this.cardTargets[this.currentIndex];
     currentCard.classList.add("card-swipe-right");
+
+    // Pour créer le match avec JS
+    const petid = currentCard.dataset.petid;
+    fetch("/matchs", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+      },
+      body: JSON.stringify({ pet_id: petid})
+    })
 
     // this.modalTargets[this.currentIndex].classList.remove("d-none");
 
@@ -52,7 +65,9 @@ export default class extends Controller {
   }
 
   // Action "Non interessé" : déplace la card vers la gauche
-  notInterested() {
+  notInterested(event) {
+    event.preventDefault();
+    event.stopPropagation();
     const currentCard = this.cardTargets[this.currentIndex];
     currentCard.classList.add("card-swipe-left");
 
