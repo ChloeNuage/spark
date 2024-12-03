@@ -36,7 +36,9 @@ export default class extends Controller {
   }
 
   // Action "Interessé" : déplace la card vers la droite
-  interested() {
+  interested(event) {
+    event.preventDefault();
+    event.stopPropagation();
     const currentCard = this.cardTargets[this.currentIndex];
     currentCard.classList.add("card-swipe-right");
 
@@ -52,7 +54,9 @@ export default class extends Controller {
   }
 
   // Action "Non interessé" : déplace la card vers la gauche
-  notInterested() {
+  notInterested(event) {
+    event.preventDefault();
+    event.stopPropagation();
     const currentCard = this.cardTargets[this.currentIndex];
     currentCard.classList.add("card-swipe-left");
 
