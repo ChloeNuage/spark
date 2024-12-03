@@ -29,17 +29,19 @@
     html: { class: "footer-chat-message", style: "padding-left: 0px;",
     data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset"}} do |f| %>
 
-  <%= f.input :content,
-    label: false,
-    placeholder: "Message ...",
-    input_html: { class: "chat-message" }
-  %>
+    <%= f.input :content,
+      label: false,
+      placeholder: "Message ...",
+      input_html: { class: "chat-message" }
+    %>
 
-  <button type="submit" class="send-chat-button">
-    <i class="fa-solid fa-paper-plane"></i>
-  </button>
+    <button type="submit" class="send-chat-button">
+      <i class="fa-solid fa-paper-plane"></i>
+    </button>
+  <% end %>
 
   <h2>Appointments</h2>
+  
   <div class="appointments">
     <% @match.appointments.each do |appointment| %>
       <div class="appointment">
