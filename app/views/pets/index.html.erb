@@ -1,8 +1,13 @@
 <div style="position: relative; display: flex; justify-content: center;">
 <%= image_tag("Logo.png", style: "width: 200px; height: 100px; position: absolute;") %>
 </div>
+
+
 <div class="card-match">
-  <div data-controller="swipe" class="card-match">
+  <div style="position: relative; display: flex; justify-content: center;">
+  <%= image_tag("Logo.png", style: "width: 175px ; height: 80px; margin-top: 15px ") %>
+  </div>
+  <div data-controller="swipe">
     <div class="cards-container d-flex flex-wrap justify-content-center">
       <% @pets.each_with_index do |pet, index| %>
         <%= link_to pet_path(pet) do %>
@@ -13,13 +18,10 @@
             id="card-<%= index %>"
             data-petid="<%= pet.id %>">
 
-
               <div>
                 <h1 class="card-title-pets" id="h1-pets"><%= pet.name %></h1>
                 <p class="card-title-pets" id="p-pets"><%= pet.shelter.name %></p>
               </div>
-
-
 
             <!-- Boutons de navigation -->
                 <div class="navigation-buttons">
@@ -28,24 +30,43 @@
                   method: :post,
                   class: "btn-inter",
                   data: { action: "click->swipe#interested" } do %>  <!-- Bouton d'intérêt -->
-                    <img src="https://res.cloudinary.com/dsdxs3b1q/image/upload/Design_sans_titre_hvvylt.png" id="inter" width="100" height="100" alt="Matcher">
+                    <img src="https://res.cloudinary.com/dsdxs3b1q/image/upload/Design_sans_titre_hvvylt.png" id="inter" class="card-match-img" width="100" height="100" alt="Matcher">
                   <% end %> <!-- Fin du bouton d'intérêt -->
                 </div>
           </div>
-        <% end %>
       <% end %>
 
+          <!-- Modale -->
+          <div id="sparkModal" class="modal d-none page-notification" data-swipe-target="modal">
+            <div id="imagesgridnotif">
+            <%=cl_image_tag @user.photo.key, height: 145, width: 145, crop: :fill %>
+            <%=cl_image_tag pet.photos.first.key, height: 145, width: 145, crop: :fill %>
+            <img src= "https://res.cloudinary.com/dsdxs3b1q/image/upload/Design_sans_titre_hvvylt.png">
+            </div>
+            <div>
+              <h2>It's a Spark!</h2>
+              <p>Démarrez un conversation avec le refuge!</p>
+              <button class="main-btn" data-action="click->swipe#hideModal">Swiper</button>
+              <%= link_to 'Messages', click_message_matchs_path, class: 'back-btn' %>
+            </div>
+          </div>
+
+      <% end %>
 
       <div class="menu-spark">
-        <a href="">
+
+        <%= link_to matchs_path do %>
           <i class="fa-solid fa-comment fa-2x"></i>
-        </a>
+        <% end %>
+
         <a href="">
           <i class="fa-solid fa-house fa-2x"></i>
         </a>
+
         <a href="">
           <i class="fa-solid fa-user fa-2x"> </i>
         </a>
+
       </div>
 
           <!-- Modale
