@@ -10,11 +10,18 @@
   padding-right: 30px;
 }
 
-  /* S'assure que le fond couvre toute la hauteur de la page */
-
-#sparkModal{
-  opacity: 0;
+.sparkModalopacity {
+  animation: fadeIn 1s ease;
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
 }
+
+
+
+
+  /* S'assure que le fond couvre toute la hauteur de la page */
 
 // Fonts
 
@@ -47,14 +54,14 @@
   grid-auto-rows: minmax(100px, auto);
   justify-content: center;
   gap: 20px;
-  margin-top: 150px;
+  margin-top: 180px;
 }
 
 #imagesgridnotif img:nth-child(3) {
   grid-column: 1 / -1; /* S'étend sur toute la largeur */
   justify-self: center; /* Centre horizontalement */
   position:fixed;
-  top: 190px;
-  left: 150px;
+  top: 220px;
+  left: 165px;
   width: 80px;;
 }
