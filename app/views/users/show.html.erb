@@ -5,7 +5,9 @@
   </div >
 
   <div>
-    <img src="app/assets/images/labrador_1.jpg" alt="">
+        <div class= "profil-user-avatar" >
+         <img src= "" alt="image" class="profil-user-avatar">
+        </div>
      <h1> <%= @user.name %>, <%= @user.age %> </h1>
      <p><%= @user.address %> </p>
   </div>
@@ -17,7 +19,7 @@
   </div>
 
   <div>
-    <p id="presentation-p"> Bonjour! Je m'appelle Aude et je suis une toulousaine de 30 ans...</p>
+    <p id="presentation-p"> <%= @user.description %>..</p>
     <p id="presentation-p" style="color: #716e6e"> En savoir plus</p>
   </div>
 
