@@ -31,12 +31,12 @@ puts "Creating users..."
 
 # Création des utilisateurs
 user_1 = User.create!(
-  email: "admin@admin.com",
+  email: "shelter@admin.com",
   password: "admin123",
   name: "Jean",
-  age: 65,
+  age: 45,
   gender: "Homme",
-  lifestyle: "sédentaire",
+  lifestyle: "actif",
   remote_work: true,
   address: "Avenue de Toulouse, 31270 Cugnaux",
   has_green_space: true,
@@ -48,115 +48,47 @@ user_1 = User.create!(
   have_cat: false,
   have_dog: false,
   have_other_pet: true,
-  description: "Je suis un homme de 65 ans, retraité, j'habite à Cugnaux. J'ai un chat, un chien et un lapin. J'ai 2 enfants et 3 petits-enfants. J'aime me promener dans le parc de la Ramée.",
+  description: "Je suis un homme de 45 ans, j'habite à Cugnaux. J'ai un lapin. J'aime me promener dans le parc de la Ramée.",
   can_adopt_dog: nil,
   can_adopt_cat: nil,
   can_adopt_nac: nil,
+  shelter_id: Shelter.first.id
 )
 
+file = URI.open('app/assets/images/Homme_shelter.jpg')
+user_1.photo.attach(io: file, filename: "Homme_shelter.jpg", content_type: "image/jpeg")
+user_1.save
+
 user_2 = User.create!(
-  email: "marie@marie.com",
+  email: "etienne@spark.com",
   password: "admin123",
-  name: "Marie",
-  age: 30,
-  gender: "Femme",
+  name: "Etienne",
+  age: 25,
+  gender: "Homme",
   lifestyle: "actif",
   remote_work: false,
   address: "Saint-Cyprien, Toulouse",
   has_green_space: true,
-  household_size: 1,
-  time_for_pet: 1,
-  daily_walk: true,
-  pet_budget: 300,
-  have_children: false,
-  have_cat: false,
-  have_dog: false,
-  have_other_pet: false,
-  description: "Je suis une femme de 30 ans, j'habite à Saint-Cyprien. J'aime me promener dans le parc Raymond IV. J'ai un appartement de 40m2.",
-  can_adopt_dog: nil,
-  can_adopt_cat: nil,
-  can_adopt_nac: nil,
-)
-
-user_3 = User.create!(
-  email: "shelter@admin.fr",
-  password: "admin123",
-  name: "Arthur",
-  age: 20,
-  lifestyle: "actif",
-  remote_work: false,
-  address: "Rue de la République, Toulouse",
-  has_green_space: true,
-  household_size: 2,
-  time_for_pet: 4,
-  daily_walk: true,
-  pet_budget: 100,
-  shelter_id: Shelter.first.id,
-  have_children: false,
-  have_cat: true,
-  have_dog: false,
-  have_other_pet: false,
-  description: "Je suis un étudiant de 20 ans, j'habite à Toulouse. J'ai un chat. J'ai un appartement de 30m2.",
-  can_adopt_dog: nil,
-  can_adopt_cat: nil,
-  can_adopt_nac: nil,
-)
-
-user_4 = User.create!(
-  email: "aude@cat.fr",
-  password: "admin123",
-  name: "Aude",
-  age: 28,
-  lifestyle: "sédentaire",
-  remote_work: true,
-  address: "Rue d'Encrabe, Plaisance du touch",
-  has_green_space: true,
   household_size: 2,
   time_for_pet: 2,
   daily_walk: true,
-  pet_budget: 1500,
-  shelter_id: Shelter.second.id,
-  have_children: true,
-  have_cat: false,
-  have_dog: true,
-  have_other_pet: false,
-  description: "Je suis une femme de 25 ans, j'habite à Plaisance du touch. J'ai un chien. J'ai une maison de 100m2.",
-  can_adopt_dog: nil,
-  can_adopt_cat: nil,
-  can_adopt_nac: nil,
-)
-
-file = URI.open('app/assets/images/Aude.JPG')
-user_4.photo.attach(io: file, filename: "Aude.JPG", content_type: "image/jpeg")
-# transform_and_upload("app/assets/images/Aude.JPG", "Aude", user_4)
-user_4.save
-
-user_5 = User.create!(
-  email: "christophe@nac.com",
-  password: "admin123",
-  name: "Christophe",
-  age: 40,
-  lifestyle: "actif",
-  remote_work: false,
-  address: "Rue de la République, Toulouse",
-  has_green_space: true,
-  household_size: 3,
-  time_for_pet: 1,
-  daily_walk: false,
-  pet_budget: 25,
-  have_children: true,
+  pet_budget: 1000,
+  have_children: false,
   have_cat: false,
   have_dog: false,
   have_other_pet: false,
-  description: "Je suis un homme de 40 ans, j'habite à Toulouse. J'ai 2 enfants. J'ai un appartement de 50m2.",
+  description: "Je suis un homme de 25 ans, j'habite à Saint-Cyprien. Je suis bientôt marié et aimerais adopté un animal de compagnie. J'aime me promener dans le parc Raymond IV. J'ai un appartement de 40m2.",
   can_adopt_dog: nil,
   can_adopt_cat: nil,
   can_adopt_nac: nil,
 )
 
+file = URI.open('app/assets/images/Etienne.jpg')
+user_2.photo.attach(io: file, filename: "Etienne.JPG", content_type: "image/jpeg")
+user_2.save
+
 
 puts "#{User.count} users created !"
-
 
 puts "Creating species..."
 
@@ -176,9 +108,19 @@ golden_retriever = Specie.create!(
   description: "Le golden retriever est un chien de grande taille, très sociable et affectueux"
 )
 
+american_staffordshire_terrier = Specie.create!(
+  name: "American Staffordshire Terrier",
+  description: "L'American Staffordshire Terrier est un chien de taille moyenne à grande, très joueur et sociable"
+)
+
+epagneul_breton = Specie.create!(
+  name: "Epagneul breton",
+  description: "L'épagneul breton est un chien de taille moyenne, très joueur et sociable"
+)
+
 
 # Race de chat
-chat_de_goutiere = Specie.create!(
+chat_de_gouttiere = Specie.create!(
   name: "Chat de goutière",
   description: "Le chat de goutière est un chat de taille moyenne, indépendant et calme"
 )
@@ -207,6 +149,31 @@ poisson_rouge = Specie.create!(
 serpent = Specie.create!(
   name: "Serpent",
   description: "Le serpent est un reptile de taille moyenne"
+)
+
+lapin = Specie.create!(
+  name: "Lapin",
+  description: "Le lapin est un petit mammifère joueur et sociable"
+)
+
+rat = Specie.create!(
+  name: "Rat",
+  description: "Le rat est un petit rongeur joueur et sociable"
+)
+
+furet = Specie.create!(
+  name: "Furet",
+  description: "Le furet est un petit mammifère joueur et sociable"
+)
+
+tortue = Specie.create!(
+  name: "Tortue",
+  description: "La tortue est un reptile de petite taille/moyenne"
+)
+
+gecko = Specie.create!(
+  name: "Gecko",
+  description: "Le gecko est un reptile de petite taille"
 )
 
 puts "#{Specie.count} species created !"
@@ -256,7 +223,7 @@ pet_1.save
 
 pet_2 = Pet.create!(
   category: "Chat",
-  specie: chat_de_goutiere,
+  specie: chat_de_gouttiere,
   age: 2,
   name: "Mistigri",
   description: "Mistigri est un chat indépendant et calme",
@@ -293,7 +260,6 @@ pet_3 = Pet.create!(
   shelter_id: Shelter.third.id,
 )
 transform_and_upload("app/assets/images/hamster_1.jpg", "Pikachu_1", pet_3)
-transform_and_upload("app/assets/images/hamster_2.jpg", "Pikachu_2", pet_3)
 pet_3.save
 
 pet_4 = Pet.create!(
@@ -355,7 +321,7 @@ pet_6 = Pet.create!(
   environment: "appartement, maison",
   shelter_id: Shelter.third.id,
 )
-transform_and_upload("app/assets/images/poisson-rouge_1.jpg", "Tortank_1", pet_6)
+transform_and_upload("app/assets/images/tortank.jpg", "Tortank_2", pet_6)
 pet_6.save
 
 pet_7 = Pet.create!(
@@ -375,8 +341,7 @@ pet_7 = Pet.create!(
   environment: "maison",
   shelter_id: Shelter.first.id,
 )
-transform_and_upload("app/assets/images/labrador_noir_1.jpg", "Rex_1", pet_7)
-transform_and_upload("app/assets/images/labrador_noir_2.jpg", "Rex_2", pet_7)
+transform_and_upload("app/assets/images/labrador.png", "Rex", pet_7)
 pet_7.save
 
 pet_8 = Pet.create!(
@@ -442,10 +407,214 @@ transform_and_upload("app/assets/images/golden_retriever_1.jpg", "Bella_1", pet_
 transform_and_upload("app/assets/images/golden_retriever_2.webp", "Bella_2", pet_10)
 pet_10.save
 
+pet_11 = Pet.create!(
+  category: "Chat",
+  specie: siamois,
+  age: 20,
+  name: "Bulle",
+  description: "Bulle est un chat calme et indépendant",
+  gender: "female",
+  ok_cat: true,
+  ok_dog: false,
+  ok_kid: true,
+  affectionate: true,
+  behavior: "calme",
+  size: "petit",
+  needs: "entretien faible",
+  environment: "appartement, maison",
+  shelter_id: Shelter.second.id,
+)
+transform_and_upload("app/assets/images/bulle_1.jpg", "Bulle_1", pet_11)
+transform_and_upload("app/assets/images/bulle_2.jpg", "Bulle_2", pet_11)
+pet_11.save
+
+pet_12 = Pet.create!(
+  category: "Chat",
+  specie: chat_de_gouttiere,
+  age: 14,
+  name: "Chipsou",
+  description: "Chipsou est un chat calme et indépendant",
+  gender: "male",
+  ok_cat: false,
+  ok_dog: false,
+  ok_kid: false,
+  affectionate: true,
+  behavior: "joueur, sociable",
+  size: "moyen",
+  needs: "entretien faible",
+  environment: "maison",
+  shelter_id: Shelter.first.id,
+)
+transform_and_upload("app/assets/images/chipsou_1.JPG", "Chispou_1", pet_12)
+transform_and_upload("app/assets/images/chipsou_2.JPG", "Chispou_2", pet_12)
+transform_and_upload("app/assets/images/chipsou_3.JPG", "Chispou_3", pet_12)
+pet_12.save
+
+pet_13 = Pet.create!(
+  category: "Chien",
+  specie: american_staffordshire_terrier,
+  age: 3,
+  name: "Gaia",
+  description: "Gaia est un chien joueur et sociable",
+  gender: "female",
+  ok_cat: false,
+  ok_dog: true,
+  ok_kid: true,
+  affectionate: true,
+  behavior: "joueur, sociable",
+  size: "grand",
+  needs: "entretien élevé, exercice requis",
+  environment: "maison",
+  shelter_id: Shelter.first.id,
+)
+transform_and_upload("app/assets/images/Gaia_1.jpeg", "Gaia_1", pet_13)
+transform_and_upload("app/assets/images/Gaia_2.jpeg", "Gaia_2", pet_13)
+transform_and_upload("app/assets/images/Gaia_3.jpeg", "Gaia_3", pet_13)
+pet_13.save
+
+pet_14 = Pet.create!(
+  category: "Chien",
+  specie: epagneul_breton,
+  age: 5,
+  name: "Moustik",
+  description: "Moustik est un chien joueur et sociable",
+  gender: "male",
+  ok_cat: true,
+  ok_dog: true,
+  ok_kid: true,
+  affectionate: true,
+  behavior: "joueur, sociable",
+  size: "moyen",
+  needs: "entretien élevé, exercice requis",
+  environment: "maison",
+  shelter_id: Shelter.second.id,
+)
+transform_and_upload("app/assets/images/Moustik.jpg", "Moustik_1", pet_14)
+transform_and_upload("app/assets/images/Moustik_2.jpg", "Moustik_2", pet_14)
+pet_14.save
+
+pet_15 = Pet.create!(
+  category: "Chien",
+  specie: golden_retriever,
+  age: 1,
+  name: "Umy",
+  description: "Un rayon de soleil pour définir Umy, douce et joyeuse, cet adorable boule de poils convient à un rythme de vie mobile sans excés, (Umy = océan en japonais) en chien d'eau:  elle vous accompagnera lors de vos baignades et vous ramenera sur le rivage en vous tractant la main en cas de fatigue... Attention à votre environnement c'est un vrai aspirateur !!",
+  gender: "female",
+  ok_cat: false,
+  ok_dog: true,
+  ok_kid: true,
+  affectionate: true,
+  behavior: "joueur, sociable",
+  size: "grand",
+  needs: "entretien élevé, exercice requis",
+  environment: "maison",
+  shelter_id: Shelter.first.id,
+)
+transform_and_upload("app/assets/images/Umy.jpg", "Umy_1", pet_15)
+transform_and_upload("app/assets/images/Umy_2.jpg", "Umy_2", pet_15)
+transform_and_upload("app/assets/images/Umy_3.jpg", "Umy_3", pet_15)
+pet_15.save
+
+pet_16 = Pet.create!(
+  category: "NAC",
+  specie: lapin,
+  age: 2,
+  name: "Bugs Bunny",
+  description: "Bugs Bunny est un lapin joueur et sociable",
+  gender: "male",
+  ok_cat: false,
+  ok_dog: true,
+  ok_kid: true,
+  affectionate: false,
+  behavior: "joueur, sociable",
+  size: "moyen",
+  needs: "entretien élévé, exercice requis",
+  environment: "appartement, maison",
+  shelter_id: Shelter.third.id,
+)
+transform_and_upload("app/assets/images/Lapin.jpg", "Lapin", pet_16)
+pet_16.save
+
+
+pet_17 = Pet.create!(
+  category: "NAC",
+  specie: rat,
+  age: 1,
+  name: "Michel Souris",
+  description: "Michel Souris est un rat joueur et sociable",
+  gender: "male",
+  ok_cat: false,
+  ok_dog: false,
+  ok_kid: true,
+  affectionate: false,
+  behavior: "joueur, sociable",
+  size: "petit",
+  needs: "entretien faible",
+  environment: "appartement, maison",
+  shelter_id: Shelter.second.id,
+)
+transform_and_upload("app/assets/images/Michel.JPG", "Rat", pet_17)
+transform_and_upload("app/assets/images/MichelSouris.JPG", "Rat_1", pet_17)
+pet_17.save
+
+pet_18 = Pet.create!(
+  category: "NAC",
+  specie: furet,
+  age: 3,
+  name: "Fufu",
+  description: "Fufu est un furet joueur et sociable",
+  gender: "female",
+  ok_cat: false,
+  ok_dog: true,
+  ok_kid: true,
+  affectionate: true,
+  behavior: "indépendant, joueur",
+  size: "moyen",
+  needs: "exercice requis",
+  environment: "appartement, maison",
+  shelter_id: Shelter.third.id,
+)
+transform_and_upload("app/assets/images/furet_1.jpg", "Furet", pet_18)
+pet_18.save
+
+pet_19 = Pet.create!(
+  category: "NAC",
+  specie: tortue,
+  age: 12,
+  name: "Donatello",
+  description: "Donatello est une tortue calme et indépendante",
+  gender: "male",
+  ok_cat: true,
+  ok_dog: true,
+  ok_kid: true,
+  affectionate: false,
+  behavior: "calme",
+  size: "moyen",
+  needs: "entretien faible",
+  environment: "maison",
+  shelter_id: Shelter.first.id,
+)
+transform_and_upload("app/assets/images/tortue_4.jpg", "Tortue", pet_19)
+pet_19.save
+
+pet_20 = Pet.create!(
+  category: "NAC",
+  specie: gecko,
+  age: 5,
+  name: "Léon",
+  description: "Léon est un gecko calme et indépendant",
+  gender: "male",
+  ok_cat: true,
+  ok_dog: true,
+  ok_kid: false,
+  affectionate: false,
+  behavior: "indépendant, calme",
+  size: "petit",
+  needs: "entretien faible",
+  environment: "appartement, maison",
+  shelter_id: Shelter.second.id,
+)
+transform_and_upload("app/assets/images/gecko.jpg", "Gecko", pet_20)
+pet_20.save
+
 puts "#{Pet.count} pets created !"
-
-
-# Fix : id shelter, id spacie, environment au lieu environement
-#       behavior au lieu de behaviour
-#       ajout des lignes manquantes
-#       tout est en miniscule mise a part les noms et les catégories
