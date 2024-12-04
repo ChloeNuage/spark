@@ -13,7 +13,7 @@
     <div class="conv-match-cards">
       <div class="conv-match-card">
           <% @matches_without_messages.each do |match| %>
-              <%= link_to match_path(match) do %>
+              <%= link_to match_path(match), class: 'conv-card-link' do %>
 
                 <div>
                   <%= cl_image_tag(match.pet.photos.sample.key, gravity: "face", crop: "fill") %>
@@ -35,7 +35,7 @@
     <div class="conv-cards">
 
       <% @matches_with_messages.each do |match| %>
-          <%= link_to match_path(match) do %>
+          <%= link_to match_path(match), class: 'conv-card-link' do %>
             <div class="conv-card">
 
               <div class="conv-card-img">
