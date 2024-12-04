@@ -60,18 +60,8 @@
   </div>
 </div>
 
-<div class="menu-spark">
-
-  <a href="">
-    <i class="fa-solid fa-comment fa-2x"></i>
-  </a>
-
-  <%= link_to pets_path do %>
-    <i class="fa-solid fa-house fa-2x"></i>
-  <% end %>
-
-  <a href="">
-    <i class="fa-solid fa-user fa-2x"> </i>
-  </a>
-
+<div class="menu-navbar">
+  <div class="menu-spark">
+    <%= render 'shared/navbar', user: @user %>
+  </div>
 </div>

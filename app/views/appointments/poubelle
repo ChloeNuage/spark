@@ -1,19 +1,16 @@
-<h1>Book <%= @activity.name</h1> %>
-
-<div data-controller='flatpickr'>
-  <%= form_with model: [@match, @user], local: true do |form| %>
-    <div>
-      <%= form.label :start_time %>
-      <%= form.text_field :start_time, data: { flatpickr_target: 'startDateInput'}, class: "form-control" %>
-    </div>
-
-    <div>
-      <%= form.label :end_time %>
-      <%= form.text_field :end_time, data: { flatpickr_target: 'endDateInput' }, class: "form-control" %>
-    </div>
-
-    <div>
-      <%= form.submit "Book Now", class: "btn btn-primary" %>
+<div class="booking-composant">
+  <% @match.appointments.each do |appointment| %>
+    <div class="booking-card-profile">
+      <div class="interior-card-profile">
+        <div class="logoprofil-booking fa-regular fa-calendar-check fa-4x" style="color: #ffffff;"></div>
+        <div class="text-profile">
+          <h3><%= appointment.shelter.name %></h3>
+          <h4><%= I18n.l(appointment.date, format: '%A %d %b à %Hh', locale: :en) %></h4>
+        </div>
+      </div>
+      <%= button_to 'Annuler', match_appointment_path(@match, appointment),
+      method: :delete, data: { turbo_confirm: 'Êtes-vous sûr de vouloir annuler ce rendez-vous ?' },
+      class: 'main-btn-small-profile' %>
     </div>
   <% end %>
 </div>
