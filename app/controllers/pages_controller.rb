@@ -1,5 +1,9 @@
 class PagesController < ApplicationController
   def home
-    redirect_to welcome_path
+    if user_signed_in?
+      redirect_to pets_path
+    else
+      redirect_to welcome_path
+    end
   end
 end
