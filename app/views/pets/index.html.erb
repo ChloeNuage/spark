@@ -37,6 +37,7 @@
             <%=cl_image_tag @user.photo.key, height: 145, width: 145, crop: :fill %>
             <%=cl_image_tag pet.photos.first.key, height: 145, width: 145, crop: :fill %>
             <img src= "https://res.cloudinary.com/dsdxs3b1q/image/upload/2_p6ceoh.png">
+            <%= render "pets/sparks" %>
             </div>
             <div>
               <h2>It's a spark!</h2>
@@ -49,6 +50,18 @@
       <% end %>
 
       <div class="menu-spark">
+
+        <%= link_to matchs_path do %>
+          <i class="fa-solid fa-comment fa-2x"></i>
+        <% end %>
+
+        <a href="">
+          <i class="fa-solid fa-house fa-2x"></i>
+        </a>
+
+        <a href="">
+          <i class="fa-solid fa-user fa-2x"> </i>
+        </a>
         <%= render 'shared/navbar', user: @user %>
       </div>
     </div>
