@@ -41,6 +41,7 @@
     </button>
   <% end %>
 
+
   <script>
   document.addEventListener('turbo:load', function() {
     const input = document.getElementById('message-input');
@@ -60,14 +61,21 @@
 
   <h2>Appointments</h2>
 
-  <div class="appointments">
-    <% @match.appointments.each do |appointment| %>
-      <div class="appointment">
-        <p><strong>Date:</strong> <%= appointment.date %></p>
-        <p><strong>Shelter:</strong> <%= appointment.shelter.name %></p>
+  <% @match.appointments.each do |appointment| %>
+    <div class="booking-card-profile">
+      <div class="interior-card-profile">
+        <div class="logoprofil"></div>
+        <div class="text-profile">
+        <h1>Votre rendez-vous :</h1>
+        <h3><%= appointment.shelter.name %></h3>
+        <h4><%= appointment.date %></h4>
+        </div>
       </div>
-    <% end %>
-  </div>
+      <%= button_to 'Annuler', match_appointment_path(@match, appointment),
+      method: :delete, data: { turbo_confirm: 'Êtes-vous sûr de vouloir annuler ce rendez-vous ?' },
+      class: 'main-btn-small-profile' %>
+    </div>
+  <% end %>
 
   <% if current_user.shelter_id.present? %>
     <div>

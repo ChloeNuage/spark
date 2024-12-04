@@ -1,6 +1,17 @@
 .page-notification {
   background-color: #63CFB2;
+  min-height: 100vh;
+  padding-bottom: 50px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  width:100vw;
+  padding-left: 30px;
+  padding-right: 30px;
 }
+
+  /* S'assure que le fond couvre toute la hauteur de la page */
+
 
 // Fonts
 
@@ -20,4 +31,28 @@
   text-align: center;
   vertical-align: baseline;
   line-height: 25px;
+}
+
+.page-notification img {
+  width: 145px;
+  border-radius: 50%;
+}
+
+#imagesgridnotif {
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  justify-content: center;
+  gap: 20px;
+  margin-top: 280px;
+}
+
+#imagesgridnotif img:nth-child(3) {
+  grid-column: 1 / -1; /* S'étend sur toute la largeur */
+  justify-self: center; /* Centre horizontalement */
+  position:fixed;
+  top: 325px;
+  left: 185px;
+  width: 80px;
+  border: 1px solid #161616;
 }

@@ -25,8 +25,6 @@ Rails.application.routes.draw do
   get 'results', to: 'forms#results'
   patch 'results_update', to: 'forms#results_update'
 
-
-
   resources :matchs, only: [:show, :index, :create] do
 
     collection do
@@ -35,10 +33,11 @@ Rails.application.routes.draw do
     resources :conversations, only: [:create, :show] do
       resources :messages, only: :create
     end
-   resources :appointments, only: [:index, :new, :create]
+   resources :appointments, only: [:index, :new, :create, :destroy]
   end
 
   resources :pets, only: [:show, :index]
+  resources :users, only: [:show]
 
 
   devise_scope :user do

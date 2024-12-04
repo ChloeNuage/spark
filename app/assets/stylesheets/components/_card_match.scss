@@ -1,13 +1,20 @@
-.card-match img {
+.card-match-img {
   height: 590px;
   width: 310px;
   border-radius: 12px;
-  box-shadow: 2px 2px 0px 2px #161616;
   border: 2px solid ;
   margin: 30px auto;
   padding-top: 28px;
   padding-left: 25px;
 }
+
+.card-match {
+  height: 100vh;
+  background-color: #FDFFF3;
+  width:100vw;
+  margin: none;
+}
+
 
 .card-match  h1 {
   font-size: 32px;
@@ -26,5 +33,3 @@
   vertical-align: baseline;
   line-height: 25px;
 }
-
-
