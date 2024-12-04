@@ -20,9 +20,9 @@
   z-index: 3;
   position: absolute;
   top: 160px;
-  margin-left: 40px;
+  margin-left: 50px;
   margin-right: 40px;
-  justify-content: center;
+  align-items: center;
 }
 
 .profil-user-avatar {
@@ -142,8 +142,8 @@
  width: 880px;
  height: 350px;
  position: absolute;
- left: -210px;
- right: -210px;
+//  left: -210px;
+//  right: -210px;
  top: -100px;
  border-radius: 50%;
  overflow: hidden;

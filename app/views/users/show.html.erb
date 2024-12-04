@@ -6,7 +6,7 @@
 
   <div>
         <div class= "profil-user-avatar" >
-         <img src= "" alt="image" class="profil-user-avatar">
+         <%= cl_image_tag(@user.photo.key, class: "profil-user-avatar") %>
         </div>
      <h1> <%= @user.name %>, <%= @user.age %> </h1>
      <p><%= @user.address %> </p>
@@ -40,6 +40,5 @@
    <i class="fa-solid fa-comment"></i>
    <i class="fa-solid fa-house"></i>
    <i class="fa-solid fa-user"> </i>
-  </div>
   </div>
 </div>
