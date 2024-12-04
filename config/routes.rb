@@ -39,7 +39,6 @@ Rails.application.routes.draw do
   resources :pets, only: [:show, :index]
 
   resources :users, only: [:show]
-  get 'profile_user', to: 'user#show'
 
 
   devise_scope :user do
