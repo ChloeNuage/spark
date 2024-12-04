@@ -54,19 +54,7 @@
       <% end %>
 
       <div class="menu-spark">
-
-        <%= link_to matchs_path do %>
-          <i class="fa-solid fa-comment fa-2x"></i>
-        <% end %>
-
-        <a href="">
-          <i class="fa-solid fa-house fa-2x"></i>
-        </a>
-
-        <a href="">
-          <i class="fa-solid fa-user fa-2x"> </i>
-        </a>
-
+        <%= render 'shared/navbar', user: @user %>
       </div>
 
           <!-- Modale
