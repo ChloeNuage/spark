@@ -1,37 +1,77 @@
-<div class="convs-et-matchs">
+<div class="convs-matchs-container">
 
-  <h1>Matchs</h1>
+  <div class="logo-conv" style="position: relative; display: flex; justify-content: center;">
+    <%= image_tag("Logo.png", style: "width: 200px; height: 100px;") %>
+  </div>
 
-  <div>
-    <ul>
-      <% @matches.each do |match| %>
-        <li>
-          <%= link_to pet_path(match.pet) do %>
-            <%= match.pet.name %>
-            <div>
-              <%= cl_image_tag(match.pet.photos.sample.key, class: 'card-index-matchs') %>
+  <div class="matchs-container">
+
+    <div class="convs-et-matchs <%= 'hidden' if @matches_without_messages.empty? %>">
+      <h1>Matchs</h1>
+    </div>
+
+    <div class="conv-match-cards">
+      <div class="conv-match-card">
+          <% @matches_without_messages.each do |match| %>
+              <%= link_to match_path(match) do %>
+
+                <div>
+                  <%= cl_image_tag(match.pet.photos.sample.key, gravity: "face", crop: "fill") %>
+                  <h3><%= match.pet.name %></h3>
+                </div>
+              <% end %>
+          <% end %>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="convs-container">
+
+    <div class="convs-et-matchs">
+      <h1>Messages</h1>
+    </div>
+
+    <div class="conv-cards">
+
+      <% @matches_with_messages.each do |match| %>
+          <%= link_to match_path(match) do %>
+            <div class="conv-card">
+
+              <div class="conv-card-img">
+                <%= cl_image_tag(match.pet.photos.first.key, class: 'messages-avatar') %>
+              </div>
+
+              <div class="conv-card-infos">
+                <h2><%= match.pet.name %></h2>
+                <p><%= match.pet.shelter.name %></p>
+              </div>
+
+              <div class="conv-card-date">
+                <p><%= match.created_at.to_time.strftime("%-d %B") %></p>
+              </div>
+
             </div>
           <% end %>
-        </li>
       <% end %>
-    </ul>
-  </div>
 
-  <h1>Conversations</h1>
+    </div>
 
-  <div>
-    <ul>
-      <% @matches.each do |match| %>
-        <div>
-          <li>
-            <%= link_to match_path(match) do %>
-              <%= cl_image_tag(match.pet.photos.first.key, class: 'messages-avatar') %>
-              <h2><%= match.pet.name %></h2>
-              <p><%= match.pet.shelter.name %></p>
-            <% end %>
-          </li>
-        </div>
-      <% end %>
-    </ul>
   </div>
+</div>
+
+<div class="menu-spark">
+
+  <a href="">
+    <i class="fa-solid fa-comment fa-2x"></i>
+  </a>
+
+  <%= link_to pets_path do %>
+    <i class="fa-solid fa-house fa-2x"></i>
+  <% end %>
+
+  <a href="">
+    <i class="fa-solid fa-user fa-2x"> </i>
+  </a>
+
 </div>

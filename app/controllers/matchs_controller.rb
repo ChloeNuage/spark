@@ -2,13 +2,34 @@ class MatchsController < ApplicationController
 
   def index
     @matches = Match.all
+
+    @matches_with_messages = @matches.select do |match|
+      conversation = Conversation.where(match_id: match.id).last
+      if conversation.nil?
+        false
+      else
+        message = Message.where(conversation_id: conversation.id).last
+        !message.nil?
+      end
+    end
+
+    @matches_without_messages = @matches.select do |match|
+      conversation = Conversation.where(match_id: match.id).last
+      if conversation.nil?
+        true
+      else
+        message = Message.where(conversation_id: conversation.id).last
+        message.nil?
+      end
+    end
+
     @user = current_user
   end
 
   def show
     @match = Match.find(params[:id])
     @user = current_user
-    
+
     @appointments = @match.appointments
     @conversation = Conversation.where(match_id: @match.id).last
     if @conversation.nil?
