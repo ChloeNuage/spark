@@ -37,6 +37,7 @@ Rails.application.routes.draw do
   end
 
   resources :pets, only: [:show, :index]
+
   resources :users, only: [:show]
 
 

@@ -54,16 +54,22 @@ export default class extends Controller {
       body: JSON.stringify({ pet_id: petid})
     })
 
-    this.modalTargets[this.currentIndex].classList.remove("d-none");
+
+
     // this.modalTargets[this.currentIndex].classList.remove("d-none");
 
     // Supprime la card après l'animation
     setTimeout(() => {
       currentCard.classList.add("d-none");
-      this.cardTargets[this.currentIndex + 1].classList.remove("d-none");
-      // this.showModal(); // Affiche la modale après l'animation
-      this.next();
-    }, 500); // Durée de l'animation
+      this.modalTargets[this.currentIndex].classList.remove("d-none");
+      this.modalTargets[this.currentIndex].classList.add("sparkModalopacity");
+      setTimeout(() => {
+        this.modalTargets[this.currentIndex].classList.remove("sparkModalopacity");
+        this.cardTargets[this.currentIndex + 1].classList.remove("d-none");
+        // this.showModal(); // Affiche la modale après l'animation
+        this.next();
+      }, 1000);
+    },500); // Durée de l'animation
   }
 
   // Action "Non interessé" : déplace la card vers la gauche

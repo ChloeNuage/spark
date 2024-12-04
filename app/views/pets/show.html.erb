@@ -2,8 +2,8 @@
   <div class="pet-banner">
 
     <div style="position: absolute; top: 40px; left: 40px; z-index: 10;">
-      <h1><%= @pet.name.capitalize %></h1>
-      <p style="margin-left: -60%"><%= @pet.age %> ans</p>
+      <h1 style="text-align: left !important"> <%= @pet.name.capitalize %> , <%= @pet.age %> ans</h1>
+      <p style="text-align: left !important"> <%= @pet.shelter.name %> </p>
     </div>
 
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
