@@ -234,3 +234,38 @@
   gap: 15px;
   margin-bottom: 15px;
 }
+
+.booking-card-profile h3 {
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  color: #FDFFF3;
+  margin-bottom: 5px;
+  margin-top: 10px;
+  padding-right: 8px;
+}
+.booking-card-profile h4 {
+  font-size: 17px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: #FDFFF3;
+}
+
+.booking-composant {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.logoprofil-booking {
+  display: flex;
+  justify-content: left;
+  margin-right: 20px;
+  margin-top: 5px;
+  width: 60px;
+  height: 60px;
+  padding-left: 8px;
+}
