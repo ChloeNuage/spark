@@ -12,6 +12,9 @@
 
   /* S'assure que le fond couvre toute la hauteur de la page */
 
+#sparkModal{
+  opacity: 0;
+}
 
 // Fonts
 
@@ -44,15 +47,14 @@
   grid-auto-rows: minmax(100px, auto);
   justify-content: center;
   gap: 20px;
-  margin-top: 280px;
+  margin-top: 150px;
 }
 
 #imagesgridnotif img:nth-child(3) {
   grid-column: 1 / -1; /* S'étend sur toute la largeur */
   justify-self: center; /* Centre horizontalement */
   position:fixed;
-  top: 325px;
-  left: 185px;
-  width: 80px;
-  border: 1px solid #161616;
+  top: 190px;
+  left: 150px;
+  width: 80px;;
 }
