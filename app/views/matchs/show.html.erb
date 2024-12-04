@@ -22,7 +22,7 @@
     <%= turbo_stream_from "matchs_#{@conversation.id}_messages" %>
     <div id="chat-messages" class="chat-messages" style="display: flex">
       <% @messages.each do |message| %>
-        <%= render 'shared/navbar' %>
+        <%= render 'matchs/message', message: message %>
       <% end %>
     </div>
   </div>
