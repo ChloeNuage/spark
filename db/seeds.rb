@@ -432,7 +432,7 @@ pet_11.save
 
 pet_12 = Pet.create!(
   category: "Chat",
-  specie: européen,
+  specie: europeen,
   age: 14,
   name: "Chipsou",
   description: "Chipsou est une adorable minette très câline, qui semble sociable avec les autres chats et qui s'adaptera facilement à sa nouvelle famille.
