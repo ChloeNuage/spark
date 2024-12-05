@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  after_save :adopt_check, if: :completed_profile?
+  after_save :adopt_check, if: :can_adopt?
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
@@ -21,7 +21,7 @@ class User < ApplicationRecord
     self.save
   end
 
-  def completed_profile?
+  def can_adopt?
     self.can_adopt_dog.nil? &&
     self.can_adopt_cat.nil? &&
     self.can_adopt_nac.nil? &&
