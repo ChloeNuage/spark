@@ -2,8 +2,9 @@ class MatchsController < ApplicationController
 
   def index
     @matches = Match.all
+    @matches_printed = @matches.where(user: current_user)
 
-    @matches_with_messages = @matches.select do |match|
+    @matches_with_messages = @matches_printed.select do |match|
       conversation = Conversation.where(match_id: match.id).last
       if conversation.nil?
         false
@@ -13,7 +14,7 @@ class MatchsController < ApplicationController
       end
     end
 
-    @matches_without_messages = @matches.select do |match|
+    @matches_without_messages = @matches_printed.select do |match|
       conversation = Conversation.where(match_id: match.id).last
       if conversation.nil?
         true
@@ -22,6 +23,7 @@ class MatchsController < ApplicationController
         message.nil?
       end
     end
+
 
     @user = current_user
   end
