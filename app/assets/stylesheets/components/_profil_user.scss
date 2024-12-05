@@ -4,13 +4,15 @@
   display:flex;
   flex-direction: column;
   align-items: center;
-  width:100%;
-  background-color: #FDFFF3;
+  width:auto;
   height: auto;
+  background-color: #FDFFF3;
   min-height: 100vh;         /* S'assure que le fond couvre toute la hauteur de la page */
   margin: 0 auto;
   padding-bottom: 80px;
   z-index: -1;
+  position: relative;      /* Permet de positionner le contenu par rapport au fond */
+  overflow: hidden;
 }
 
 .profil-user img {
@@ -139,7 +141,7 @@
 .rounded-yellow-header
 {
  background: #F3F05C;
- width: 880px;
+ width: 100vh;
  height: 350px;
  position: absolute;
 //  left: -210px;
