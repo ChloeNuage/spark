@@ -4,11 +4,14 @@
 
   </div >
 
-  <div>
+  <div class="profile-user-photo-div-spe">
         <div class= "profil-user-avatar" >
          <%= cl_image_tag(@user.photo.key, class: "profil-user-avatar") %>
         </div>
-     <h1> <%= @user.name %>, <%= @user.age %> </h1>
+  </div>
+
+  <div>
+    <h1> <%= @user.name %>, <%= @user.age %> </h1>
      <p><%= @user.address %> </p>
   </div>
 
@@ -46,4 +49,3 @@
     <%= render 'shared/navbar', user: @user %>
   </div>
 </div>
-
