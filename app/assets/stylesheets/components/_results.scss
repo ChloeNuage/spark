@@ -13,7 +13,7 @@
 }
 
 .results img {
-  width: 180px;      /* Adapte la largeur de l'image à 100% de l'élément parent */
+  width: 150px;      /* Adapte la largeur de l'image à 100% de l'élément parent */
   height: auto;      /* Ajuste la hauteur automatiquement pour conserver les proportions */
   max-width: 100%;   /* Empêche l'image de dépasser sa taille originale */
   padding: 300px auto;  /* Supprime les espaces blancs éventuels en mode inline */
@@ -33,7 +33,7 @@
 }
 
 .results h1 {
-  font-size: 40px;
+  font-size: 35px;
   font-family: "Noto Serif", serif;
   font-weight: 600;
   color: #161616;
@@ -41,7 +41,7 @@
   vertical-align: baseline;
   line-height: 40px;
   padding-bottom: 20px;
-  margin-top: 140px
+  margin-top: 35%;
 }
 
 .results p {
