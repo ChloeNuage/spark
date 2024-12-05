@@ -6,7 +6,11 @@
 
   <div class="profile-user-photo-div-spe">
         <div class= "profil-user-avatar" >
-         <%= cl_image_tag(@user.photo.key, class: "profil-user-avatar") %>
+          <% if @user.photo.key.nil? %>
+          <%= image_tag 'https://res.cloudinary.com/dx9ps8yom/image/upload/v1733394367/profil_chien_gap7vc.jpg', class: "profil-user-avatar" %>
+        <% else %>
+          <%= cl_image_tag @user.photo.key, class: "profil-user-avatar" %>
+        <% end %>
         </div>
   </div>
 

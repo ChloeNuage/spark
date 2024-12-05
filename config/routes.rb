@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  devise_scope :user do
+  get '/users/sign_out', to: 'devise/sessions#destroy'
+
   get 'conversations/show'
   devise_for :users
   root to: "forms#welcome"
@@ -41,7 +44,5 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
 
 
-  devise_scope :user do
-    get '/users/sign_out', to: 'devise/sessions#destroy'
   end
 end

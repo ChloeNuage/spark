@@ -4,6 +4,7 @@ class Pet < ApplicationRecord
   has_many :matchs, dependent: :destroy
   has_many_attached :photos
 
+
   private
 
   def self.unmatched_for(user)
