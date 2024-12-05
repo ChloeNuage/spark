@@ -10,8 +10,8 @@ class AppointmentsController < ApplicationController
 
   def create
     @appointment = Appointment.new(appointment_params)
-    @appointment.user = current_user
     @appointment.match = Match.find(params[:match_id])
+    @appointment.user_id = @appointment.match.user_id
     @appointment.shelter = @appointment.match.pet.shelter
 
     if @appointment.save
