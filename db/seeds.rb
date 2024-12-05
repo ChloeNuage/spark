@@ -94,27 +94,27 @@ puts "Creating species..."
 
 # Race de chien
 labrador = Specie.create!(
-  name: "Labrador Retriever",
+  name: "Labrador",
   description: "Le Labrador est une race de chiens originaire du Canada. C'est un chien de taille moyenne, à l'allure ronde et robuste."
 )
 
 berger_allemand = Specie.create!(
-  name: "Berger Allemand",
+  name: "Berger",
   description: "Le Berger Allemand est un chien robuste, athlétique et endurant. Il est doté d'un corps très harmonieux et bâti pour l'effort physique."
 )
 
 golden_retriever = Specie.create!(
-  name: "Golden Retriever",
+  name: "Golden",
   description: "Le Golden Retriever est un chien sociable, affectueux, loyal et docile. Il demande beaucoup d’affection et d’attention."
 )
 
 american_staffordshire_terrier = Specie.create!(
-  name: "American Staffordshire Terrier",
+  name: "Staff",
   description: "L'American Staffordshire Terrier est un chien de catégorie 3, doux, patient, obéissant, docile et affectueux. Il est également entêté et résistant."
 )
 
 epagneul_breton = Specie.create!(
-  name: "Épagneul Breton",
+  name: "Épagneul",
   description: "Outre son caractère posé, calme, l'Épagneul Breton ravira sa famille adoptive par une tendresse à toute épreuve et par sa fidélité incroyable."
 )
 
@@ -142,7 +142,7 @@ hamster = Specie.create!(
 )
 
 poisson_rouge = Specie.create!(
-  name: "Poisson rouge",
+  name: "Poisson",
   description: "Le poisson rouge est une espèce, Carassius auratus, facile à garder en aquarium d'eau douce et en bassin de jardin ou étang."
 )
 
