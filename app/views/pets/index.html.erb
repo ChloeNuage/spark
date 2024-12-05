@@ -1,6 +1,6 @@
 <div class="card-match">
-  <div style="position: relative; display: flex; justify-content: center;">
-  <%= image_tag("Logo.png", style: "width: 175px ; height: 80px; margin-top: 15px ") %>
+  <div class="logo-conv" style="position: relative; display: flex; justify-content: center;">
+    <%= image_tag("Logo.png", style: "width: 130x; height: 65px; margin-top: 3%") %>
   </div>
   <div data-controller="swipe">
     <div class="cards-container d-flex flex-wrap justify-content-center">
@@ -8,7 +8,7 @@
         <%= link_to pet_path(pet) do %>
           <div class="card-body-pets" <%= index == 0 ? 'd-flex' : 'd-none' %>"
             data-swipe-target="card"
-            style="width: 340px; height: 668px; background-image: url(<%= pet.photos.empty? ?
+            style="width: 340px; height: 580px; background-image: url(<%= pet.photos.empty? ?
             'https://www.photo-montier.org/wp-content/themes/ktheme-v2.1-Montier/images/slider-homepage/2024-1/640x628/slide-mobile.jpg' : pet.photos.first.url %> )"
             id="card-<%= index %>"
             data-petid="<%= pet.id %>">
