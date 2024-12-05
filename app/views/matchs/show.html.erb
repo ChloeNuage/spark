@@ -9,11 +9,15 @@
       </div>
 
       <div class="header-chat-photo">
-        <%= cl_image_tag(@match.pet.photos.first.key, gravity: "face", crop: "fill")%>
+        <%= link_to pet_path(@match.pet) do %>
+          <%= cl_image_tag(@match.pet.photos.first.key, gravity: "face", crop: "fill") %>
+        <% end %>
       </div>
 
       <div class="header-chat-infos">
-        <h1><%= @match.pet.name %></h1>
+        <%= link_to pet_path(@match.pet) do %>
+          <h1><%= @match.pet.name %></h1>
+        <% end %>
         <h2><%= @match.pet.shelter.name %></h2>
       </div>
 
@@ -73,6 +77,6 @@
     </div>
   <% end %>
 
-  
+
 
 </div>

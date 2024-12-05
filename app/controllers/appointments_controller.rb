@@ -27,7 +27,10 @@ class AppointmentsController < ApplicationController
     @appointment = @match.appointments.find(params[:id])
     @appointment.destroy
 
-    redirect_to match_path(@match), notice: 'Rendez-vous annulé avec succès.'
+    redirect_back(
+      fallback_location: match_path(@match),
+      notice: 'Rendez-vous annulé avec succès.'
+    )
   end
 
   private
