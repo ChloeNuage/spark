@@ -6,7 +6,11 @@
 
   <div>
         <div class= "profil-user-avatar" >
-         <%= cl_image_tag(@user.photo.key, class: "profil-user-avatar") %>
+        <% if @user.photo.key.nil? %>
+          <%= image_tag 'https://res.cloudinary.com/dx9ps8yom/image/upload/v1733394367/profil_chien_gap7vc.jpg' %>
+        <% else %>
+          <%= cl_image_tag @user.photo.key %>
+        <% end %>
         </div>
      <h1> <%= @user.name %>, <%= @user.age %> </h1>
      <p><%= @user.address %> </p>
@@ -46,4 +50,3 @@
     <%= render 'shared/navbar', user: @user %>
   </div>
 </div>
-

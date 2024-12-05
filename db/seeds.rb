@@ -77,7 +77,7 @@ user_2 = User.create!(
   have_cat: false,
   have_dog: false,
   have_other_pet: false,
-  description: "Je suis un homme de 25 ans, j'habite à Saint-Cyprien. Je suis bientôt marié et aimerais adopté un animal de compagnie. J'aime me promener dans le parc Raymond IV. J'ai un appartement de 40m2.",
+  description: "Je suis un homme de 25 ans, j'habite à Saint-Cyprien. Je suis bientôt marié et aimerais adopter un animal de compagnie. J'aime me promener dans le parc Raymond IV. J'ai un appartement de 40m2.",
   can_adopt_dog: nil,
   can_adopt_cat: nil,
   can_adopt_nac: nil,

@@ -34,7 +34,11 @@
           <!-- Modale -->
           <div id="sparkModal" class="modal d-none page-notification" data-swipe-target="modal">
             <div id="imagesgridnotif">
-            <%=cl_image_tag @user.photo.key, height: 145, width: 145, crop: :fill %>
+            <% if @user.photo.key.nil? %>
+              <%= image_tag 'https://res.cloudinary.com/dx9ps8yom/image/upload/v1733394367/profil_chien_gap7vc.jpg' %>
+            <% else %>
+              <%= cl_image_tag @user.photo.key %>
+            <% end %>
             <%=cl_image_tag pet.photos.first.key, height: 145, width: 145, crop: :fill %>
             <img src= "https://res.cloudinary.com/dsdxs3b1q/image/upload/2_p6ceoh.png">
             <%= render "pets/sparks" %>
@@ -46,7 +50,6 @@
               <%= link_to 'Messages', click_message_matchs_path, class: 'back-btn' %>
             </div>
           </div>
-
       <% end %>
 
       <div class="menu-spark">
