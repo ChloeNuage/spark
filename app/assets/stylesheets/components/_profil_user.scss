@@ -10,7 +10,7 @@
   min-height: 100vh;         /* S'assure que le fond couvre toute la hauteur de la page */
   margin: 0 auto;
   padding-bottom: 80px;
-  z-index: -1;
+  // z-index: -1;
   position: relative;      /* Permet de positionner le contenu par rapport au fond */
   overflow: hidden;
 }

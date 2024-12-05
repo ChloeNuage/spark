@@ -14,12 +14,12 @@
 }
 
 .presentation-images {
-  width: 330px;      /* Adapte la largeur de l'image à 100% de l'élément parent */
+  width: 230px;      /* Adapte la largeur de l'image à 100% de l'élément parent */
   height: auto;      /* Ajuste la hauteur automatiquement pour conserver les proportions */
   max-width: 100%;   /* Empêche l'image de dépasser sa taille originale */
   padding: 300px auto;  /* Supprime les espaces blancs éventuels en mode inline */
-  padding-top: 0px;
-  padding-bottom: 35px;
+  padding-top: 6%;
+  padding-bottom: 8%;
 }
 
 .presentation-app h1 {
@@ -34,21 +34,23 @@
 }
 
 .presentation-app h2 {
-  font-size: 33px;
+  font-size: 30px;
   font-family: "Noto Serif", serif;
-  font-weight: 600;
+  font-weight: 700;
   color: #161616;
   text-align: center;
   vertical-align: baseline;
+  margin-bottom: 6%;
 
 }
 
 .presentation-app p {
-  font-size: 19px;
+  font-size: 16.5px;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   color: #161616;
   text-align: center;
   vertical-align: baseline;
   line-height: 22px;
+  margin-bottom: 14%;
 }

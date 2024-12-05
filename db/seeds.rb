@@ -11,18 +11,18 @@ puts "Creating shelters..."
 
 # Création des refuges
 shelter_1 = Shelter.create!(
-  name: "Fourrière SPA Toulouse",
-  address: "6 Imp. Marie Laurencin 31100 Toulouse",
+  name: "Dispensaire SPA de Toulouse",
+  address: "6 Imp. Marie Laurencin, 31100, Toulouse",
 )
 
 shelter_2 = Shelter.create!(
-  name: "Dispensaire SPA de Toulouse",
-  address: "3 Imp. de Sicile 31500 Toulouse",
+  name: 'Association "Un avenir pour eux"',
+  address: "3 Imp. de Sicile, 31500, Toulouse",
 )
 
 shelter_3 = Shelter.create!(
-  name: "Refuge SPA de Toulouse",
-  address: "38 Chemin de la Salvetat 31300 Toulouse",
+  name: 'Refuge "Déclic Animal"',
+  address: "38 Chemin de la Salvetat, 31300, Toulouse",
 )
 
 puts "#{Shelter.count} shelters created !"
@@ -77,7 +77,7 @@ user_2 = User.create!(
   have_cat: false,
   have_dog: false,
   have_other_pet: false,
-  description: "Je suis un homme de 25 ans, j'habite à Saint-Cyprien. Bientôt marié, j'aimerai adopter un petit compagnon. J'aime me promener à la Prairie des Filtres. J'ai un appartement de 40m2.",
+  description: "Je suis un homme de 25 ans, j'habite à Saint-Cyprien dans un grand appartement. Bientôt marié, j'aimerai adopter un petit compagnon. J'aime me promener à la Prairie des Filtres.",
   can_adopt_dog: nil,
   can_adopt_cat: nil,
   can_adopt_nac: nil,
@@ -94,86 +94,86 @@ puts "Creating species..."
 
 # Race de chien
 labrador = Specie.create!(
-  name: "Labrador",
-  description: "Le labrador est un chien de taille moyenne à grande, très sociable et affectueux. Il est très joueur et adore"
+  name: "Labrador Retriever",
+  description: "Le Labrador est une race de chiens originaire du Canada. C'est un chien de taille moyenne, à l'allure ronde et robuste."
 )
 
 berger_allemand = Specie.create!(
-  name: "Berger allemand",
-  description: "Le berger allemand est un chien de grande taille, très joueur et sociable"
+  name: "Berger Allemand",
+  description: "Le Berger Allemand est un chien robuste, athlétique et endurant. Il est doté d'un corps très harmonieux et bâti pour l'effort physique."
 )
 
 golden_retriever = Specie.create!(
-  name: "Golden retriever",
-  description: "Le golden retriever est un chien de grande taille, très sociable et affectueux"
+  name: "Golden Retriever",
+  description: "Le Golden Retriever est un chien sociable, affectueux, loyal et docile. Il demande beaucoup d’affection et d’attention."
 )
 
 american_staffordshire_terrier = Specie.create!(
   name: "American Staffordshire Terrier",
-  description: "L'American Staffordshire Terrier est un chien de taille moyenne à grande, très joueur et sociable"
+  description: "L'American Staffordshire Terrier est un chien de catégorie 3, doux, patient, obéissant, docile et affectueux. Il est également entêté et résistant."
 )
 
 epagneul_breton = Specie.create!(
-  name: "Epagneul breton",
-  description: "L'épagneul breton est un chien de taille moyenne, très joueur et sociable"
+  name: "Épagneul Breton",
+  description: "Outre son caractère posé, calme, l'Épagneul Breton ravira sa famille adoptive par une tendresse à toute épreuve et par sa fidélité incroyable."
 )
 
 
 # Race de chat
-européen = Specie.create!(
+europeen = Specie.create!(
   name: "Européen",
-  description: "Le chat européen est un chat de taille moyenne, indépendant et calme"
+  description: "Généralement, le chat européen est naturellement intelligent, tendre et jovial. Un caractère simple très apprécié des familles qui en possèdent."
 )
 
 persan = Specie.create!(
   name: "Persan",
-  description: "Le persan est un chat de petite taille, calme et indépendant"
+  description: "Les Persans sont des chats très calmes qui, par leur faible besoin en termes de dépense physique, sont de parfaits chats d'appartement."
 )
 siamois = Specie.create!(
   name: "Siamois",
-  description: "Le siamois est un chat de petite taille, joueur et sociable"
+  description: "Le chat Siamois aime le confort et la sécurité. C'est un chat très affectueux, doté d'un fort tempérament et qui est très attaché à sa famille et à son maître."
 )
 
 
 # Race de NAC
 hamster = Specie.create!(
   name: "Hamster",
-  description: "Le hamster est un petit rongeur joueur et sociable"
+  description: "Le hamster est un petit rongeur au corps compact, court sur pattes et aux oreilles de petite taille."
 )
 
 poisson_rouge = Specie.create!(
   name: "Poisson rouge",
-  description: "Le poisson rouge est un poisson de grande taille"
+  description: "Le poisson rouge est une espèce, Carassius auratus, facile à garder en aquarium d'eau douce et en bassin de jardin ou étang."
 )
 
 serpent = Specie.create!(
   name: "Serpent",
-  description: "Le serpent est un reptile de taille moyenne"
+  description: "Le serpent se caractérise par son calme et son oisiveté. Il appréciera cependant caresses et câlins s'ils sont prodigués avec soin et délicatesses."
 )
 
 lapin = Specie.create!(
   name: "Lapin",
-  description: "Le lapin est un petit mammifère joueur et sociable"
+  description: "Le lapin est une adorable boule de poils. Très rarement agressif, il peut surtout être peureux lors des premiers moments passés en votre compagnie."
 )
 
 rat = Specie.create!(
   name: "Rat",
-  description: "Le rat est un petit rongeur joueur et sociable"
+  description: "Le rat domestique est un animal grégaire, très sociable qui apprécie la compagnie de ses congénères. Il est extrêmement intelligent et doux avec les enfants."
 )
 
 furet = Specie.create!(
   name: "Furet",
-  description: "Le furet est un petit mammifère joueur et sociable"
+  description: "Le furet est un animal de compagnie particulièrement sociable, farceur et extrêmement fidèle à son maitre. Il est très curieux et très intelligent."
 )
 
 tortue = Specie.create!(
   name: "Tortue",
-  description: "La tortue est un reptile de petite taille/moyenne"
+  description: "La tortue est indépendante, calme, sociable, inoffensive, extrêmement attachante, mais facile à pourchasser par les prédateurs."
 )
 
 gecko = Specie.create!(
   name: "Gecko",
-  description: "Le gecko est un reptile de petite taille"
+  description: "Le gecko est un animal de compagnie qui séduira à la fois les débutants en terrariophilie et les collectionneurs confirmés pour ses jolies couleurs et son caractère facile à vivre."
 )
 
 puts "#{Specie.count} species created !"
@@ -203,7 +203,8 @@ pet_1 = Pet.create!(
   specie: labrador,
   age: 5,
   name: "Bobby",
-  description: "Bobby est un chien docile et gentil qui adore les enfants",
+  description: "Bobby est arrivé chez nous par le biais de la fourrière, identifié mais jamais réclamé par ses propriétaires il passe donc à l'adoption.
+  Bobby est un chien affectueux et dynamique, il aura besoin d'une famille active pour vivre des aventures avec lui.",
   gender: "male",
   ok_cat: false,
   ok_dog: true,
@@ -223,10 +224,10 @@ pet_1.save
 
 pet_2 = Pet.create!(
   category: "Chat",
-  specie: européen,
+  specie: europeen,
   age: 2,
   name: "Mistigri",
-  description: "Mistigri est un chat indépendant et calme",
+  description: "Je suis un très beau chat d'une extrême gentillesse. Je serai un super compagnon de tous les instants. J'attends ma famille avec impatience. Je ne suis pas en chatterie aussi il faut demander à me rencontrer.",
   gender: "male",
   ok_cat: true,
   ok_dog: false,
@@ -247,7 +248,7 @@ pet_3 = Pet.create!(
   specie: hamster,
   age: 1,
   name: "Pikachu",
-  description: "Pikachu est un hamster joueur et sociable",
+  description: "Pikachu est un adorable petit hamster retrouvé dans un carton sur une aire d'autoroute. Tendre et affectueux, il est idéal pour les enfants.",
   gender: "male",
   ok_cat: false,
   ok_dog: true,
@@ -267,7 +268,7 @@ pet_4 = Pet.create!(
   specie: berger_allemand,
   age: 3,
   name: "Lucky",
-  description: "Lucky est un chien joueur et sociable",
+  description: "De retour au refuge pour sa troisième fois, Lucky est un chien très gentil avec l'humain. Joueur Il sait également se montrer calme et se poser. Il est propre et n'est pas destructeur.",
   gender: "male",
   ok_cat: true,
   ok_dog: true,
@@ -288,7 +289,7 @@ pet_5 = Pet.create!(
   specie: persan,
   age: 8,
   name: "Minette",
-  description: "Minette est calme et indépendante",
+  description: "Minette est arrivée suite à une enquête, louloute très gentille et proche de l'humain , elle pourra faire le bonheur d'une famille avec ou sans enfants et pourra vivre en maison ou appartement avec ou sans autre chats.",
   gender: "female",
   ok_cat: false,
   ok_dog: false,
@@ -309,7 +310,7 @@ pet_6 = Pet.create!(
   specie: poisson_rouge,
   age: 2,
   name: "Tortank",
-  description: "Tortank est un poisson rouge",
+  description: "Tortank est un poisson rouge de deux ans sauvé d'une fête forraine.",
   gender: "male",
   ok_cat: false,
   ok_dog: true,
@@ -329,7 +330,7 @@ pet_7 = Pet.create!(
   specie: labrador,
   age: 10,
   name: "Rex",
-  description: "Rex est un vieux chien qui a besoin de calme et d'amour",
+  description: "Arrivé de fourrière, je ne semble pas avoir connu grand chose dans mon passé, alors un temps de socialisation du monde extérieur est à prévoir afin que je m'ouvre.",
   gender: "male",
   ok_cat: true,
   ok_dog: false,
@@ -349,7 +350,7 @@ pet_8 = Pet.create!(
   specie: siamois,
   age: 1,
   name: "Félix",
-  description: "Félix est un chaton joueur et sociable",
+  description: "Félix est un amour qui adore les câlins, il est aussi très gourmand ! Il s'entend avec ses congénères, mais du fait de sa pathologie FIV, la cohabitation avec des chats sains n'est pas recommandée. On préfèrera un placement en appartement.",
   gender: "male",
   ok_cat: true,
   ok_dog: false,
@@ -370,7 +371,7 @@ pet_9 = Pet.create!(
   specie: serpent,
   age: 10,
   name: "Snake",
-  description: "Snake est un serpent",
+  description: "Snake est un Python royal de 10 ans abandonné par son ancien maître.",
   gender: "female",
   ok_cat: false,
   ok_dog: true,
@@ -391,7 +392,8 @@ pet_10 = Pet.create!(
   specie: golden_retriever,
   age: 2,
   name: "Bella",
-  description: "Bella est gentille, sociable et affectueuse, parfaite pour les enfants",
+  description: "Bella est arrivée récemment sur le refuge. Elle a été trouvée errante sur la voie publique, nous n'avons donc aucune information sur son passé.
+  Nous apprenons à la connaître et allons prendre le temps de lui faire reprendre des forces.",
   gender: "female",
   ok_cat: false,
   ok_dog: true,
@@ -412,7 +414,7 @@ pet_11 = Pet.create!(
   specie: siamois,
   age: 20,
   name: "Bulle",
-  description: "Bulle est un chat calme et indépendant",
+  description: "Bulle est une chatte discrète qui aime la tranquillité. Elle aime jouer avec ses congénères, un autre chat à la maison serait un plus pour elle.",
   gender: "female",
   ok_cat: true,
   ok_dog: false,
@@ -433,8 +435,9 @@ pet_12 = Pet.create!(
   specie: européen,
   age: 14,
   name: "Chipsou",
-  description: "Chipsou est un chat calme et indépendant",
-  gender: "male",
+  description: "Chipsou est une adorable minette très câline, qui semble sociable avec les autres chats et qui s'adaptera facilement à sa nouvelle famille.
+  Atteinte de gingivite, un suivi vétérinaire sera nécessaire pour son bien-être.",
+  gender: "female",
   ok_cat: false,
   ok_dog: false,
   ok_kid: false,
@@ -456,7 +459,7 @@ pet_13 = Pet.create!(
   specie: american_staffordshire_terrier,
   age: 3,
   name: "Gaia",
-  description: "Gaia est un chien joueur et sociable",
+  description: "Gaia est une Amstaff inscrite au LOF, câline, joueuse, gourmande,avec une démarche bien à elle. Elle adore le contact avec les gens et être le centre de l'attention.",
   gender: "female",
   ok_cat: false,
   ok_dog: true,
@@ -478,7 +481,7 @@ pet_14 = Pet.create!(
   specie: epagneul_breton,
   age: 5,
   name: "Moustik",
-  description: "Moustik est un chien joueur et sociable",
+  description: "Moustik est un chien énergique, arrivé suite au déménagement de son humaine. N'ayant plus de terrain et de temps à lui consacrer, elle a préféré le placer au refuge pour qu'il trouve un foyer plus adapté à ses besoins.",
   gender: "male",
   ok_cat: true,
   ok_dog: true,
@@ -499,7 +502,7 @@ pet_15 = Pet.create!(
   specie: golden_retriever,
   age: 1,
   name: "Umy",
-  description: "Un rayon de soleil pour définir Umy, douce et joyeuse, cet adorable boule de poils convient à un rythme de vie mobile sans excés, (Umy = océan en japonais) en chien d'eau:  elle vous accompagnera lors de vos baignades et vous ramenera sur le rivage en vous tractant la main en cas de fatigue... Attention à votre environnement c'est un vrai aspirateur !!",
+  description: "Un rayon de soleil pour définir Umy, douce et joyeuse, cette adorable boule de poils convient à un rythme de vie mobile sans excés. En chien d'eau, elle vous accompagnera lors de vos baignades et vous ramenera sur le rivage en vous tractant la main en cas de fatigue... Attention à votre environnement c'est un vrai aspirateur !",
   gender: "female",
   ok_cat: false,
   ok_dog: true,
@@ -521,7 +524,7 @@ pet_16 = Pet.create!(
   specie: lapin,
   age: 2,
   name: "Bugs Bunny",
-  description: "Bugs Bunny est un lapin joueur et sociable",
+  description: "Je suis arrivé au refuge très malade et il a fallu un mois et un parage de dent pour me soigner. Si je n'ai plus de symptômes désormais, il se peut que je reste porteur sain. Il est donc préférable que je sois le seul lapin de la famille.",
   gender: "male",
   ok_cat: false,
   ok_dog: true,
@@ -542,7 +545,7 @@ pet_17 = Pet.create!(
   specie: rat,
   age: 1,
   name: "Michel Souris",
-  description: "Michel Souris est un rat joueur et sociable",
+  description: "Michel Souris est un peu distant quand il ne connait pas. Il aura besoin d'un temps d'adaptation pour s'habituer à son humain, mais ensuite, c'est un amour.",
   gender: "male",
   ok_cat: false,
   ok_dog: false,
@@ -563,7 +566,7 @@ pet_18 = Pet.create!(
   specie: furet,
   age: 3,
   name: "Fufu",
-  description: "Fufu est un furet joueur et sociable",
+  description: "Fufu adore les balades en extérieur et les siestes dans les paniers moelleux. Il vit en famille avec des enfants de tout âge.",
   gender: "female",
   ok_cat: false,
   ok_dog: true,
@@ -583,7 +586,7 @@ pet_19 = Pet.create!(
   specie: tortue,
   age: 12,
   name: "Donatello",
-  description: "Donatello est une tortue calme et indépendante",
+  description: "Donatello est une tortue calme et indépendante.",
   gender: "male",
   ok_cat: true,
   ok_dog: true,
@@ -603,7 +606,7 @@ pet_20 = Pet.create!(
   specie: gecko,
   age: 5,
   name: "Léon",
-  description: "Léon est un gecko calme et indépendant",
+  description: "Léon est un gecko léopard calme et indépendant.",
   gender: "male",
   ok_cat: true,
   ok_dog: true,
