@@ -2,7 +2,12 @@ class MatchsController < ApplicationController
 
   def index
     @matches = Match.all
-    @matches_printed = @matches.where(user: current_user)
+
+    @matches_printed = if current_user.shelter_id?
+        @matches
+      else
+        @matches.where(user: current_user)
+    end
 
     @matches_with_messages = @matches_printed.select do |match|
       conversation = Conversation.where(match_id: match.id).last
