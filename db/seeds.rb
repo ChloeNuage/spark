@@ -77,7 +77,7 @@ user_2 = User.create!(
   have_cat: false,
   have_dog: false,
   have_other_pet: false,
-  description: "Je suis un homme de 25 ans, j'habite à Saint-Cyprien. Je suis bientôt marié et aimerais adopter un animal de compagnie. J'aime me promener dans le parc Raymond IV. J'ai un appartement de 40m2.",
+  description: "Je suis un homme de 25 ans, j'habite à Saint-Cyprien. Bientôt marié, j'aimerai adopter un petit compagnon. J'aime me promener à la Prairie des Filtres. J'ai un appartement de 40m2.",
   can_adopt_dog: nil,
   can_adopt_cat: nil,
   can_adopt_nac: nil,
@@ -120,9 +120,9 @@ epagneul_breton = Specie.create!(
 
 
 # Race de chat
-chat_de_gouttiere = Specie.create!(
-  name: "Chat de goutière",
-  description: "Le chat de goutière est un chat de taille moyenne, indépendant et calme"
+européen = Specie.create!(
+  name: "Européen",
+  description: "Le chat européen est un chat de taille moyenne, indépendant et calme"
 )
 
 persan = Specie.create!(
@@ -223,7 +223,7 @@ pet_1.save
 
 pet_2 = Pet.create!(
   category: "Chat",
-  specie: chat_de_gouttiere,
+  specie: européen,
   age: 2,
   name: "Mistigri",
   description: "Mistigri est un chat indépendant et calme",
@@ -430,7 +430,7 @@ pet_11.save
 
 pet_12 = Pet.create!(
   category: "Chat",
-  specie: chat_de_gouttiere,
+  specie: européen,
   age: 14,
   name: "Chipsou",
   description: "Chipsou est un chat calme et indépendant",
@@ -445,6 +445,7 @@ pet_12 = Pet.create!(
   environment: "maison",
   shelter_id: Shelter.first.id,
 )
+
 transform_and_upload("app/assets/images/chipsou_1.JPG", "Chispou_1", pet_12)
 transform_and_upload("app/assets/images/chipsou_2.JPG", "Chispou_2", pet_12)
 transform_and_upload("app/assets/images/chipsou_3.JPG", "Chispou_3", pet_12)

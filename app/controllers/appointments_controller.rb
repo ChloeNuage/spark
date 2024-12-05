@@ -10,8 +10,8 @@ class AppointmentsController < ApplicationController
 
   def create
     @appointment = Appointment.new(appointment_params)
-    @appointment.user = current_user
     @appointment.match = Match.find(params[:match_id])
+    @appointment.user_id = @appointment.match.user_id
     @appointment.shelter = @appointment.match.pet.shelter
 
     if @appointment.save
@@ -27,7 +27,10 @@ class AppointmentsController < ApplicationController
     @appointment = @match.appointments.find(params[:id])
     @appointment.destroy
 
-    redirect_to match_path(@match), notice: 'Rendez-vous annulé avec succès.'
+    redirect_back(
+      fallback_location: match_path(@match),
+      notice: 'Rendez-vous annulé avec succès.'
+    )
   end
 
   private
