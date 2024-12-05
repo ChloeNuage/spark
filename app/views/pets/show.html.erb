@@ -31,7 +31,7 @@
     </div>
   </div>
 
-  <div class="pet-info show-profils-user-pet-card"style=" position: absolute; bottom: -75%; left: 0; right: 0;  z-index: 20; padding: 24px; padding-top: 25px">
+  <div class="pet-info show-profils-user-pet-card"style=" position: absolute; bottom: -118%; left: 0; right: 0;  z-index: 20; padding: 24px; padding-top: 25px">
 
     <div class="wrapper-pet">
       <div class="etiquettes-details"><%=@pet.category.capitalize%></div>
@@ -63,7 +63,7 @@
     </div>
 
     <div style="display: flex; margin-bottom: 8%">
-      <%= link_to 'Retour', pets_path, class: 'back-btn' %>
+      <%= link_to "Retour", request.referer || root_path, class: 'back-btn' %>
     </div>
 
   </div>
