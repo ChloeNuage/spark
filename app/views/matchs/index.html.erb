@@ -1,7 +1,7 @@
 <div class="convs-matchs-container">
 
   <div class="logo-conv" style="position: relative; display: flex; justify-content: center;">
-    <%= image_tag("Logo.png", style: "width: 200px; height: 100px;") %>
+    <%= image_tag("Logo.png", style: "width: 130x; height: 65px; margin-top: 3%; margin-bottom: 6%") %>
   </div>
 
   <div class="matchs-container">
@@ -16,7 +16,7 @@
               <%= link_to match_path(match), class: 'conv-card-link' do %>
 
                 <div>
-                  <%= cl_image_tag(match.pet.photos.sample.key, gravity: "face", crop: "fill") %>
+                  <%= cl_image_tag(match.pet.photos.sample.key, gravity: "face", crop: "fit") %>
                   <h3><%= match.pet.name %></h3>
                 </div>
               <% end %>
