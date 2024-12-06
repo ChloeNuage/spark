@@ -39,11 +39,21 @@
             <div class="conv-card">
 
               <div class="conv-card-img">
-                <%= cl_image_tag(match.pet.photos.first.key, class: 'messages-avatar') %>
+                <% if current_user.shelter_id? %>
+                  <%= cl_image_tag(match.user.photo.key, class: 'messages-avatar') %>
+                <% else %>
+                  <%= cl_image_tag(match.pet.photos.first.key, class: 'messages-avatar') %>
+                <% end %>
+
               </div>
 
               <div class="conv-card-infos">
-                <h2><%= match.pet.name %></h2>
+                <% if current_user.shelter_id? %>
+                  <h2><%= match.user.name %> pour : <%= match.pet.name %></h2>
+                <% else %>
+                  <h2><%= match.pet.name %></h2>
+                <% end %>
+
                 <p><%= match.pet.shelter.name %></p>
               </div>
 
