@@ -2,6 +2,7 @@ class MatchsController < ApplicationController
 
   def index
 
+
     # Le user est un adoptant
     if current_user.shelter_id.nil?
       @matches = Match.where(user: current_user)
@@ -14,6 +15,7 @@ class MatchsController < ApplicationController
           message = Message.where(conversation_id: conversation.id).last
           message.nil?
         end
+
       end
 
       @matches_with_messages = @matches.select do |match|
@@ -51,8 +53,10 @@ class MatchsController < ApplicationController
           message = Message.where(conversation_id: conversation.id).last
           !message.nil?
         end
+
       end
     end
+
 
     @user = current_user
   end
