@@ -31,7 +31,7 @@ puts "Creating users..."
 
 # Création des utilisateurs
 user_1 = User.create!(
-  email: "shelter@admin.com",
+  email: "shelter1@admin.com",
   password: "admin123",
   name: "Jean",
   age: 45,
@@ -60,6 +60,35 @@ user_1.photo.attach(io: file, filename: "Homme_shelter.jpg", content_type: "imag
 user_1.save
 
 user_2 = User.create!(
+  email: "shelter2@admin.com",
+  password: "admin123",
+  name: "Michel",
+  age: 45,
+  gender: "Homme",
+  lifestyle: "actif",
+  remote_work: true,
+  address: "Avenue de Toulouse, 31270 Cugnaux",
+  has_green_space: true,
+  household_size: 2,
+  time_for_pet: 3,
+  daily_walk: true,
+  pet_budget: 1300,
+  have_children: false,
+  have_cat: false,
+  have_dog: false,
+  have_other_pet: true,
+  description: "Je suis un homme de 45 ans, j'habite à Cugnaux. J'ai un lapin. J'aime me promener dans le parc de la Ramée.",
+  can_adopt_dog: nil,
+  can_adopt_cat: nil,
+  can_adopt_nac: nil,
+  shelter_id: Shelter.second.id
+)
+
+file = URI.open('app/assets/images/Homme_shelter.jpg')
+user_2.photo.attach(io: file, filename: "Homme_shelter.jpg", content_type: "image/jpeg")
+user_2.save
+
+user_3 = User.create!(
   email: "etienne@spark.com",
   password: "admin123",
   name: "Etienne",
@@ -84,8 +113,36 @@ user_2 = User.create!(
 )
 
 file = URI.open('app/assets/images/Etienne.jpg')
-user_2.photo.attach(io: file, filename: "Etienne.JPG", content_type: "image/jpeg")
-user_2.save
+user_3.photo.attach(io: file, filename: "Etienne.JPG", content_type: "image/jpeg")
+user_3.save
+
+user_4 = User.create!(
+  email: "chloe@spark.com",
+  password: "admin123",
+  name: "Chloe",
+  age: 25,
+  gender: "Homme",
+  lifestyle: "actif",
+  remote_work: false,
+  address: "Saint-Cyprien, Toulouse",
+  has_green_space: true,
+  household_size: 2,
+  time_for_pet: 2,
+  daily_walk: true,
+  pet_budget: 1000,
+  have_children: false,
+  have_cat: false,
+  have_dog: false,
+  have_other_pet: false,
+  description: "Je suis un homme de 25 ans, j'habite à Saint-Cyprien dans un grand appartement. Bientôt marié, j'aimerai adopter un petit compagnon. J'aime me promener à la Prairie des Filtres.",
+  can_adopt_dog: nil,
+  can_adopt_cat: nil,
+  can_adopt_nac: nil,
+)
+
+file = URI.open('app/assets/images/Etienne.jpg')
+user_4.photo.attach(io: file, filename: "Etienne.JPG", content_type: "image/jpeg")
+user_4.save
 
 
 puts "#{User.count} users created !"

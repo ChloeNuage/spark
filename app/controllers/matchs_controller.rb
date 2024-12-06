@@ -1,31 +1,59 @@
 class MatchsController < ApplicationController
 
   def index
-    @matches = Match.all
 
-    @matches_printed = if current_user.shelter_id?
-        @matches
-      else
-        @matches.where(user: current_user)
-    end
 
-    @matches_with_messages = @matches_printed.select do |match|
-      conversation = Conversation.where(match_id: match.id).last
-      if conversation.nil?
-        false
-      else
-        message = Message.where(conversation_id: conversation.id).last
-        !message.nil?
+    # Le user est un adoptant
+    if current_user.shelter_id.nil?
+      @matches = Match.where(user: current_user)
+
+      @matches_without_messages = @matches.select do |match|
+        conversation = Conversation.where(match: match.id).last
+        if conversation.nil?
+          true
+        else
+          message = Message.where(conversation_id: conversation.id).last
+          message.nil?
+        end
+
       end
-    end
 
-    @matches_without_messages = @matches_printed.select do |match|
-      conversation = Conversation.where(match_id: match.id).last
-      if conversation.nil?
-        true
-      else
-        message = Message.where(conversation_id: conversation.id).last
-        message.nil?
+      @matches_with_messages = @matches.select do |match|
+        conversation = Conversation.where(match: match.id).last
+        if conversation.nil?
+          false
+        else
+          message = Message.where(conversation_id: conversation.id).last
+          !message.nil?
+        end
+      end
+
+    # Le user est un refuge
+    else
+      # On récupère les matches des pets du refuge
+      @matches = Match.where(pet: Pet.where(shelter: current_user.shelter))
+
+      # On récupère les matches sans messages
+      @matches_without_messages = @matches.select do |match|
+        conversation = Conversation.where(match: match.id).last
+        if conversation.nil?
+          true
+        else
+          message = Message.where(conversation_id: conversation.id).last
+          message.nil?
+        end
+      end
+
+      # On récupère les matches avec messages
+      @matches_with_messages = @matches.select do |match|
+        conversation = Conversation.where(match: match.id).last
+        if conversation.nil?
+          false
+        else
+          message = Message.where(conversation_id: conversation.id).last
+          !message.nil?
+        end
+
       end
     end
 
