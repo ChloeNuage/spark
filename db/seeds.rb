@@ -31,7 +31,7 @@ puts "Creating users..."
 
 # Création des utilisateurs
 user_1 = User.create!(
-  email: "shelter1@admin.com",
+  email: "shelter@admin.com",
   password: "admin123",
   name: "Jean",
   age: 45,
@@ -121,7 +121,7 @@ user_4 = User.create!(
   password: "admin123",
   name: "Chloe",
   age: 25,
-  gender: "Homme",
+  gender: "Femme",
   lifestyle: "actif",
   remote_work: false,
   address: "Saint-Cyprien, Toulouse",
@@ -140,8 +140,8 @@ user_4 = User.create!(
   can_adopt_nac: nil,
 )
 
-file = URI.open('app/assets/images/Etienne.jpg')
-user_4.photo.attach(io: file, filename: "Etienne.JPG", content_type: "image/jpeg")
+file = URI.open('app/assets/images/chloe.jpg')
+user_4.photo.attach(io: file, filename: "chloe.JPG", content_type: "image/jpeg")
 user_4.save
 
 
