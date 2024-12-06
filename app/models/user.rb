@@ -11,7 +11,8 @@ class User < ApplicationRecord
   has_many :appointments, dependent: :destroy
   has_one_attached :photo
   belongs_to :shelter, optional: true
-  
+
+  attribute :name, :string, default: 'Inconnu'
   attribute :remote_work?, :boolean, default: false
   attribute :green_space, :boolean, default: false
   attribute :household_size, :integer, default: 1
